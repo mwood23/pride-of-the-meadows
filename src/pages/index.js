@@ -8,7 +8,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <div>
-      <h1>Hi people</h1>
+      <h1>Hi I'm develop</h1>
       <p>{data.site.siteMetadata.desc}</p>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
