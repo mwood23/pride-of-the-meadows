@@ -2,7 +2,7 @@
   "name": "gatsby-starter-default",
   "description": "Gatsby default starter",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Marcus Wood <marcus@calderadigital.com>",
   "dependencies": {
     "gatsby": "^1.9.241",
     "gatsby-image": "^1.0.43",
@@ -17,10 +17,8 @@
     "react-helmet": "^5.2.0",
     "styled-components": "^3.2.5"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
+  "keywords": ["gatsby"],
+  "license": "",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
