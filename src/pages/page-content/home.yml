@@ -1,4 +1,4 @@
-intro_blurb: 'Your home, your food'
+intro_blurb: Welcome to Pride of the Meadows
 about_us_icon_blurb_row:
   - header: Eat Fresh
     icon_image: /assets/jalapeno-icon.svg
@@ -7,6 +7,11 @@ about_us_icon_blurb_row:
       consequuntur magni dolores.
   - header: Snack Better
     icon_image: /assets/bell-pepper-icon.svg
+    text: >-
+      Nemo enim ipsam voluptateam voluptears aspernatur aut odit fugit,
+      consequuntur magni dolores.
+  - header: Waste less
+    icon_image: /assets/tomato-icon.svg
     text: >-
       Nemo enim ipsam voluptateam voluptears aspernatur aut odit fugit,
       consequuntur magni dolores.
