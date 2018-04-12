@@ -6,8 +6,8 @@
 
 // You can delete this file if you're not using it
 
-const { createFilePath } = require("gatsby-source-filesystem");
 const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
@@ -51,7 +51,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         });
       });
-
       resolve();
     });
   });

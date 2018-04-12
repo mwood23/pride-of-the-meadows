@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
+import PostListing from "../components/PostListing/PostListing";
 
 import Img from "gatsby-image";
 
@@ -8,12 +9,16 @@ const IndexPage = ({ data }) => {
 
   return (
     <div>
-      <h1>Hi I'm develop</h1>
+      <h1>Hi I'm the Home Page</h1>
       <p>{data.site.siteMetadata.desc}</p>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
       <Link to="/page-2/">Go to page 2</Link>
       <Img sizes={data.background.sizes} />
+      <h2 style={{ margin: "2rem 0" }}>Posts</h2>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <PostListing key={node.id} post={node} />
+      ))}
     </div>
   );
 };
@@ -28,16 +33,19 @@ export const query = graphql`
         desc
       }
     }
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
           frontmatter {
             title
-            date(formatString: "MMM DD YYYY")
+            date(formatString: "MMMM DD YYYY")
+          }
+          fields {
+            slug
           }
           html
-          excerpt(pruneLength: 280)
+          excerpt
         }
       }
     }

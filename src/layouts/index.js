@@ -5,16 +5,16 @@ import Helmet from "react-helmet";
 import Header from "../components/Header";
 import "./index.css";
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, data, location }) => (
   <div>
     <Helmet
-      title="Gatsby Default Starter"
+      title="Pride of the Meadows"
       meta={[
         { name: "description", content: "Sample" },
         { name: "keywords", content: "sample, something" }
       ]}
     />
-    <Header />
+    <Header data={data} location={location} />
     <div
       style={{
         margin: "0 auto",
@@ -33,3 +33,19 @@ TemplateWrapper.propTypes = {
 };
 
 export default TemplateWrapper;
+
+export const query = graphql`
+  query LayoutQuery {
+    site {
+      siteMetadata {
+        title
+        desc
+      }
+    }
+    background: imageSharp(id: { regex: "/bg.jpeg/" }) {
+      sizes(maxWidth: 1240) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`;

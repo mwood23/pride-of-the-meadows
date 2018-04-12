@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Default Starter",
-    desc: "A new blog"
+    title: "Pride of the Meadows",
+    desc: "Fresh produce website"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -17,10 +17,22 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "img",
-        path: `${__dirname}/src/img`
+        path: `${__dirname}/src/images`
       }
     },
-    "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "img",
+        path: `${__dirname}/static/assets`
+      }
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        excerpt_separator: `<!-- end -->`
+      }
+    },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-netlify-cms"
