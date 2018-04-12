@@ -1,0 +1,8 @@
+intro_blurb: 'Your home, your food'
+about_us_icon_blurb_row:
+  - header: Eat Fresh
+    icon_image: /static/assets/jalapeno-icon.svg
+    text: >-
+      Nemo enim ipsam voluptateam voluptears aspernatur aut odit fugit,
+      consequuntur magni dolores.
+  - {}
