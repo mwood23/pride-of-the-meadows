@@ -13,3 +13,11 @@ collections:
       - { name: title, label: Title}
       - { name: data, label: Created At, widget: date }
       - { name: body, label: Post, widget: markdown }
+  - name: recipe
+    label: Recipes
+    folder: src/recipes
+    create: true
+    fields:
+      - { name: title, label: Title}
+      - { name: data, label: Created At, widget: date }
+      - { name: body, label: Post, widget: markdown }
