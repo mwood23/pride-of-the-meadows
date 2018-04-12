@@ -9,16 +9,17 @@ const IndexPage = ({ data }) => {
 
   return (
     <div>
-      <h1>Hi I'm the Home Page</h1>
+      <h1>{data.allSrcYaml.site_title[0]}</h1>
       <p>{data.site.siteMetadata.desc}</p>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
       <Link to="/page-2/">Go to page 2</Link>
       <Img sizes={data.background.sizes} />
       <h2 style={{ margin: "2rem 0" }}>Posts</h2>
-      {data.posts.edges.map(({ node }) => (
-        <PostListing key={node.id} post={node} />
-      ))}
+      <p>All posts are by: {data.allSrcYaml.posts_author[0]}</p>
+      {data.posts.edges
+        .slice(0, parseInt(data.allSrcYaml.front_posts_limit[0], 10))
+        .map(({ node }) => <PostListing key={node.id} post={node} />)}
       <h2 style={{ margin: "2rem 0" }}>Recipes</h2>
       {data.recipes.edges.map(({ node }) => (
         <PostListing key={node.id} post={node} />
@@ -74,6 +75,11 @@ export const query = graphql`
           excerpt
         }
       }
+    }
+    allSrcYaml {
+      site_title: distinct(field: site_title)
+      front_posts_limit: distinct(field: posts___front_limit)
+      posts_author: distinct(field: posts___site_author)
     }
     background: imageSharp(id: { regex: "/bg.jpeg/" }) {
       sizes(maxWidth: 1240, grayscale: true) {
