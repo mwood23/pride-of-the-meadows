@@ -1,4 +1,4 @@
 site_title: A new title!
 posts:
-  front_limit: 3
-  site_author: Marcus
+  front_limit: '2'
+  site_author: John Doe
