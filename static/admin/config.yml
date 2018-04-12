@@ -39,3 +39,22 @@ collections:
             fields:
               - {label: "Number of posts on frontpage", name: front_limit, widget: number}
               - {label: "Default Author", name: site_author, widget: string}
+  - name: "pages"
+    label: "Pages"
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: false
+    files:
+      - name: "home"
+        label: "Home"
+        file: "src/pages/page-content/home.yml"
+        description: "Home page content"
+        fields:
+          - {label: "Intro blurb", name: "intro_blurb", widget: "string"}
+          - label: "About Us Icon Blurb Row"
+            name: about_us_icon_blurb_row
+            widget: "list"
+            fields:
+              - {label: "Icon Image", name: icon_image, widget: image}
+              - {label: "Header", name: header, widget: string}
+              - {label: "Text", name: text, widget: string}
