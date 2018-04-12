@@ -16,7 +16,11 @@ const IndexPage = ({ data }) => {
       <Link to="/page-2/">Go to page 2</Link>
       <Img sizes={data.background.sizes} />
       <h2 style={{ margin: "2rem 0" }}>Posts</h2>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
+      {data.posts.edges.map(({ node }) => (
+        <PostListing key={node.id} post={node} />
+      ))}
+      <h2 style={{ margin: "2rem 0" }}>Recipes</h2>
+      {data.recipes.edges.map(({ node }) => (
         <PostListing key={node.id} post={node} />
       ))}
     </div>
@@ -33,7 +37,29 @@ export const query = graphql`
         desc
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    posts: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { slug: { regex: "/posts/" } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM DD YYYY")
+          }
+          fields {
+            slug
+          }
+          html
+          excerpt
+        }
+      }
+    }
+    recipes: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { slug: { regex: "/recipes/" } } }
+    ) {
       edges {
         node {
           id
