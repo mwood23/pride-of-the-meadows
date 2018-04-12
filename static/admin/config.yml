@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: mwood23/test-gatsby
+  repo: mwood23/pride-of-the-meadows
 
 media_folder: static/assets
 
