@@ -3,6 +3,7 @@ backend:
   repo: mwood23/pride-of-the-meadows
 
 media_folder: static/assets
+public_folder: /assets
 
 collections:
   - name: post
@@ -58,3 +59,9 @@ collections:
               - {label: "Icon Image", name: icon_image, widget: image}
               - {label: "Header", name: header, widget: string}
               - {label: "Text", name: text, widget: string}
+      - name: "about"
+        label: "About"
+        file: "src/pages/page-content/about.yml"
+        description: "About page content"
+        fields:
+          - {label: "Intro Blurb", name: "intro_blurb", widget: "string"}
