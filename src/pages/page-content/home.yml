@@ -5,4 +5,8 @@ about_us_icon_blurb_row:
     text: >-
       Nemo enim ipsam voluptateam voluptears aspernatur aut odit fugit,
       consequuntur magni dolores.
-  - {}
+  - header: Snack Better
+    icon_image: /assets/bell-pepper-icon.svg
+    text: >-
+      Nemo enim ipsam voluptateam voluptears aspernatur aut odit fugit,
+      consequuntur magni dolores.
