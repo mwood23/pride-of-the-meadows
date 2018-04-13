@@ -121,6 +121,9 @@ const MainNav = styled.nav`
         line-height: ${props => props.theme.desktopHeaderHeight};
         padding: 0 2rem;
         transition: all 0.2s linear;
+        font-family: 'Montserrat',serif;
+        letter-spacing: 1.5px;
+        font-weight: 500;
 
         &:hover {
           background-color: rgba(0, 0, 0, 0.1);
@@ -247,13 +250,13 @@ export default class Header extends Component {
         <MainNav open={this.state.mobileNavOpen}>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">HOME</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/about">ABOUT</Link>
             </li>
             <li>
-              <Link to="/about">Recipes</Link>
+              <Link to="/about">RECIPES</Link>
             </li>
           </ul>
         </MainNav>
