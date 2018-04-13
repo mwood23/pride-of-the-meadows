@@ -9,7 +9,6 @@ import mobileLogo from "../../images/POTM-Logo-Mobile.svg";
 
 const HeaderDesktopImage = styled(Link)`
   height: 100%;
-
   // prettier-ignore
   ${media.forSmallOnly`
       display: none;
@@ -26,7 +25,7 @@ const HeaderDesktopImage = styled(Link)`
 const HeaderMobileImage = styled(Link)`
   height: 100%;
   display: block;
-  margin: auto;
+  text-align: center;
 
   // prettier-ignore
   ${media.forMediumUp`
@@ -52,6 +51,12 @@ const HeaderWrapper = styled.div`
   // prettier-ignore
   ${media.forSmallOnly`
     height: ${props => props.theme.mobileHeaderHeight};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+
   `}
 `;
 
@@ -60,8 +65,36 @@ const MainNav = styled.nav`
 
   // prettier-ignore
   ${media.forSmallOnly`
-      display: none;
-    `}
+      position: absolute;
+      transition: all 0.3s;
+      z-index: -1;
+      top: 0;
+      transform: ${props =>
+        props.open ? "translateY(60px)" : "translateY(-100%)"};
+      visibility: ${props => (props.open ? "visible" : "hidden")};
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+      background-color: #fff;
+      width: 100%;
+      height: auto;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          border: none;
+          background-color: #fff;
+          width: 100%;
+          height: auto;
+
+          a {
+            height: auto;
+          }
+        }
+      }
+
+
+  `}
 
   ul {
     list-style: none;
@@ -74,6 +107,13 @@ const MainNav = styled.nav`
       margin: 0;
       height: 100%;
       border-left: 1px solid rgba(0, 0, 0, 0.1);
+
+      ${media.forSmallOnly`
+          border: none;
+          background-color: #fff;
+          width: 100%;
+          height: auto;
+      `}
 
       a {
         height: 100%;
@@ -88,6 +128,17 @@ const MainNav = styled.nav`
       }
     }
   }
+`;
+
+const MobileNavContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+
+  // prettier-ignore
+  ${media.forMediumUp`
+    display: none;
+  `}
 `;
 
 const Hb1 = styled.div``;
@@ -184,14 +235,16 @@ export default class Header extends Component {
         <HeaderDesktopImage to="/">
           <img src={logo} alt="Test" />
         </HeaderDesktopImage>
-        <Hamburger
-          onClick={this.onMobileNavClick}
-          open={this.state.mobileNavOpen}
-        />
-        <HeaderMobileImage to="/">
-          <img src={mobileLogo} alt="Test" />
-        </HeaderMobileImage>
-        <MainNav>
+        <MobileNavContainer>
+          <Hamburger
+            onClick={this.onMobileNavClick}
+            open={this.state.mobileNavOpen}
+          />
+          <HeaderMobileImage to="/">
+            <img src={mobileLogo} alt="Test" />
+          </HeaderMobileImage>
+        </MobileNavContainer>
+        <MainNav open={this.state.mobileNavOpen}>
           <ul>
             <li>
               <Link to="/">Home</Link>
