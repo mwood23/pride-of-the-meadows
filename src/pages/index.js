@@ -1,7 +1,8 @@
 import React from "react";
 // import Link from "gatsby-link";
-import PostListing from "../components/PostListing/PostListing";
-import VideoHero from "../components/VideoHero/ViewHero";
+import PostListing from "../components/PostListing";
+import VideoHero from "../components/VideoHero";
+import IconBlurbRow from "../components/IconBlurbRow";
 
 // import Img from "gatsby-image";
 
@@ -11,17 +12,21 @@ const IndexPage = ({ data }) => {
   return (
     <div>
       <VideoHero />
+      <IconBlurbRow
+        blurbs={data.pageContentYaml.about_us_icon_blurb_row}
+        badge={data.potmBadge}
+      />
       <h1>{data.allSrcYaml.site_title[0]}</h1>
       <h2>{data.pageContentYaml.intro_blurb}</h2>
       <p>{data.site.siteMetadata.desc}</p>
       <div>
-        {data.pageContentYaml.about_us_icon_blurb_row.map(item => (
+        {/* {data.pageContentYaml.about_us_icon_blurb_row.map(item => (
           <div key={item.header}>
             <img src={item.icon_image} alt="test" />
             <h4>{item.header}</h4>
             <p>{item.text}</p>
           </div>
-        ))}
+        ))} */}
       </div>
       <h2 style={{ margin: "2rem 0" }}>Posts</h2>
       {data.posts.edges
@@ -97,10 +102,10 @@ export const query = graphql`
         text
       }
     }
-    # background: imageSharp(id: { regex: "/bg.jpeg/" }) {
-    #   sizes(maxWidth: 1240, grayscale: true) {
-    #     ...GatsbyImageSharpSizes
-    #   }
-    # }
+    potmBadge: imageSharp(id: { regex: "/POTM-Bubble.png/" }) {
+      sizes(maxWidth: 600) {
+        ...GatsbyImageSharpSizes
+      }
+    }
   }
 `;
