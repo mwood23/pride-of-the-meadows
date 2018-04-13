@@ -1,14 +1,16 @@
 import React from "react";
-import Link from "gatsby-link";
+// import Link from "gatsby-link";
 import PostListing from "../components/PostListing/PostListing";
+import VideoHero from "../components/VideoHero/ViewHero";
 
-import Img from "gatsby-image";
+// import Img from "gatsby-image";
 
 const IndexPage = ({ data }) => {
   console.log(data);
 
   return (
     <div>
+      <VideoHero />
       <h1>{data.allSrcYaml.site_title[0]}</h1>
       <h2>{data.pageContentYaml.intro_blurb}</h2>
       <p>{data.site.siteMetadata.desc}</p>
@@ -21,9 +23,7 @@ const IndexPage = ({ data }) => {
           </div>
         ))}
       </div>
-      <Img sizes={data.background.sizes} />
       <h2 style={{ margin: "2rem 0" }}>Posts</h2>
-      <p>All posts are by: {data.allSrcYaml.posts_author[0]}</p>
       {data.posts.edges
         .slice(0, parseInt(data.allSrcYaml.front_posts_limit[0], 10))
         .map(({ node }) => <PostListing key={node.id} post={node} />)}
@@ -31,7 +31,6 @@ const IndexPage = ({ data }) => {
       {data.recipes.edges.map(({ node }) => (
         <PostListing key={node.id} post={node} />
       ))}
-      <Link to="/page-2/">Go to page 2</Link>
     </div>
   );
 };
@@ -98,10 +97,10 @@ export const query = graphql`
         text
       }
     }
-    background: imageSharp(id: { regex: "/bg.jpeg/" }) {
-      sizes(maxWidth: 1240, grayscale: true) {
-        ...GatsbyImageSharpSizes
-      }
-    }
+    # background: imageSharp(id: { regex: "/bg.jpeg/" }) {
+    #   sizes(maxWidth: 1240, grayscale: true) {
+    #     ...GatsbyImageSharpSizes
+    #   }
+    # }
   }
 `;
