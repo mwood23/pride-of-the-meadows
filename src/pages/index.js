@@ -3,6 +3,8 @@ import React from "react";
 import PostListing from "../components/PostListing";
 import VideoHero from "../components/VideoHero";
 import IconBlurbRow from "../components/IconBlurbRow";
+import TidyInfoBox from "../components/TidyInfoBox";
+import TextImageRow from "../components/TextImageRow";
 
 // import Img from "gatsby-image";
 
@@ -13,18 +15,20 @@ const IndexPage = ({ data }) => {
     <div>
       <VideoHero />
       <IconBlurbRow blurbs={data.pageContentYaml.about_us_icon_blurb_row} />
-      <h1>{data.allSrcYaml.site_title[0]}</h1>
+      <TidyInfoBox />
+      <TextImageRow />
+      {/* <h1>{data.allSrcYaml.site_title[0]}</h1>
       <h2>{data.pageContentYaml.intro_blurb}</h2>
       <p>{data.site.siteMetadata.desc}</p>
-      <div>
-        {/* {data.pageContentYaml.about_us_icon_blurb_row.map(item => (
+      <div> */}
+      {/* {data.pageContentYaml.about_us_icon_blurb_row.map(item => (
           <div key={item.header}>
             <img src={item.icon_image} alt="test" />
             <h4>{item.header}</h4>
             <p>{item.text}</p>
           </div>
         ))} */}
-      </div>
+      {/* </div>
       <h2 style={{ margin: "2rem 0" }}>Posts</h2>
       {data.posts.edges
         .slice(0, parseInt(data.allSrcYaml.front_posts_limit[0], 10))
@@ -32,7 +36,7 @@ const IndexPage = ({ data }) => {
       <h2 style={{ margin: "2rem 0" }}>Recipes</h2>
       {data.recipes.edges.map(({ node }) => (
         <PostListing key={node.id} post={node} />
-      ))}
+      ))} */}
     </div>
   );
 };
