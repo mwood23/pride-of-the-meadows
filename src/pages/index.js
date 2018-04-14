@@ -12,10 +12,7 @@ const IndexPage = ({ data }) => {
   return (
     <div>
       <VideoHero />
-      <IconBlurbRow
-        blurbs={data.pageContentYaml.about_us_icon_blurb_row}
-        badge={data.potmBadge}
-      />
+      <IconBlurbRow blurbs={data.pageContentYaml.about_us_icon_blurb_row} />
       <h1>{data.allSrcYaml.site_title[0]}</h1>
       <h2>{data.pageContentYaml.intro_blurb}</h2>
       <p>{data.site.siteMetadata.desc}</p>
@@ -102,10 +99,10 @@ export const query = graphql`
         text
       }
     }
-    potmBadge: imageSharp(id: { regex: "/POTM-Bubble.png/" }) {
-      sizes(maxWidth: 600) {
-        ...GatsbyImageSharpSizes
-      }
-    }
+    # potmBadge: imageSharp(id: { regex: "/POTM-Bubble.png/" }) {
+    #   sizes(maxWidth: 600) {
+    #     ...GatsbyImageSharpSizes
+    #   }
+    # }
   }
 `;

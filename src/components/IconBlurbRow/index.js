@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Container } from "../Container";
-import Img from "gatsby-image";
+import { media } from "../../utils/theme";
+
+import badge from "../../images/POTM-Bubble.png";
 
 const IconBlurbWrapper = styled.section`
   background-color: #fbf9ec;
@@ -14,6 +16,11 @@ const IconBlurbContainer = Container.extend`
   width: 100%;
   padding: 3rem;
   position: relative;
+
+  // prettier-ignore
+  ${media.forSmallOnly`
+    flex-direction: column;
+  `}
 `;
 
 const Blurb = styled.div`
@@ -23,13 +30,50 @@ const Blurb = styled.div`
   padding: 0 2rem;
   width: 25%;
 
+  // prettier-ignore
+  ${media.forSmallMediumOnly`
+    width: 33%;
+  `}
+
+  // prettier-ignore
+  ${media.forSmallOnly`
+    width: 100%;
+    padding: 2rem 0;
+    text-align: center;
+  `}
+
   &:nth-child(even) {
     border-left: 1px solid rgba(0, 0, 0, 0.1);
     border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+    // prettier-ignore
+    ${media.forSmallOnly`
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    `}
   }
 `;
 
-const IconBlurbRow = ({ blurbs, badge }) => {
+const BadgeImage = styled.div`
+  position: absolute;
+  top: -50px;
+  right: 10%;
+  width: 20%;
+
+  // prettier-ignore
+  ${media.forSmallMediumOnly`
+    display: none;
+  `}
+
+  img {
+    object-fit: contain;
+    margin: 0;
+  }
+`;
+
+const IconBlurbRow = ({ blurbs }) => {
   console.log(blurbs, badge);
 
   return (
@@ -42,18 +86,10 @@ const IconBlurbRow = ({ blurbs, badge }) => {
             <p>{item.text}</p>
           </Blurb>
         ))}
-        <Img
-          style={{
-            width: "300px",
-            height: "300px",
-            display: "block",
-            position: "absolute",
-            top: "-35px",
-            right: "20px"
-          }}
-          sizes={badge.sizes}
-        />
       </IconBlurbContainer>
+      <BadgeImage>
+        <img src={badge} alt="Fresh from the Vine and Hand Picked Badge" />
+      </BadgeImage>
     </IconBlurbWrapper>
   );
 };
