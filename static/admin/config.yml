@@ -14,6 +14,9 @@ collections:
       - { name: title, label: Title}
       - { name: data, label: Created At, widget: date }
       - { name: body, label: Post, widget: markdown }
+      - { name: theProblem, label: Problem, widget: markdown }
+      - { name: theSolution, label: Solution, widget: markdown }
+      - { name: anotherHtmlBlock, label: HtmlBlock, widget: markdown }
       - { name: powerStatement, label Power Statement, widget: string}
       - {label: "Draft", name: "draft", widget: "boolean", default: true}
       - label: "City"

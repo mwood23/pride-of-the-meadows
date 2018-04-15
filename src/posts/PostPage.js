@@ -3,6 +3,8 @@ import React, { Component } from "react";
 export default class PostPage extends Component {
   render() {
     const { data } = this.props;
+
+    console.log(data);
     if (!data) return null;
     return (
       <div>
@@ -25,6 +27,12 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD YYYY")
+        title
+        powerStatement
+        draft
+        thumbnail
+        description
+        puppies
       }
     }
   }
