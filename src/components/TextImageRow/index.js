@@ -5,6 +5,7 @@ import { media } from "../../utils/theme";
 import Heading from "../../shared/elements/Heading";
 import FancyFont from "../../shared/elements/FancyFont";
 import placeholder from "../../images/placeholder.jpeg";
+import Button from "../../shared/elements/Button";
 
 const TextImageRowWrapper = Container.extend`
   display: flex;
@@ -51,6 +52,7 @@ const TextImageRow = () => {
            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium natus error sit.
         </p>
+        <Button>Test</Button>
       </TextContainer>
       <ImageContainer>
         <img src={placeholder} alt="placeholder" />

@@ -1,10 +1,11 @@
 import React from "react";
 // import Link from "gatsby-link";
-import PostListing from "../components/PostListing";
+// import PostListing from "../components/PostListing";
 import VideoHero from "../components/VideoHero";
 import IconBlurbRow from "../components/IconBlurbRow";
 import TidyInfoBox from "../components/TidyInfoBox";
 import TextImageRow from "../components/TextImageRow";
+import PostCollection from "../components/PostCollection";
 
 // import Img from "gatsby-image";
 
@@ -17,6 +18,7 @@ const IndexPage = ({ data }) => {
       <IconBlurbRow blurbs={data.pageContentYaml.about_us_icon_blurb_row} />
       <TidyInfoBox />
       <TextImageRow />
+      <PostCollection backgroundImage={data.recipeBackground} />
       {/* <h1>{data.allSrcYaml.site_title[0]}</h1>
       <h2>{data.pageContentYaml.intro_blurb}</h2>
       <p>{data.site.siteMetadata.desc}</p>
@@ -103,10 +105,10 @@ export const query = graphql`
         text
       }
     }
-    # potmBadge: imageSharp(id: { regex: "/POTM-Bubble.png/" }) {
-    #   sizes(maxWidth: 600) {
-    #     ...GatsbyImageSharpSizes
-    #   }
-    # }
+    recipeBackground: imageSharp(id: { regex: "/carrots-food-fresh.jpg/" }) {
+      sizes(maxWidth: 1800) {
+        ...GatsbyImageSharpSizes
+      }
+    }
   }
 `;
