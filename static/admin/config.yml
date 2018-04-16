@@ -14,29 +14,6 @@ collections:
       - { name: title, label: Title}
       - { name: data, label: Created At, widget: date }
       - { name: body, label: Post, widget: markdown }
-      - { name: theProblem, label: Problem, widget: markdown }
-      - { name: theSolution, label: Solution, widget: markdown }
-      - { name: anotherHtmlBlock, label: HtmlBlock, widget: markdown }
-      - { name: powerStatement, label Power Statement, widget: string}
-      - {label: "Draft", name: "draft", widget: "boolean", default: true}
-      - label: "City"
-        name: "airport-code"
-        widget: "select"
-        options:
-          - { label: "Chicago", value: "ORD" }
-          - { label: "Paris", value: "CDG" }
-          - { label: "Tokyo", value: "HND" }
-      - label: "Featured Image"
-        name: "thumbnail"
-        widget: "image"
-      - {label: "Description", name: "description", widget: "text"}
-      - label: "Puppy Count"
-        name: "puppies"
-        widget: "number"
-        default: 2
-        valueType: "int"
-    min: 1
-    max: 101
   - name: recipe
     label: Recipes
     folder: src/recipes
