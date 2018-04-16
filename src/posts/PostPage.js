@@ -27,12 +27,6 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD YYYY")
-        title
-        powerStatement
-        draft
-        thumbnail
-        description
-        puppies
       }
     }
   }
