@@ -12,7 +12,7 @@ const HeaderDesktopImage = styled(Link)`
   height: 100%;
   // prettier-ignore
   ${media.forSmallOnly`
-      display: none;
+    display: none;
   `}
 
   img {

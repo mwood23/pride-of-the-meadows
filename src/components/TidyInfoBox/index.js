@@ -31,7 +31,7 @@ const TidyInfoBox = () => {
     <TidyInfoBoxWrapper>
       <TidyInfoBoxContainer>
         <Heading>Pride of the Meadows</Heading>
-        <h2 style={{ fontSize: "38px" }}>About Us</h2>
+        <h2 style={{ fontSize: "40px" }}>About Us</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
