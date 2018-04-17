@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Link from "gatsby-link";
 import styled from "styled-components";
 import { media } from "../../utils/theme";
+import Hamburger from './Hamburger';
 
 import logo from "../../images/POTM-Logo-Main.svg";
 import mobileLogo from "../../images/POTM-Logo-Mobile.svg";
@@ -11,15 +12,15 @@ const HeaderDesktopImage = styled(Link)`
   height: 100%;
   // prettier-ignore
   ${media.forSmallOnly`
-      display: none;
-    `}
+    display: none;
+  `}
 
-    img {
-      height: 100%;
-      object-fit: contain;
-      margin: 0 0 0 2rem;
-      padding: 0.25rem 0;
-    }
+  img {
+    height: 100%;
+    object-fit: contain;
+    margin: 0 0 0 2rem;
+    padding: 0.25rem 0;
+  }
 `;
 
 const HeaderMobileImage = styled(Link)`
@@ -65,35 +66,33 @@ const MainNav = styled.nav`
 
   // prettier-ignore
   ${media.forSmallOnly`
-      position: absolute;
-      transition: all 0.3s;
-      z-index: -1;
-      top: 0;
-      transform: ${props =>
-        props.open ? "translateY(60px)" : "translateY(-100%)"};
-      visibility: ${props => (props.open ? "visible" : "hidden")};
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-      background-color: #fff;
-      width: 100%;
-      height: auto;
+    position: absolute;
+    transition: all 0.3s;
+    z-index: -1;
+    top: 0;
+    transform: ${props =>
+      props.open ? "translateY(60px)" : "translateY(-100%)"};
+    visibility: ${props => (props.open ? "visible" : "hidden")};
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    width: 100%;
+    height: auto;
 
-      ul {
-        display: flex;
-        flex-direction: column;
+    ul {
+      display: flex;
+      flex-direction: column;
 
-        li {
-          border: none;
-          background-color: #fff;
-          width: 100%;
+      li {
+        border: none;
+        background-color: #fff;
+        width: 100%;
+        height: auto;
+
+        a {
           height: auto;
-
-          a {
-            height: auto;
-          }
         }
       }
-
-
+    }
   `}
 
   ul {
@@ -109,10 +108,10 @@ const MainNav = styled.nav`
       border-left: 1px solid rgba(0, 0, 0, 0.1);
 
       ${media.forSmallOnly`
-          border: none;
-          background-color: #fff;
-          width: 100%;
-          height: auto;
+        border: none;
+        background-color: #fff;
+        width: 100%;
+        height: auto;
       `}
 
       a {
@@ -143,69 +142,6 @@ const MobileNavContainer = styled.div`
     display: none;
   `}
 `;
-
-const Hb1 = styled.div``;
-const Hb2 = styled.div``;
-const Hb3 = styled.div``;
-
-const HamburgerWrapper = styled.div`
-  position: absolute;
-  box-sizing: initial;
-  left: 0;
-  top: 0;
-  margin: 11px 10px 5px;
-  width: 20px;
-  height: 20px;
-  padding: 12px 15px 12px;
-  line-height: ${props => props.theme.mobileHeaderHeight};;
-  text-align: center;
-  z-index: 100;
-  opacity: 0.7;
-  cursor: pointer;
-  transition: opacity 250ms ease;
-
-  // prettier-ignore
-  ${media.forMediumUp`
-    display: none;
-  `}
-
-  > div {
-    position: relative;
-    background-color: #d8c8ae;
-    width: 20px;
-    height: 3px;
-    border-width: 1px 0;
-    margin: 0 auto 3px;
-    padding: 0;
-    border-radius: 1px;
-    font-size: 1px;
-    transition: all 200ms ease;
-    transform-origin: 0 0;
-  }
-
-  &[open] {
-  ${Hb1} {
-    transform: translate(4px, -1px) rotate(45deg);
-  }
-
-  ${Hb2} {
-    opacity: 0;
-  }
-
-  ${Hb3} {
-    transform: translate(2px, 1px) rotate(-45deg);
-  }
-  }
-}
-`;
-
-const Hamburger = props => (
-  <HamburgerWrapper open={props.open} {...props}>
-    <Hb1 />
-    <Hb2 />
-    <Hb3 />
-  </HamburgerWrapper>
-);
 
 export default class Header extends Component {
   constructor(props) {
