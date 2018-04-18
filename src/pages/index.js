@@ -12,7 +12,10 @@ const IndexPage = ({ data }) => {
       <IconBlurbRow blurbs={data.pageContentYaml.about_us_icon_blurb_row} />
       <TidyInfoBox />
       <TextImageRow />
-      <PostCollection backgroundImage={data.recipeBackground} />
+      <PostCollection
+        backgroundImage={data.recipeBackground}
+        posts={data.recipes.edges}
+      />
     </div>
   );
 };
@@ -46,25 +49,28 @@ export const query = graphql`
     #     }
     #   }
     # }
-    # recipes: allMarkdownRemark(
-    #   sort: { fields: [frontmatter___date], order: DESC }
-    #   filter: { fields: { slug: { regex: "/recipes/" } } }
-    # ) {
-    #   edges {
-    #     node {
-    #       id
-    #       frontmatter {
-    #         title
-    #         date(formatString: "MMMM DD YYYY")
-    #       }
-    #       fields {
-    #         slug
-    #       }
-    #       html
-    #       excerpt
-    #     }
-    #   }
-    # }
+    recipes: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { slug: { regex: "/recipes/" } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM DD YYYY")
+            image
+            alt
+            tag
+          }
+          fields {
+            slug
+          }
+          html
+          excerpt
+        }
+      }
+    }
     # allSrcYaml {
     #   site_title: distinct(field: site_title)
     #   front_posts_limit: distinct(field: posts___front_limit)

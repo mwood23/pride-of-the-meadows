@@ -7,7 +7,7 @@ import Image from 'gatsby-image';
 const PostCollectionWrapper = styled.section`
   position: relative;
   margin-top: 2rem;
-  height: 800px;
+  height: 850px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,16 +19,19 @@ const PostCollectionContainer = styled.div`
   text-align: center;
 `;
 
-const PostBlurbContainer = styled.div`
+const PostBlurbContainer = Container.extend`
   display: flex;
   justify-content: center;
   width: 100%;
 `;
 
-const PostBlurb = styled.div`
-  height: 150px;
+const PostBlurb = styled.a`
   background-color: white;
+  display: block;
   flex: 1;
+  border-radius: 6px;
+  overflow: hidden;
+  text-align: left;
 
   &:nth-child(even) {
     margin: 0 2rem;
@@ -43,11 +46,36 @@ const PostCollectionHeader = styled.h2`
 const PostCollectionInfo = styled.p`
   font-family: Montserrat;
   font-size: 24px;
-  max-width: 50%;
+  max-width: 70%;
   margin: 0 auto 5rem;
 `;
 
+const PostImage = styled.img`
+  margin-bottom: 0;
+`;
+const PostHeading = styled.h3`
+  margin-bottom: 0.75rem;
+`;
+const PostTextSection = styled.div`
+  padding: 1rem;
+`;
+const PostTagDateRow = styled.div`
+  margin-bottom: 0.75rem;
+  font-family: Montserrat;
+  color: #555;
+  font-size: 0.9rem;
+
+  span:first-child {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  span:last-child {
+  }
+`;
+
 const PostCollection = ({ backgroundImage, posts }) => {
+  console.log(posts);
   return (
     <PostCollectionWrapper>
       <Image
@@ -68,9 +96,22 @@ const PostCollection = ({ backgroundImage, posts }) => {
         </PostCollectionInfo>
 
         <PostBlurbContainer>
-          <PostBlurb>test</PostBlurb>
-          <PostBlurb>test</PostBlurb>
-          <PostBlurb>test</PostBlurb>
+          {posts.map(post => (
+            <PostBlurb key={post.node.id} href={post.node.fields.slug}>
+              <PostImage
+                src={post.node.frontmatter.image}
+                alt={post.node.frontmatter.alt}
+              />
+              <PostTextSection>
+                <PostHeading>{post.node.frontmatter.title}</PostHeading>
+                <PostTagDateRow>
+                  <span>{post.node.frontmatter.tag} </span>
+                  <span>/ {post.node.frontmatter.date}</span>
+                </PostTagDateRow>
+                <p>{post.node.excerpt}&hellip;</p>
+              </PostTextSection>
+            </PostBlurb>
+          ))}
         </PostBlurbContainer>
       </PostCollectionContainer>
     </PostCollectionWrapper>
