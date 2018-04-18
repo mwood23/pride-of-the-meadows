@@ -1,5 +1,5 @@
 ---
-title: Jalapeno Poppers
+title: Jalepeno Poppers
 date: '2018-02-21'
 image: /assets/shot.png
 ---

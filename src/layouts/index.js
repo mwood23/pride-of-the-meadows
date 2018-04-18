@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import { ThemeProvider } from "styled-components";
-import { theme } from "../utils/theme";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../utils/theme';
 
-import Header from "../components/Header";
-import "./index.css";
+import Header from '../components/Header';
+import './index.css';
 
 const TemplateWrapper = ({ children, data, location }) => (
   <ThemeProvider theme={theme}>
@@ -13,8 +13,8 @@ const TemplateWrapper = ({ children, data, location }) => (
       <Helmet
         title="Pride of the Meadows"
         meta={[
-          { name: "description", content: "Sample" },
-          { name: "keywords", content: "sample, something" }
+          { name: 'description', content: 'Sample' },
+          { name: 'keywords', content: 'sample, something' }
         ]}
       />
       <Header data={data} location={location} />

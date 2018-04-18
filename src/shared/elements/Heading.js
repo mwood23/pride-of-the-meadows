@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Heading = styled.span`
   height: 26px;
@@ -6,10 +6,10 @@ const Heading = styled.span`
   letter-spacing: 3.2px;
   text-align: ${props => {
     if (props.leftAlign) {
-      return "left";
+      return 'left';
     }
 
-    return "center";
+    return 'center';
   }};
   margin-bottom: 0.5rem;
   display: block;

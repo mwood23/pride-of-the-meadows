@@ -1,10 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class PostPage extends Component {
   render() {
     const { data } = this.props;
-
-    console.log(data);
     if (!data) return null;
     return (
       <div>

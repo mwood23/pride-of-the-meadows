@@ -1,17 +1,11 @@
-import React from "react";
-// import Link from "gatsby-link";
-// import PostListing from "../components/PostListing";
-import VideoHero from "../components/VideoHero";
-import IconBlurbRow from "../components/IconBlurbRow";
-import TidyInfoBox from "../components/TidyInfoBox";
-import TextImageRow from "../components/TextImageRow";
-import PostCollection from "../components/PostCollection";
-
-// import Img from "gatsby-image";
+import React from 'react';
+import VideoHero from '../components/VideoHero';
+import IconBlurbRow from '../components/IconBlurbRow';
+import TidyInfoBox from '../components/TidyInfoBox';
+import TextImageRow from '../components/TextImageRow';
+import PostCollection from '../components/PostCollection';
 
 const IndexPage = ({ data }) => {
-  console.log(data);
-
   return (
     <div>
       <VideoHero />
@@ -19,26 +13,6 @@ const IndexPage = ({ data }) => {
       <TidyInfoBox />
       <TextImageRow />
       <PostCollection backgroundImage={data.recipeBackground} />
-      {/* <h1>{data.allSrcYaml.site_title[0]}</h1>
-      <h2>{data.pageContentYaml.intro_blurb}</h2>
-      <p>{data.site.siteMetadata.desc}</p>
-      <div> */}
-      {/* {data.pageContentYaml.about_us_icon_blurb_row.map(item => (
-          <div key={item.header}>
-            <img src={item.icon_image} alt="test" />
-            <h4>{item.header}</h4>
-            <p>{item.text}</p>
-          </div>
-        ))} */}
-      {/* </div>
-      <h2 style={{ margin: "2rem 0" }}>Posts</h2>
-      {data.posts.edges
-        .slice(0, parseInt(data.allSrcYaml.front_posts_limit[0], 10))
-        .map(({ node }) => <PostListing key={node.id} post={node} />)}
-      <h2 style={{ margin: "2rem 0" }}>Recipes</h2>
-      {data.recipes.edges.map(({ node }) => (
-        <PostListing key={node.id} post={node} />
-      ))} */}
     </div>
   );
 };
@@ -104,6 +78,8 @@ export const query = graphql`
         icon_image
         text
       }
+      firstBlock
+      lastBlock
     }
     recipeBackground: imageSharp(id: { regex: "/carrots-food-fresh.jpg/" }) {
       sizes(maxWidth: 1800) {

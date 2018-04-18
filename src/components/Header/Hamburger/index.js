@@ -41,17 +41,17 @@ const HamburgerWrapper = styled.div`
   }
 
   &[open] {
-  ${Hb1} {
-    transform: translate(4px, -1px) rotate(45deg);
-  }
+    ${Hb1} {
+      transform: translate(4px, -1px) rotate(45deg);
+    }
 
-  ${Hb2} {
-    opacity: 0;
-  }
+    ${Hb2} {
+      opacity: 0;
+    }
 
-  ${Hb3} {
-    transform: translate(2px, 1px) rotate(-45deg);
-  }
+    ${Hb3} {
+      transform: translate(2px, 1px) rotate(-45deg);
+    }
   }
 }
 `;

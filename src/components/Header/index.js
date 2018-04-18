@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import Link from "gatsby-link";
-import styled from "styled-components";
-import { media } from "../../utils/theme";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Link from 'gatsby-link';
+import styled from 'styled-components';
+import { media } from '../../utils/theme';
 import Hamburger from './Hamburger';
 
-import logo from "../../images/POTM-Logo-Main.svg";
-import mobileLogo from "../../images/POTM-Logo-Mobile.svg";
+import logo from '../../images/POTM-Logo-Main.svg';
+import mobileLogo from '../../images/POTM-Logo-Mobile.svg';
 
 const HeaderDesktopImage = styled(Link)`
   height: 100%;
@@ -71,8 +71,8 @@ const MainNav = styled.nav`
     z-index: -1;
     top: 0;
     transform: ${props =>
-      props.open ? "translateY(60px)" : "translateY(-100%)"};
-    visibility: ${props => (props.open ? "visible" : "hidden")};
+      props.open ? 'translateY(60px)' : 'translateY(-100%)'};
+    visibility: ${props => (props.open ? 'visible' : 'hidden')};
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     background-color: #fff;
     width: 100%;

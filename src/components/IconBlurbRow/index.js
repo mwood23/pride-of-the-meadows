@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { Container } from "../Container";
-import { media } from "../../utils/theme";
+import React from 'react';
+import styled from 'styled-components';
+import { Container } from '../../shared/blocks/Container';
+import { media } from '../../utils/theme';
 
-import badge from "../../images/POTM-Bubble.png";
+import badge from '../../images/POTM-Bubble.png';
 
 const IconBlurbWrapper = styled.section`
   background-color: #fbf9ec;
@@ -74,8 +74,6 @@ const BadgeImage = styled.div`
 `;
 
 const IconBlurbRow = ({ blurbs }) => {
-  console.log(blurbs, badge);
-
   return (
     <IconBlurbWrapper>
       <IconBlurbContainer>

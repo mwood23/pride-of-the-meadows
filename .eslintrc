@@ -1,6 +1,7 @@
 {
   "rules": {
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "quotes": [2, "single"]
   },
   "extends": "react-app",
   "globals": {

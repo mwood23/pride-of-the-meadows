@@ -1,17 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { Container } from "../Container";
-import { media } from "../../utils/theme";
-import Heading from "../../shared/elements/Heading";
-import FancyFont from "../../shared/elements/FancyFont";
-import placeholder from "../../images/placeholder.jpeg";
-import Button from "../../shared/elements/Button";
+import React from 'react';
+import styled from 'styled-components';
+import { Container } from '../../shared/blocks/Container';
+import { media } from '../../utils/theme';
+import Heading from '../../shared/elements/Heading';
+import FancyFont from '../../shared/elements/FancyFont';
+import placeholder from '../../images/placeholder.jpeg';
+import Button from '../../shared/elements/Button';
 
 const TextImageRowWrapper = Container.extend`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${"" /* padding: 4rem 0; */}
+  ${'' /* padding: 4rem 0; */}
 
   // prettier-ignore
   ${media.forSmallOnly`
@@ -36,9 +36,9 @@ const TextImageRow = () => {
         <FancyFont>Just</FancyFont>
         <span
           style={{
-            fontFamily: "Montserrat",
-            fontSize: "40px",
-            marginLeft: "10px"
+            fontFamily: 'Montserrat',
+            fontSize: '40px',
+            marginLeft: '10px'
           }}
         >
           Jalapenos

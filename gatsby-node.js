@@ -6,13 +6,13 @@
 
 // You can delete this file if you're not using it
 
-const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
 
-  if (node.internal.type === "MarkdownRemark") {
+  if (node.internal.type === 'MarkdownRemark') {
     const slug = createFilePath({
       node,
       getNode
@@ -20,7 +20,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
     createNodeField({
       node,
-      name: "slug",
+      name: 'slug',
       value: `${slug}`
     });
   }
@@ -43,20 +43,20 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       }
     `).then(result => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        if (node.fields.slug.includes("/posts/")) {
+        if (node.fields.slug.includes('/posts/')) {
           createPage({
             path: node.fields.slug,
-            component: path.resolve("./src/posts/PostPage.js"),
+            component: path.resolve('./src/posts/PostPage.js'),
             context: {
               slug: node.fields.slug
             }
           });
         }
 
-        if (node.fields.slug.includes("/recipes/")) {
+        if (node.fields.slug.includes('/recipes/')) {
           createPage({
             path: node.fields.slug,
-            component: path.resolve("./src/recipes/RecipePage.js"),
+            component: path.resolve('./src/recipes/RecipePage.js'),
             context: {
               slug: node.fields.slug
             }

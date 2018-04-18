@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { Container } from "../Container";
-import { media } from "../../utils/theme";
-import Image from "gatsby-image";
+import React from 'react';
+import styled from 'styled-components';
+import { Container } from '../../shared/blocks/Container';
+import { media } from '../../utils/theme';
+import Image from 'gatsby-image';
 
 const PostCollectionWrapper = styled.section`
   position: relative;
@@ -53,11 +53,11 @@ const PostCollection = ({ backgroundImage, posts }) => {
       <Image
         sizes={backgroundImage.sizes}
         style={{
-          position: "absolute",
+          position: 'absolute',
           left: 0,
           top: 0,
-          width: "100%",
-          height: "100%"
+          width: '100%',
+          height: '100%'
         }}
       />
       <PostCollectionContainer>
