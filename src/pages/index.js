@@ -27,49 +27,49 @@ export const query = graphql`
         desc
       }
     }
-    posts: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { slug: { regex: "/posts/" } } }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "MMMM DD YYYY")
-          }
-          fields {
-            slug
-          }
-          html
-          excerpt
-        }
-      }
-    }
-    recipes: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { slug: { regex: "/recipes/" } } }
-    ) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "MMMM DD YYYY")
-          }
-          fields {
-            slug
-          }
-          html
-          excerpt
-        }
-      }
-    }
-    allSrcYaml {
-      site_title: distinct(field: site_title)
-      front_posts_limit: distinct(field: posts___front_limit)
-      posts_author: distinct(field: posts___site_author)
-    }
+    # posts: allMarkdownRemark(
+    #   sort: { fields: [frontmatter___date], order: DESC }
+    #   filter: { fields: { slug: { regex: "/posts/" } } }
+    # ) {
+    #   edges {
+    #     node {
+    #       id
+    #       frontmatter {
+    #         title
+    #         date(formatString: "MMMM DD YYYY")
+    #       }
+    #       fields {
+    #         slug
+    #       }
+    #       html
+    #       excerpt
+    #     }
+    #   }
+    # }
+    # recipes: allMarkdownRemark(
+    #   sort: { fields: [frontmatter___date], order: DESC }
+    #   filter: { fields: { slug: { regex: "/recipes/" } } }
+    # ) {
+    #   edges {
+    #     node {
+    #       id
+    #       frontmatter {
+    #         title
+    #         date(formatString: "MMMM DD YYYY")
+    #       }
+    #       fields {
+    #         slug
+    #       }
+    #       html
+    #       excerpt
+    #     }
+    #   }
+    # }
+    # allSrcYaml {
+    #   site_title: distinct(field: site_title)
+    #   front_posts_limit: distinct(field: posts___front_limit)
+    #   posts_author: distinct(field: posts___site_author)
+    # }
     pageContentYaml(id: { regex: "/home.yml/" }) {
       id
       intro_blurb
@@ -78,8 +78,6 @@ export const query = graphql`
         icon_image
         text
       }
-      firstBlock
-      lastBlock
     }
     recipeBackground: imageSharp(id: { regex: "/carrots-food-fresh.jpg/" }) {
       sizes(maxWidth: 1800) {
