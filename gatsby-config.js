@@ -59,7 +59,7 @@ module.exports = {
         background_color: '#f7f0eb',
         theme_color: '#7ed321',
         display: 'minimal-ui',
-        icon: '/assets/POTM-Brandmark.png' // This path is relative to the root of the site.
+        icon: 'public/assets/POTM-Brandmark.png' // This path is relative to the root of the site.
       }
     },
     'gatsby-plugin-offline',
