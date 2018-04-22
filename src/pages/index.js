@@ -2,7 +2,7 @@ import React from 'react';
 import VideoHero from '../components/VideoHero';
 import IconBlurbRow from '../components/IconBlurbRow';
 import TidyInfoBox from '../components/TidyInfoBox';
-import TextImageRow from '../components/TextImageRow';
+import ProductCarousel from '../components/ProductCarousel';
 import PostCollection from '../components/PostCollection';
 
 const IndexPage = ({ data }) => {
@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => {
       <VideoHero />
       <IconBlurbRow blurbs={data.pageContentYaml.about_us_icon_blurb_row} />
       <TidyInfoBox />
-      <TextImageRow />
+      <ProductCarousel />
       <PostCollection
         backgroundImage={data.recipeBackground}
         posts={data.recipes.edges}

@@ -1,11 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../utils/theme';
+import { theme, media } from '../utils/theme';
 
 import Header from '../components/Header';
 import './index.css';
+
+const ContentWrapper = styled.div`
+  flex: 1;
+
+  ${media.forSmallOnly`
+    p {
+      font-size: 14px;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  `};
+`;
 
 const TemplateWrapper = ({ children, data, location }) => (
   <ThemeProvider theme={theme}>
@@ -18,7 +37,7 @@ const TemplateWrapper = ({ children, data, location }) => (
         ]}
       />
       <Header data={data} location={location} />
-      <div>{children()}</div>
+      <ContentWrapper>{children()}</ContentWrapper>
     </div>
   </ThemeProvider>
 );
