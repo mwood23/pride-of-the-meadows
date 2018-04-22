@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme, media } from '../utils/theme';
 
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import './index.css';
 
 const ContentWrapper = styled.div`
@@ -38,6 +39,7 @@ const TemplateWrapper = ({ children, data, location }) => (
       />
       <Header data={data} location={location} />
       <ContentWrapper>{children()}</ContentWrapper>
+      <Footer />
     </div>
   </ThemeProvider>
 );
