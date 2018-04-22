@@ -49,6 +49,20 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-netlify-cms'
+    'gatsby-plugin-netlify-cms',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Pride of the Meadows',
+        short_name: 'POTM',
+        start_url: '/',
+        background_color: '#f7f0eb',
+        theme_color: '#7ed321',
+        display: 'minimal-ui',
+        icon: '/assets/POTM-Brandmark.png' // This path is relative to the root of the site.
+      }
+    },
+    'gatsby-plugin-offline',
+    'gatsby-plugin-netlify'
   ]
 };
