@@ -4,9 +4,33 @@ import { media } from '../../utils/theme';
 import badge from '../../images/POTM-Bubble.png';
 import ReactPlayer from 'react-player';
 
-const VideoHeroWrapper = styled.section`
-  height: 75vh;
+const ComponentWrapper = styled.section`
+  position: relative;
+`;
+
+const VideoHeroWrapper = styled.div`
+  height: 725px;
   overflow: hidden;
+  position: relative;
+
+  @media (min-width: 1481px) {
+    height: 825px;
+  }
+  @media (max-width: 1480px) {
+    height: 750px;
+  }
+  @media (max-width: 1345px) {
+    height: 625px;
+  }
+  @media (max-width: 1125px) {
+    height: 525px;
+  }
+  @media (max-width: 950px) {
+    height: 425px;
+  }
+  @media (max-width: 780px) {
+    height: 425px;
+  }
 `;
 
 const BadgeImage = styled.div`
@@ -40,6 +64,10 @@ const VideoContainer = styled.div`
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
 
+  @media (max-width: 780px) {
+    display: none;
+  }
+
   iframe {
     position: absolute;
     top: 0;
@@ -50,23 +78,27 @@ const VideoContainer = styled.div`
 `;
 
 const VideoHero = ({ video }) => (
-  <VideoHeroWrapper>
-    <VideoContainer>
-      <ReactPlayer
-        url="https://streamable.com/nv3fb"
-        playing
-        loop
-        preload
-        width="100%"
-        height="initial"
-        controls={false}
-        config={{ attributes: { autoPlay: true } }}
-      />
-    </VideoContainer>
+  <ComponentWrapper>
+    <VideoHeroWrapper>
+      {window.matchMedia('(min-width: 680px)').matches ? (
+        <VideoContainer>
+          <ReactPlayer
+            url="https://streamable.com/nv3fb"
+            playing
+            loop
+            preload
+            width="100%"
+            height="initial"
+            controls={false}
+            config={{ attributes: { autoPlay: true } }}
+          />
+        </VideoContainer>
+      ) : null}
+    </VideoHeroWrapper>
     <BadgeImage>
       <img src={badge} alt="Fresh from the Vine and Hand Picked Badge" />
     </BadgeImage>
-  </VideoHeroWrapper>
+  </ComponentWrapper>
 );
 
 export default VideoHero;
