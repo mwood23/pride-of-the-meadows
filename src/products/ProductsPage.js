@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 800px;
   margin: auto;
+  width: 800px;
   height: 669.1px;
+`;
+
+const FoodHeader = styled.div`
+  font-family: 'Sacramento';
+  font-size: 64px;
+  color: #7ed321;
 `
 
 export default class ProductsPage extends Component {
   render() {
     const { data } = this.props;
     if (!data) return null;
-		console.log('dat')
-		console.log(data)
     return (
       <div>
         <span>{data.markdownRemark.frontmatter.date}</span>
@@ -20,10 +24,13 @@ export default class ProductsPage extends Component {
         <Container>
           <img alt="product" src={ data.markdownRemark.frontmatter.image } />
         </Container>
+        <FoodHeader>
+          Just
+        </FoodHeader>
       </div>
     );
-  }
-}
+  };
+};
 
 export const query = graphql`
   query ProductsPostQuery($slug: String!) {

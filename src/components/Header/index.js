@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
-import { media } from '../../utils/theme';
 import Hamburger from './Hamburger';
+import { media } from '../../utils/theme';
 
 import logo from '../../images/POTM-Logo-Main.svg';
 import mobileLogo from '../../images/POTM-Logo-Mobile.svg';
