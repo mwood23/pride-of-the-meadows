@@ -37,9 +37,17 @@ const TemplateWrapper = ({ children, data, location }) => (
           { name: 'keywords', content: 'sample, something' }
         ]}
       />
-      <Header data={data} location={location} />
-      <ContentWrapper>{children()}</ContentWrapper>
-      <Footer />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh'
+        }}
+      >
+        <Header data={data} location={location} />
+        <ContentWrapper>{children()}</ContentWrapper>
+        <Footer />
+      </div>
     </div>
   </ThemeProvider>
 );
