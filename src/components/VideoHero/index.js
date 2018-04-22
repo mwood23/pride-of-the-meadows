@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'gatsby-image';
 import { media } from '../../utils/theme';
 import badge from '../../images/POTM-Bubble.png';
 import ReactPlayer from 'react-player';
@@ -77,7 +78,7 @@ const VideoContainer = styled.div`
   }
 `;
 
-const VideoHero = ({ video }) => (
+const VideoHero = ({ mobileHeroImage }) => (
   <ComponentWrapper>
     <VideoHeroWrapper>
       {window.matchMedia('(min-width: 680px)').matches ? (
@@ -93,7 +94,18 @@ const VideoHero = ({ video }) => (
             config={{ attributes: { autoPlay: true } }}
           />
         </VideoContainer>
-      ) : null}
+      ) : (
+        <Image
+          sizes={mobileHeroImage.sizes}
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%'
+          }}
+        />
+      )}
     </VideoHeroWrapper>
     <BadgeImage>
       <img src={badge} alt="Fresh from the Vine and Hand Picked Badge" />

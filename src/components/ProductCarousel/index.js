@@ -155,9 +155,9 @@ export default class ProductCarousel extends Component {
           </svg>
         </PrevButton>
         <ReactSwipe
-          swipeOptions={{
-            continuous: false
-          }}
+          // swipeOptions={{
+          //   continuous: false
+          // }}
           ref={reactSwipe => (this.reactSwipe = reactSwipe)}
         >
           {testProducts.map((product, index) => (
