@@ -2,14 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { media } from '../../utils/theme';
 import badge from '../../images/POTM-Bubble.png';
+import ReactPlayer from 'react-player';
 
 const VideoHeroWrapper = styled.section`
-  height: 55vh;
-  background-image: url('https://images.pexels.com/photos/134877/pexels-photo-134877.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+  height: 75vh;
+  overflow: hidden;
 `;
 
 const BadgeImage = styled.div`
@@ -37,8 +34,35 @@ const BadgeImage = styled.div`
   }
 `;
 
+const VideoContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
 const VideoHero = ({ video }) => (
   <VideoHeroWrapper>
+    <VideoContainer>
+      <ReactPlayer
+        url="https://streamable.com/nv3fb"
+        playing
+        loop
+        preload
+        width="100%"
+        height="initial"
+        controls={false}
+        config={{ attributes: { autoPlay: true } }}
+      />
+    </VideoContainer>
     <BadgeImage>
       <img src={badge} alt="Fresh from the Vine and Hand Picked Badge" />
     </BadgeImage>
