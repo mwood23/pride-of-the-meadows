@@ -1,15 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'gatsby-image';
 import { media } from '../../utils/theme';
 import badge from '../../images/POTM-Bubble.png';
+import ReactPlayer from 'react-player';
 
-const VideoHeroWrapper = styled.section`
-  height: 55vh;
-  background-image: url('https://images.pexels.com/photos/134877/pexels-photo-134877.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+const ComponentWrapper = styled.section`
   position: relative;
+`;
+
+const VideoHeroWrapper = styled.div`
+  height: 725px;
+  overflow: hidden;
+  position: relative;
+
+  @media (min-width: 1481px) {
+    height: 825px;
+  }
+  @media (max-width: 1480px) {
+    height: 750px;
+  }
+  @media (max-width: 1345px) {
+    height: 625px;
+  }
+  @media (max-width: 1125px) {
+    height: 525px;
+  }
+  @media (max-width: 950px) {
+    height: 425px;
+  }
+  @media (max-width: 780px) {
+    height: 425px;
+  }
 `;
 
 const BadgeImage = styled.div`
@@ -37,12 +59,59 @@ const BadgeImage = styled.div`
   }
 `;
 
-const VideoHero = ({ video }) => (
-  <VideoHeroWrapper>
+const VideoContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+
+  @media (max-width: 780px) {
+    display: none;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const VideoHero = ({ mobileHeroImage }) => (
+  <ComponentWrapper>
+    <VideoHeroWrapper>
+      {typeof window !== 'undefined' &&
+      window.matchMedia('(min-width: 680px)').matches ? (
+        <VideoContainer>
+          <ReactPlayer
+            url="https://streamable.com/nv3fb"
+            playing
+            loop
+            preload
+            width="100%"
+            height="initial"
+            controls={false}
+            config={{ attributes: { autoPlay: true } }}
+          />
+        </VideoContainer>
+      ) : (
+        <Image
+          sizes={mobileHeroImage.sizes}
+          style={{
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%'
+          }}
+        />
+      )}
+    </VideoHeroWrapper>
     <BadgeImage>
       <img src={badge} alt="Fresh from the Vine and Hand Picked Badge" />
     </BadgeImage>
-  </VideoHeroWrapper>
+  </ComponentWrapper>
 );
 
 export default VideoHero;

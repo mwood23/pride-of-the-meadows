@@ -2,16 +2,17 @@ import React from 'react';
 import VideoHero from '../components/VideoHero';
 import IconBlurbRow from '../components/IconBlurbRow';
 import TidyInfoBox from '../components/TidyInfoBox';
-import TextImageRow from '../components/TextImageRow';
+import ImageBorderInfoBox from '../components/ImageBorderInfoBox';
+import ProductCarousel from '../components/ProductCarousel';
 import PostCollection from '../components/PostCollection';
 
 const IndexPage = ({ data }) => {
   return (
     <div>
-      <VideoHero />
+      <VideoHero mobileHeroImage={data.mobileHero} />
       <IconBlurbRow blurbs={data.pageContentYaml.about_us_icon_blurb_row} />
-      <TidyInfoBox />
-      <TextImageRow />
+      <ImageBorderInfoBox borderImage={data.infoBoxBorder} />
+      <ProductCarousel />
       <PostCollection
         backgroundImage={data.recipeBackground}
         posts={data.recipes.edges}
@@ -87,6 +88,16 @@ export const query = graphql`
     }
     recipeBackground: imageSharp(id: { regex: "/carrots-food-fresh.jpg/" }) {
       sizes(maxWidth: 1800) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    infoBoxBorder: imageSharp(id: { regex: "/carrots-food-fresh.jpg/" }) {
+      sizes(maxWidth: 1800) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    mobileHero: imageSharp(id: { regex: "/cabbage-mobile-hero.jpg/" }) {
+      sizes(maxWidth: 700) {
         ...GatsbyImageSharpSizes
       }
     }

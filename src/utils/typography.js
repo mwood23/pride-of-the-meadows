@@ -1,4 +1,5 @@
 import Typography from 'typography';
+import { theme } from './theme';
 
 const typography = new Typography({
   title: 'PrideoftheMeadows',
@@ -21,7 +22,36 @@ const typography = new Typography({
   ],
   headerFontFamily: ['Montserrat', 'serif'],
   bodyFontFamily: ['Lato', 'serif'],
-  headerWeight: '400'
+  headerWeight: '400',
+  overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
+    h1: {
+      color: theme.defaultHeaderColor
+    },
+    h2: {
+      color: theme.defaultHeaderColor
+    },
+    h3: {
+      color: theme.defaultHeaderColor
+    },
+    h4: {
+      color: theme.defaultHeaderColor
+    },
+    h5: {
+      color: theme.defaultHeaderColor
+    },
+    h6: {
+      color: theme.defaultHeaderColor
+    },
+    p: {
+      color: theme.defaultFontColor
+    },
+    span: {
+      color: theme.defaultFontColor
+    },
+    div: {
+      color: theme.defaultFontColor
+    }
+  })
 });
 
 export default typography;

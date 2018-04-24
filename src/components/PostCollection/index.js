@@ -36,11 +36,25 @@ const PostBlurb = styled.a`
   &:nth-child(even) {
     margin: 0 2rem;
   }
+
+  @media (max-width: 767px) {
+    &:not(:first-child) {
+      display: none;
+    }
+  }
 `;
 
 const PostCollectionHeader = styled.h2`
   font-family: Montserrat;
   font-size: 46px;
+
+  ${media.forSmallMediumOnly`
+    font-size: 38px;
+  `};
+
+  ${media.forSmallOnly`
+    font-size: 32px;
+  `};
 `;
 
 const PostCollectionInfo = styled.p`
@@ -48,6 +62,16 @@ const PostCollectionInfo = styled.p`
   font-size: 24px;
   max-width: 70%;
   margin: 0 auto 5rem;
+  color: ${props => props.theme.defaultHeaderColor};
+
+  ${media.forSmallMediumOnly`
+    font-size: 21px;
+    margin-bottom: 3rem;
+  `};
+
+  ${media.forSmallOnly`
+    font-size: 18px;
+  `};
 `;
 
 const PostImage = styled.img`
@@ -62,7 +86,6 @@ const PostTextSection = styled.div`
 const PostTagDateRow = styled.div`
   margin-bottom: 0.75rem;
   font-family: Montserrat;
-  color: #555;
   font-size: 0.9rem;
 
   span:first-child {
@@ -71,6 +94,7 @@ const PostTagDateRow = styled.div`
   }
 
   span:last-child {
+    color: #9b9b9b;
   }
 `;
 

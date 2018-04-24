@@ -14,6 +14,7 @@ const Heading = styled.span`
   margin-bottom: 0.5rem;
   display: block;
   text-transform: uppercase;
+  color: ${props => props.theme.defaultHeaderColor};
 `;
 
 export default Heading;

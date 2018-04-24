@@ -123,6 +123,7 @@ const MainNav = styled.nav`
         font-family: 'Montserrat',serif;
         letter-spacing: 1.5px;
         font-weight: 500;
+        color: ${props => props.theme.defaultHeaderColor};
 
         &:hover {
           background-color: rgba(0, 0, 0, 0.1);
