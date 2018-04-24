@@ -75,7 +75,8 @@ const VideoContainer = styled.div`
 const VideoHero = ({ mobileHeroImage }) => (
   <ComponentWrapper>
     <VideoHeroWrapper>
-      {window.matchMedia('(min-width: 781px)').matches ? (
+      {typeof window !== 'undefined' &&
+      window.matchMedia('(min-width: 680px)').matches ? (
         <VideoContainer>
           <ReactPlayer
             url="https://streamable.com/nv3fb"
