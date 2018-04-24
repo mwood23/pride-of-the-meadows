@@ -19,6 +19,8 @@ const ImageBorderInfoBoxContainer = Container.extend`
   text-align: center;
   padding: 3rem;
   background-color: white;
+  position: relative;
+  position: 20;
 `;
 
 const ImageBorderInfoBox = ({ borderImage }) => {
@@ -32,21 +34,33 @@ const ImageBorderInfoBox = ({ borderImage }) => {
             left: 0,
             top: 0,
             width: '100%',
-            height: '100%',
-            zIndex: '-1'
+            height: '100%'
           }}
         />
         <ImageBorderInfoBoxContainer>
           <Heading>Pride of the Meadows</Heading>
           <h2 style={{ fontSize: '40px' }}>About Us</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, ex ea commodo consequat.
+            <span style={{ color: 'red' }}>
+              Local tastes better. (make this our tagline?)
+            </span>{' '}
+            We work with farmers local to your area to source the freshest
+            product possible, package it in our food safe facility, and send it
+            to grocers near you. All of our products are:
+            <ul>
+              <li>Non-GMO?</li>
+              <li>Hand picked?</li>
+              <li>Gluten free?</li>
+              <li>From farm to store in 72 hours?</li>
+              <li>Cold from source to your door?</li>
+            </ul>
           </p>
           <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium natus error sit. Visit Woods Produce
+            You can find Pride of the Meadows branded fruits and vegetables in
+            Virginia and North Carolina right now at Food Lions and independent
+            grocery stores. If we're not in your area yet please{' '}
+            <span style={{ color: 'red' }}>contact us </span>
+            and we'll see what we can do!
           </p>
         </ImageBorderInfoBoxContainer>
       </ImageWrapper>

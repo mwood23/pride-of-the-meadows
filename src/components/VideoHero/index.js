@@ -10,16 +10,10 @@ const ComponentWrapper = styled.section`
 `;
 
 const VideoHeroWrapper = styled.div`
-  height: 725px;
+  height: 625px;
   overflow: hidden;
   position: relative;
 
-  @media (min-width: 1481px) {
-    height: 825px;
-  }
-  @media (max-width: 1480px) {
-    height: 750px;
-  }
   @media (max-width: 1345px) {
     height: 625px;
   }
@@ -81,8 +75,7 @@ const VideoContainer = styled.div`
 const VideoHero = ({ mobileHeroImage }) => (
   <ComponentWrapper>
     <VideoHeroWrapper>
-      {typeof window !== 'undefined' &&
-      window.matchMedia('(min-width: 680px)').matches ? (
+      {window.matchMedia('(min-width: 781px)').matches ? (
         <VideoContainer>
           <ReactPlayer
             url="https://streamable.com/nv3fb"
