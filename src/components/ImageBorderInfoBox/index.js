@@ -47,13 +47,10 @@ const ImageBorderInfoBox = ({ borderImage }) => {
             We work with farmers local to your area to source the freshest
             product possible, package it in our food safe facility, and send it
             to grocers near you. All of our products are:
-            <ul>
-              <li>Non-GMO?</li>
-              <li>Hand picked?</li>
-              <li>Gluten free?</li>
-              <li>From farm to store in 72 hours?</li>
-              <li>Cold from source to your door?</li>
-            </ul>
+            <span style={{ color: 'red' }}>
+              Non-GMO?, Hand picked?, Gluten free?, From farm to store in 72
+              hours?, Cold from source to your door?
+            </span>
           </p>
           <p>
             You can find Pride of the Meadows branded fruits and vegetables in
