@@ -30,7 +30,7 @@ const FeatureBox = props => (
 	<FeaturesList>
     <FeatureItem><img width="16px" height="16px" src={checkmark} /><span style={{ position: 'relative', right: '18px' }}>feature one</span></FeatureItem>
     <FeatureItem><img width="16px" height="16px" src={checkmark} /><span style={{ position: 'relative', right: '18px' }}>feature two</span></FeatureItem>
-    <FeatureItem><img width="16px" height="16px" src={checkmark} /><span style={{ position: 'relative', right: '18px' }}>feature three</span></FeatureItem>
+    <FeatureItem style={{ borderBottom: 'none' }}><img width="16px" height="16px" src={checkmark} /><span style={{ position: 'relative', right: '18px' }}>feature three</span></FeatureItem>
 	</FeaturesList>
 );
 
