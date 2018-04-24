@@ -61,7 +61,10 @@ export default class ProductsPage extends Component {
             <FancyFont>Just</FancyFont><br />
             <span>Jalapeños</span><br />
             <SubHeading leftAlign>CRISP AND SAVORY</SubHeading><br />
-						<FeatureBox />
+            <FeatureBox 
+              featureOne={ data.markdownRemark.frontmatter.featureOne}
+              featureTwo={ data.markdownRemark.frontmatter.featureTwo }
+              featureThree={ data.markdownRemark.frontmatter.featureThree } />
           </ProductTitle>
         </Container>
       </div>
@@ -74,6 +77,9 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        featureOne
+        featureTwo
+        featureThree
         date(formatString: "MMMM DD YYYY")
         image
       }

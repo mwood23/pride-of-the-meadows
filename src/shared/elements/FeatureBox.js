@@ -26,11 +26,11 @@ const FeatureItem = styled.div`
   border-bottom: 1px solid #dbdbdb;
 `
 
-const FeatureBox = props => (
+const FeatureBox = ({ featureOne, featureTwo, featureThree }) => (
 	<FeaturesList>
-    <FeatureItem><img width="16px" height="16px" src={checkmark} /><span style={{ position: 'relative', right: '18px' }}>feature one</span></FeatureItem>
-    <FeatureItem><img width="16px" height="16px" src={checkmark} /><span style={{ position: 'relative', right: '18px' }}>feature two</span></FeatureItem>
-    <FeatureItem style={{ borderBottom: 'none' }}><img width="16px" height="16px" src={checkmark} /><span style={{ position: 'relative', right: '18px' }}>feature three</span></FeatureItem>
+    <FeatureItem><img alt= "" width="16px" height="16px" src={checkmark} /><span style={{ position: 'relative', right: '18px' }}>{featureOne}</span></FeatureItem>
+    <FeatureItem><img alt="" width="16px" height="16px" src={checkmark} /><span style={{ position: 'relative', right: '18px' }}>{ featureTwo }</span></FeatureItem>
+    <FeatureItem style={{ borderBottom: 'none' }}><img alt="" width="16px" height="16px" src={checkmark} /><span style={{ position: 'relative', right: '18px' }}>{ featureThree }</span></FeatureItem>
 	</FeaturesList>
 );
 

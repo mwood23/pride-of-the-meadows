@@ -3,6 +3,9 @@ title: oranges and Stuff
 date: '2018-04-16'
 image: https://media.istockphoto.com/photos/homemade-breaded-jalapeno-poppers-picture-id535677033
 alt: Deep fried Jalapeno Poppers
+featureOne: This is test feature
+featureTwo: This is another test feature
+featureThree: This is a third test feature
 tag: Recipes
 ---
 

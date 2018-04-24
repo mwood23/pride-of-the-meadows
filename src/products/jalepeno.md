@@ -3,6 +3,7 @@ title: Jalapeno Poppers
 date: '2018-04-16'
 image: https://media.istockphoto.com/photos/homemade-breaded-jalapeno-poppers-picture-id535677033
 alt: Deep fried Jalapeno Poppers
+features: 'this is a test features'
 tag: Recipes
 ---
 
