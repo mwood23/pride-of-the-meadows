@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import FancyFont from '../shared/elements/FancyFont';
-import Heading from '../shared/elements/Heading'
+import FeatureBox from '../shared/elements/FeatureBox';
 import { Container } from '../shared/blocks/Container';
 
 const ImageContainer = styled.div`
@@ -45,16 +45,6 @@ const SubHeading = styled.div`
   color: var(--blackish);
 `
 
-const FeaturesList = styled.div`
-  display: flex;
-  flex-flow: column;
-  border: 1px solid #dbdbdb;
-  font-family: 'Lato';
-  font-size: 14px;
-  max-width: 280px;
-  height: 100px;
-`
-
 export default class ProductsPage extends Component {
   render() {
     const { data } = this.props;
@@ -71,11 +61,7 @@ export default class ProductsPage extends Component {
             <FancyFont>Just</FancyFont><br />
             <span>Jalapeños</span><br />
             <SubHeading leftAlign>CRISP AND SAVORY</SubHeading><br />
-            <FeaturesList>
-              <div style={{ flexGrow: 1, margin: '0px 10px', borderBottom: '1px solid #dbdbdb' }}>feature one</div>
-              <div style={{ flexGrow: 1, margin: '0px 10px', borderBottom: '1px solid #dbdbdb' }}>feature two</div>
-              <div style={{ flexGrow: 1, margin: '0px 10px', borderBottom: '1px solid #dbdbdb' }}>feature three</div>
-            </FeaturesList>
+						<FeatureBox />
           </ProductTitle>
         </Container>
       </div>
