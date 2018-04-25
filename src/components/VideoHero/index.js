@@ -9,6 +9,35 @@ const ComponentWrapper = styled.section`
   position: relative;
 `;
 
+const Overlay = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  ${'' /* background-image: linear-gradient(
+    to bottom,
+    #0a301e,
+    #103524,
+    #163a2a,
+    #1c4030,
+    #224536
+  ); */} background-image: linear-gradient(to bottom, #102219, #10231a, #0f251b, #0f261c, #0e281d);
+  opacity: 0.4;
+  z-index: 10;
+`;
+
+const OverlayText = styled.h1`
+  position: absolute;
+  color: white;
+  width: 100%;
+  font-size: 65px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  text-align: center;
+`;
+
 const VideoHeroWrapper = styled.div`
   height: 625px;
   overflow: hidden;
@@ -74,6 +103,8 @@ const VideoContainer = styled.div`
 
 const VideoHero = ({ mobileHeroImage }) => (
   <ComponentWrapper>
+    <OverlayText>Local tastes better.</OverlayText>
+    <Overlay />
     <VideoHeroWrapper>
       {typeof window !== 'undefined' &&
       window.matchMedia('(min-width: 680px)').matches ? (
@@ -86,6 +117,7 @@ const VideoHero = ({ mobileHeroImage }) => (
             width="100%"
             height="initial"
             controls={false}
+            onStart={e => console.log('on start')}
             config={{ attributes: { autoPlay: true } }}
           />
         </VideoContainer>

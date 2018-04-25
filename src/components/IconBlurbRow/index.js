@@ -61,6 +61,7 @@ const BadgeImage = styled.div`
   top: -50px;
   right: 10%;
   width: 20%;
+  z-index: 20;
 
   // prettier-ignore
   ${media.forSmallMediumOnly`
