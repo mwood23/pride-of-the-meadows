@@ -134,7 +134,6 @@ export default class ProductCarousel extends Component {
   }
 
   goToPrevious() {
-    console.log(this);
     this.reactSwipe.prev();
   }
 

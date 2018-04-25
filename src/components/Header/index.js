@@ -170,7 +170,6 @@ export class Header extends Component {
   }
 
   handleClickOutside() {
-    console.log('in here');
     this.setState({
       mobileNavOpen: false
     });
