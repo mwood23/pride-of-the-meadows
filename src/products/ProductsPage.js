@@ -2,7 +2,20 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import FancyFont from '../shared/elements/FancyFont';
 import FeatureBox from '../shared/elements/FeatureBox';
+import Button from '../shared/elements/Button';
 import { Container } from '../shared/blocks/Container';
+import ProductDetailSection from './components/ProductDetail'
+
+const CtaButton = Button.extend`
+  background-color: #66bd4d;
+  color: white;
+  letter-spacing: 1.5px;
+	height: 48px;
+	margin-top: 35px;
+  &:hover {
+    background-color: #338a1a;
+  }
+`;
 
 const ImageContainer = styled.div`
 	display: inline-block
@@ -29,6 +42,7 @@ const ProductTitle = styled.div`
 		color: #7ed321;
 	}
 `
+
 const SubHeading = styled.div`
 	width: 280px;
   height: 40px;
@@ -51,9 +65,7 @@ export default class ProductsPage extends Component {
     if (!data) return null;
     return (
       <div>
-        <span>{data.markdownRemark.frontmatter.date}</span>
-        <h1>Recipe: {data.markdownRemark.frontmatter.title}</h1>
-        <Container>
+        <Container style={{ marginTop: '10%' }}>
           <ImageContainer>
             <img alt="product" src={ data.markdownRemark.frontmatter.image } />
           </ImageContainer>
@@ -65,7 +77,9 @@ export default class ProductsPage extends Component {
               featureOne={ data.markdownRemark.frontmatter.featureOne}
               featureTwo={ data.markdownRemark.frontmatter.featureTwo }
               featureThree={ data.markdownRemark.frontmatter.featureThree } />
+           	<CtaButton children="OUR RECIPE" />
           </ProductTitle>
+          <ProductDetailSection />
         </Container>
       </div>
     );
