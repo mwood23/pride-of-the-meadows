@@ -6,7 +6,7 @@ import Button from '../shared/elements/Button';
 import { Container, ContainerFluid, SectionContainer } from '../shared/blocks/Container';
 import InfoBoxWithImageBorder from './components/InfoBoxWithImageBorder';
 import ContentOne from './components/ContentOne';
-import ContentTwo from './components/ContentOne';
+import ContentTwo from './components/ContentTwo';
 import BorderImage from '../../public/assets/carrots-food-fresh.jpg';
 import BorderImageAlt from '../../public/assets/cauliflower-food-fresh.jpg';
 
