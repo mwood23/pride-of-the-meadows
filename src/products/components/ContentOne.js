@@ -43,7 +43,7 @@ const CopyInfo = styled.div`
 const Content = () => (
   <div style={{ 
     flexDirection: 'column',
-		width: '50%',
+		width: 'calc(100% - 500px)'
   }}>
     <SubHeading leftAlign>CRISP AND SAVORY</SubHeading>
     <FancyFont>Just</FancyFont><br />
