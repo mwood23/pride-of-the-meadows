@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import { theme, media } from '../utils/theme';
+import Favicon from '../pages/favicon.png';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -31,12 +32,15 @@ const TemplateWrapper = ({ children, data, location }) => (
   <ThemeProvider theme={theme}>
     <div>
       <Helmet
-        title="Pride of the Meadows"
-        meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' }
-        ]}
-      />
+        title="Pride of the Meadows | Local Fruits and Vegetables from NC and VA"
+        meta={[{ name: 'description', content: 'Sample' }]}
+      >
+        <link rel="icon" href={Favicon} sizes="32x32" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Sacramento"
+          rel="stylesheet"
+        />
+      </Helmet>
       <div
         style={{
           display: 'flex',

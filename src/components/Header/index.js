@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import Hamburger from './Hamburger';
 import { media } from '../../utils/theme';
-
+import onClickOutside from 'react-onclickoutside';
 import logo from '../../images/POTM-Logo-Main.svg';
 import mobileLogo from '../../images/POTM-Logo-Mobile.svg';
 
@@ -144,7 +144,7 @@ const MobileNavContainer = styled.div`
   `}
 `;
 
-export default class Header extends Component {
+export class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -153,6 +153,7 @@ export default class Header extends Component {
 
     this.onMobileNavClick = this.onMobileNavClick.bind(this);
     this.onNavClick = this.onNavClick.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   onMobileNavClick() {
@@ -167,36 +168,48 @@ export default class Header extends Component {
     });
   }
 
+  handleClickOutside() {
+    this.setState({
+      mobileNavOpen: false
+    });
+  }
+
   render() {
     return (
       <HeaderWrapper
         ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
       >
         <HeaderDesktopImage to="/">
-          <img src={logo} alt="Test" />
+          <img src={logo} alt="Pride of the Meadows logo" />
         </HeaderDesktopImage>
         <MobileNavContainer>
           <Hamburger
             onClick={this.onMobileNavClick}
             open={this.state.mobileNavOpen}
           />
-          <HeaderMobileImage to="/">
-            <img src={mobileLogo} alt="Test" />
+          <HeaderMobileImage to="/" onClick={this.onNavClick}>
+            <img src={mobileLogo} alt="Pride of the Meadows logo" />
           </HeaderMobileImage>
         </MobileNavContainer>
         <MainNav open={this.state.mobileNavOpen}>
           <ul>
             <li>
-              <Link to="/">HOME</Link>
+              <Link to="/" onClick={this.onNavClick}>
+                HOME
+              </Link>
             </li>
             <li>
               <Link to="/products/orange">PRODUCTS</Link>
             </li>
             <li>
-              <Link to="/about">ABOUT</Link>
+              <Link to="/about" onClick={this.onNavClick}>
+                ABOUT
+              </Link>
             </li>
             <li>
-              <Link to="/about">RECIPES</Link>
+              <Link to="/about" onClick={this.onNavClick}>
+                RECIPES
+              </Link>
             </li>
           </ul>
         </MainNav>
@@ -204,3 +217,5 @@ export default class Header extends Component {
     );
   }
 }
+
+export default onClickOutside(Header);

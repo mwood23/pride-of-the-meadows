@@ -45,10 +45,10 @@ const Footer = () => {
       <FooterContainer>
         <img src={brandmark} alt="Pride of the Meadows logo" />
         <p>
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-          officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-          omnis iste natus error sit voluptatem accusantium doloremque
-          laudantium.
+          Pride of the Meadows is packaged and distributed by Wood's Produce
+          company, local to Meadows of Dan, VA. We take great pride in
+          supporting local growers and delivering only the most fresh, high
+          quality fruits and vegetables.
         </p>
         <a
           href="https://woodsproduce.com"

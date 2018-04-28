@@ -99,7 +99,6 @@ const PostTagDateRow = styled.div`
 `;
 
 const PostCollection = ({ backgroundImage, posts }) => {
-  console.log(posts);
   return (
     <PostCollectionWrapper>
       <Image

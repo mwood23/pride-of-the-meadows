@@ -1,7 +1,7 @@
 ---
 title: Jalapeno Poppers
 date: '2018-04-16'
-image: https://media.istockphoto.com/photos/homemade-breaded-jalapeno-poppers-picture-id535677033
+image: http://www.sambrailo.com/wp-content/uploads/2015/10/clamshell_20-34-3100_1-pt-runrite-tomatoes.jpg
 alt: Deep fried Jalapeno Poppers
 features: 'this is a test features'
 tag: Recipes
