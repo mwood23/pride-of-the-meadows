@@ -31,3 +31,9 @@ export const Container = styled.div`
     max-width: 1140px;
   }
 `;
+
+export const SectionContainer = styled.div`
+  height: calc(100vh - 80px);
+  width: 100%;
+  padding: 15px 0
+`

@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import FancyFont from '../shared/elements/FancyFont';
 import FeatureBox from '../shared/elements/FeatureBox';
 import Button from '../shared/elements/Button';
-import { Container } from '../shared/blocks/Container';
+import { Container, ContainerFluid, SectionContainer } from '../shared/blocks/Container';
 import InfoBoxWithImageBorder from './components/InfoBoxWithImageBorder';
+import ContentOne from './components/ContentOne';
+import ContentTwo from './components/ContentOne';
+import BorderImage from '../../public/assets/carrots-food-fresh.jpg';
+import BorderImageAlt from '../../public/assets/cauliflower-food-fresh.jpg';
 
 const CtaButton = Button.extend`
   background-color: #66bd4d;
@@ -66,21 +70,37 @@ export default class ProductsPage extends Component {
     return (
       <div>
         <Container style={{ marginTop: '10%' }}>
-          <ImageContainer>
-            <img alt="product" src={ data.markdownRemark.frontmatter.image } />
-          </ImageContainer>
-          <ProductTitle>
-            <FancyFont>Just</FancyFont><br />
-            <span>Jalapeños</span><br />
-            <SubHeading leftAlign>CRISP AND SAVORY</SubHeading><br />
-            <FeatureBox 
-              featureOne={ data.markdownRemark.frontmatter.featureOne}
-              featureTwo={ data.markdownRemark.frontmatter.featureTwo }
-              featureThree={ data.markdownRemark.frontmatter.featureThree } />
-           	<CtaButton children="OUR RECIPE" />
-          </ProductTitle>
-          <InfoBoxWithImageBorder borderImage={ data.infoBoxBorder }/>
-        </Container>
+          <SectionContainer>
+            <ImageContainer>
+              <img alt="product" src={ data.markdownRemark.frontmatter.image } />
+            </ImageContainer>
+            <ProductTitle>
+              <FancyFont>Just</FancyFont><br />
+              <span>Jalapeños</span><br />
+              <SubHeading leftAlign>CRISP AND SAVORY</SubHeading><br />
+              <FeatureBox 
+                featureOne={ data.markdownRemark.frontmatter.featureOne}
+                featureTwo={ data.markdownRemark.frontmatter.featureTwo }
+                featureThree={ data.markdownRemark.frontmatter.featureThree } />
+              <CtaButton children="OUR RECIPE" />
+            </ProductTitle>
+            </SectionContainer>
+          </Container>
+          <ContainerFluid>
+          <SectionContainer style={{ padding: '0 36px' }}>
+            <InfoBoxWithImageBorder padding={20} borderImage={ BorderImage }>
+              <ContentOne />
+            </InfoBoxWithImageBorder>
+          </SectionContainer>
+					<SectionContainer>
+						<InfoBoxWithImageBorder 
+							padding={65}
+							backgroundColor='rgba(103, 190, 77, 0.6)' 
+							borderImage={ BorderImageAlt }>
+							<ContentTwo />
+						</InfoBoxWithImageBorder>
+					</SectionContainer>
+        </ContainerFluid>
       </div>
     );
   };
@@ -96,11 +116,6 @@ export const query = graphql`
         featureThree
         date(formatString: "MMMM DD YYYY")
         image
-      }
-    }
-    infoBoxBorder: imageSharp(id: { regex: "/carrots-food-fresh.jpg/" }) {
-      sizes(maxWidth: 1800) {
-        ...GatsbyImageSharpSizes
       }
     }
   }

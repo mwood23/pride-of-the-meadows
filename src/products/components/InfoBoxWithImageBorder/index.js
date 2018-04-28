@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Heading from '../../../shared/elements/Heading';
-import BorderImage from '../../../../public/assets/carrots-food-fresh.jpg';
 import NutritionReceiptImage from '../../../../public/assets/POTMJalapenos.png';
 
 const ImageContainer = styled.div`
@@ -11,21 +10,28 @@ const ImageContainer = styled.div`
     width: 100%
   }
 `
+
 const NoOverflow = styled.div`
   height: 500px;
-  img {
-    width: 100%;
-  }
+  background-color: ${ props => props.backgroundColor || '' };
+	z-index:5;
   overflow: hidden;
+	img {
+		position: relative;
+		z-index: -10;
+	}
 `
 
 const InfoContainer = styled.div`
   position: absolute;
+  display: flex;
+  justify-content:flex-end;
+	padding-right: 15px;
   z-index: 10;
-  top: 20px
-  left: 20px
-  width: calc( 100% - 40px );
-  height: calc( 100% - 40px );
+  top: ${props => props.padding}px;
+  left: ${props => props.padding}px;
+  width: ${props => `calc( 100% - ${props.padding * 2 }px)`};
+  height: ${props => `calc( 100% - ${props.padding * 2 }px)`};
   background-color: #fff;
 `
 
@@ -39,19 +45,19 @@ const NutritionReceipt = styled.div`
   height: 573px;
   overflow:visible;
   padding:40px;
-
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   img {
     width: 100%
   }
 `
 
-const InfoBoxWithImageBorder = () => (
+const InfoBoxWithImageBorder = (props) => (
   <ImageContainer>
-    <NoOverflow>
-      <img src={BorderImage} />
+    <NoOverflow backgroundColor={ props.backgroundColor }>
+      <img src={ props.borderImage } />
     </NoOverflow>
-    <InfoContainer>
-      <Heading>CRISP & SAVORY</Heading>
+    <InfoContainer padding={props.padding}>
+      { props.children }
     </InfoContainer>
     <NutritionReceipt>
       <img src={NutritionReceiptImage} /> 
@@ -60,5 +66,3 @@ const InfoBoxWithImageBorder = () => (
 );
 
 export default InfoBoxWithImageBorder;
-
-
