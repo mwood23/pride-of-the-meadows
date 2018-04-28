@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Heading from '../../../shared/elements/Heading';
 import NutritionReceiptImage from '../../../../public/assets/POTMJalapenos.png';
 
 const ImageContainer = styled.div`
@@ -59,9 +58,13 @@ const InfoBoxWithImageBorder = (props) => (
     <InfoContainer padding={props.padding}>
       { props.children }
     </InfoContainer>
-    <NutritionReceipt>
-      <img src={NutritionReceiptImage} /> 
-    </NutritionReceipt>
+    {
+      props.withNutritionDetails
+      ? <NutritionReceipt>
+          <img alt='' src={NutritionReceiptImage} /> 
+        </NutritionReceipt>
+      : null
+    }
   </ImageContainer>
 );
 

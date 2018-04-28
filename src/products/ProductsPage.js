@@ -88,7 +88,10 @@ export default class ProductsPage extends Component {
           </Container>
           <ContainerFluid>
           <SectionContainer style={{ padding: '0 36px' }}>
-            <InfoBoxWithImageBorder padding={20} borderImage={ BorderImage }>
+            <InfoBoxWithImageBorder 
+              padding={20} 
+              withNutritionDetails={true}
+              borderImage={ BorderImage }>
               <ContentOne />
             </InfoBoxWithImageBorder>
           </SectionContainer>
