@@ -1,9 +1,9 @@
 import React from 'react';
+import Button from '../../shared/elements/Button';
 import styled from 'styled-components';
 
 const CopyInfo = styled.div`
   margin-top: 15px;
-  height: 169px;
   font-family: Lato;
   font-size: 14px;
   font-weight: normal;
@@ -62,20 +62,37 @@ const ImageContainer = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  margin-right: 33px;
+  position: absolute;
+  top: 0;
+  left:0;
 `
 
+const CtaButton = Button.extend`
+  background-color: transparent; 
+  margin-top: 15px;
+  color: var(--blackish);
+  letter-spacing: 1.5px;
+	height: 48px;
+  &:hover {
+    background-color: transparent;
+  }
+`;
+
 const Content = () => (
-  <div style={{ display: 'flex' }}>
-  <ImageContainer>
-  </ImageContainer>
-  <div style={{ flexDirection: 'column', width: '50%' }}>
-    <FeaturedRecipe>Featured Recipe</FeaturedRecipe>
-    <RecipeName>Jalepeno Poppers</RecipeName><br />
-    <RecipeTagline>RECIPES <span style={{ color: '#9b9b9b' }}>/ 24 JUN 2018</span></RecipeTagline>
-    <CopyInfo>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br /> Integer nec odio. Praesent libero. 
-      Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. 
-      Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</CopyInfo>
-  </div>
+  <div style={{ display: 'flex', justifyContent:'space-between'}}>
+		<ImageContainer />
+		<div style={{ display: 'flex', width: '100%', flexDirection: 'column' }}>
+			<FeaturedRecipe>Featured Recipe</FeaturedRecipe>
+			<RecipeName>Jalepeno Poppers</RecipeName><br />
+			<RecipeTagline>RECIPES <span style={{ color: '#9b9b9b' }}>/ 24 JUN 2018</span></RecipeTagline>
+			<CopyInfo>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br /> Integer nec odio. Praesent libero. 
+				Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. 
+			</CopyInfo>
+      <div style={{ width: '250px' }}>
+			  <CtaButton children="OUR RECIPE"/>
+      </div>
+		</div>
   </div>
 )
 
