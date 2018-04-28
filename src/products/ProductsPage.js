@@ -4,7 +4,7 @@ import FancyFont from '../shared/elements/FancyFont';
 import FeatureBox from '../shared/elements/FeatureBox';
 import Button from '../shared/elements/Button';
 import { Container } from '../shared/blocks/Container';
-import ProductDetailSection from './components/ProductDetail'
+import InfoBoxWithImageBorder from './components/InfoBoxWithImageBorder';
 
 const CtaButton = Button.extend`
   background-color: #66bd4d;
@@ -79,7 +79,7 @@ export default class ProductsPage extends Component {
               featureThree={ data.markdownRemark.frontmatter.featureThree } />
            	<CtaButton children="OUR RECIPE" />
           </ProductTitle>
-          <ProductDetailSection />
+          <InfoBoxWithImageBorder borderImage={ data.infoBoxBorder }/>
         </Container>
       </div>
     );
@@ -96,6 +96,11 @@ export const query = graphql`
         featureThree
         date(formatString: "MMMM DD YYYY")
         image
+      }
+    }
+    infoBoxBorder: imageSharp(id: { regex: "/carrots-food-fresh.jpg/" }) {
+      sizes(maxWidth: 1800) {
+        ...GatsbyImageSharpSizes
       }
     }
   }
