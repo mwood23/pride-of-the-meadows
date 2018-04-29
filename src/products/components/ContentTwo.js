@@ -80,19 +80,18 @@ const CtaButton = Button.extend`
 `;
 
 const Content = () => (
-  <div style={{ display: 'flex', justifyContent:'space-between'}}>
+  <div>
 		<ImageContainer />
-		<div style={{ display: 'flex', width: '100%', flexDirection: 'column' }}>
+		<div style={{ position: 'absolute', zIndex: 30, width: '400px', left: '450px', top: '-50px', display: 'flex', flexDirection: 'column' }}>
 			<FeaturedRecipe>Featured Recipe</FeaturedRecipe>
-			<RecipeName>Jalepeno Poppers</RecipeName><br />
+			<RecipeName>Jalepeño Poppers</RecipeName><br />
 			<RecipeTagline>RECIPES <span style={{ color: '#9b9b9b' }}>/ 24 JUN 2018</span></RecipeTagline>
 			<CopyInfo>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br /> Integer nec odio. Praesent libero. 
-				Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. 
 			</CopyInfo>
       <div style={{ width: '250px' }}>
 			  <CtaButton children="OUR RECIPE"/>
       </div>
-		</div>
+  </div>
   </div>
 )
 
