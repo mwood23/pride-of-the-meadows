@@ -66,8 +66,8 @@ const ProductImageAndMetadata = ( props ) => (
       </ImageContainer>
       <ProductTitle>
         <FancyFont>Just</FancyFont><br />
-        <span>Jalapeños</span><br />
-        <SubHeading leftAlign>CRISP AND SAVORY</SubHeading><br />
+        <span>{ props.productName }</span><br />
+        <SubHeading leftAlign>{ props.tagline.toUpperCase() }</SubHeading><br />
         <FeatureBox 
           featureOne={ props.featureOne}
           featureTwo={ props.featureTwo }

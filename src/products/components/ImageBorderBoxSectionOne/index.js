@@ -9,7 +9,10 @@ const ImageBorderBoxSectionOne = props => (
       padding={ props.padding } 
       nutritionReceiptImage={ props.nutritionReceiptImage }
       borderImage={ props.borderImage }>
-      <Content />
+      <Content 
+        productName={ props.productName }      
+				tagline={ props.tagline }         
+      />
     </InfoBoxWithImageBorder>
   </SectionContainer>
 )

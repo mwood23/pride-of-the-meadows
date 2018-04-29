@@ -1,7 +1,7 @@
 import React from 'react'
 import { SectionContainer } from '../../../shared/blocks/Container';
 import InfoBoxWithImageBorder from '../InfoBoxWithImageBorder';
-import ContentTwo from '../ContentTwo';
+import Content from './components/Content';
 
 const ImageBorderBoxSectionTwo = props => (
   <SectionContainer>
@@ -9,7 +9,7 @@ const ImageBorderBoxSectionTwo = props => (
       borderImage={ props.borderImage }
       backgroundColor={ props.backgroundColor }
       padding={ props.padding }>
-      <ContentTwo />
+      <Content />
     </InfoBoxWithImageBorder>
   </SectionContainer>
 );

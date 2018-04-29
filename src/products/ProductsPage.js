@@ -15,6 +15,8 @@ export default class ProductsPage extends Component {
       <div>
         <ProductImageAndMetadata 
           image={ data.markdownRemark.frontmatter.image }
+          productName={ data.markdownRemark.frontmatter.productName }
+          tagline={ data.markdownRemark.frontmatter.tagline }
           featureOne={ data.markdownRemark.frontmatter.featureOne }
           featureTwo={ data.markdownRemark.frontmatter.featureTwo }
           featureThree={ data.markdownRemark.frontmatter.featureThree }
@@ -22,6 +24,8 @@ export default class ProductsPage extends Component {
         <ContainerFluid>
           <ImageBorderBoxSectionOne 
             nutritionReceiptImage={ NutritionReceiptImage }
+            productName={ data.markdownRemark.frontmatter.productName }
+            tagline={ data.markdownRemark.frontmatter.tagline }
             padding={20}
             borderImage={ BorderImageSectionOne }/>
           <ImageBorderBoxSectionTwo 
@@ -42,6 +46,8 @@ export const query = graphql`
         featureOne
         featureTwo
         featureThree
+        productName
+        tagline
         date(formatString: "MMMM DD YYYY")
         image
       }

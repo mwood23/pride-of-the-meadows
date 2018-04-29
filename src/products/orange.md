@@ -1,5 +1,7 @@
 ---
 title: oranges and Stuff
+productName: Jalapenno
+tagline: crisp and savory
 date: '2018-04-16'
 image: https://i.imgur.com/MCSHxEi.jpg
 alt: Deep fried Jalapeno Poppers
