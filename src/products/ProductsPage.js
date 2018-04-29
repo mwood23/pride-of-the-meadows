@@ -5,6 +5,7 @@ import BorderImageSectionTwo from '../../public/assets/cauliflower-food-fresh.jp
 import ProductImageAndMetadata from './components/ProductImageAndMetadata';
 import ImageBorderBoxSectionOne from './components/ImageBorderBoxSectionOne';
 import ImageBorderBoxSectionTwo from './components/ImageBorderBoxSectionTwo';
+import NutritionReceiptImage from '../../public/assets/POTMJalapenos.png';
 
 export default class ProductsPage extends Component {
   render() {
@@ -20,6 +21,8 @@ export default class ProductsPage extends Component {
         />
         <ContainerFluid>
           <ImageBorderBoxSectionOne 
+            nutritionReceiptImage={ NutritionReceiptImage }
+            padding={20}
             borderImage={ BorderImageSectionOne }/>
           <ImageBorderBoxSectionTwo 
             borderImage={ BorderImageSectionTwo }

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import NutritionReceiptImage from '../../../../public/assets/POTMJalapenos.png';
 
 const ImageContainer = styled.div`
   position: relative;
@@ -59,9 +58,9 @@ const InfoBoxWithImageBorder = (props) => (
       { props.children }
     </InfoContainer>
     {
-      props.withNutritionDetails
+      props.nutritionReceiptImage
       ? <NutritionReceipt>
-          <img alt='' src={NutritionReceiptImage} /> 
+          <img alt='' src={ props.nutritionReceiptImage } /> 
         </NutritionReceipt>
       : null
     }
