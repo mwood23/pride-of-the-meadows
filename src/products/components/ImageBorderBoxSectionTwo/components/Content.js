@@ -79,13 +79,13 @@ const CtaButton = Button.extend`
   }
 `;
 
-const Content = () => (
+const Content = props => (
   <div>
 		<ImageContainer />
 		<div style={{ position: 'absolute', zIndex: 30, width: '400px', left: '450px', top: '-50px', display: 'flex', flexDirection: 'column' }}>
 			<FeaturedRecipe>Featured Recipe</FeaturedRecipe>
-			<RecipeName>Jalepeño Poppers</RecipeName><br />
-			<RecipeTagline>RECIPES <span style={{ color: '#9b9b9b' }}>/ 24 JUN 2018</span></RecipeTagline>
+			<RecipeName>{ props.recipeName }</RecipeName><br />
+			<RecipeTagline>RECIPES <span style={{ color: '#9b9b9b' }}>/ { props.recipeDate }</span></RecipeTagline>
 			<CopyInfo>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br /> Integer nec odio. Praesent libero. 
 			</CopyInfo>
       <div style={{ width: '250px' }}>
@@ -96,3 +96,4 @@ const Content = () => (
 )
 
 export default Content;
+

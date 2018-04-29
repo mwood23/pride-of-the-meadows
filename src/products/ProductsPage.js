@@ -15,11 +15,11 @@ export default class ProductsPage extends Component {
       <div>
         <ProductImageAndMetadata 
           image={ data.markdownRemark.frontmatter.image }
-          productName={ data.markdownRemark.frontmatter.productName }
           tagline={ data.markdownRemark.frontmatter.tagline }
           featureOne={ data.markdownRemark.frontmatter.featureOne }
           featureTwo={ data.markdownRemark.frontmatter.featureTwo }
           featureThree={ data.markdownRemark.frontmatter.featureThree }
+          productName={ data.markdownRemark.frontmatter.productName }
         />
         <ContainerFluid>
           <ImageBorderBoxSectionOne 
@@ -29,6 +29,8 @@ export default class ProductsPage extends Component {
             padding={20}
             borderImage={ BorderImageSectionOne }/>
           <ImageBorderBoxSectionTwo 
+            recipeName={ data.markdownRemark.frontmatter.recipeName }
+            recipeDate={ data.markdownRemark.frontmatter.recipeDate }
             borderImage={ BorderImageSectionTwo }
             padding={65}
             backgroundColor='rgba(103, 190, 77, 0.6)' />
@@ -47,6 +49,8 @@ export const query = graphql`
         featureTwo
         featureThree
         productName
+        recipeName
+        recipeDate
         tagline
         date(formatString: "MMMM DD YYYY")
         image

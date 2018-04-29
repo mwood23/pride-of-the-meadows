@@ -9,7 +9,10 @@ const ImageBorderBoxSectionTwo = props => (
       borderImage={ props.borderImage }
       backgroundColor={ props.backgroundColor }
       padding={ props.padding }>
-      <Content />
+      <Content 
+				recipeName={ props.recipeName }
+				recipeDate={ props.recipeDate }
+			/>
     </InfoBoxWithImageBorder>
   </SectionContainer>
 );
