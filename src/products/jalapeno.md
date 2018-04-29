@@ -1,9 +1,11 @@
 ---
-title: Jalapeno Poppers
+title: oranges and Stuff
 date: '2018-04-16'
-image: http://www.sambrailo.com/wp-content/uploads/2015/10/clamshell_20-34-3100_1-pt-runrite-tomatoes.jpg
+image: https://i.imgur.com/MCSHxEi.jpg
 alt: Deep fried Jalapeno Poppers
-features: 'this is a test features'
+featureOne: Hand-Picked for Quality
+featureTwo: Packed with Flavor
+featureThree: Non-GMO
 tag: Recipes
 ---
 

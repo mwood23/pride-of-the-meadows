@@ -199,7 +199,7 @@ export class Header extends Component {
               </Link>
             </li>
             <li>
-              <Link to="/products/orange">PRODUCTS</Link>
+              <Link to="/products/jalapeno">PRODUCTS</Link>
             </li>
             <li>
               <Link to="/about" onClick={this.onNavClick}>

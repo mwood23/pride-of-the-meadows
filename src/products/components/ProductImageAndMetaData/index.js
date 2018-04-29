@@ -76,6 +76,6 @@ const ProductImageAndMetadata = ( props ) => (
       </ProductTitle>
     </SectionContainer>
   </Container>
-)
+);
 
 export default ProductImageAndMetadata;
