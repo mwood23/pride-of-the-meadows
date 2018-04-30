@@ -1,6 +1,6 @@
 ---
 title: oranges and Stuff
-productName: Jalapenno
+productName: Jalapeño
 recipeName: Jalapeno Poppers
 recipeDate: 24 JUN 2018
 tagline: crisp and savory

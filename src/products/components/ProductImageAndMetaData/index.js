@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components';
 import FancyFont from '../../../shared/elements/FancyFont';
 import Button from '../../../shared/elements/Button'; 
-import { SectionContainer, Container } from '../../../shared/blocks/Container';
+import { Container } from '../../../shared/blocks/Container';
 import FeatureBox from '../../../shared/elements/FeatureBox';
+import { media } from '../../../utils/theme';
 
 const ProductTitle = styled.div`
   display: inline-block;
@@ -19,6 +20,15 @@ const ProductTitle = styled.div`
     margin-bottom: 0;
 		color: #7ed321;
 	}
+  ${media.forSmallMediumOnly`
+    flex-direction: column-reverse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+    justify-content:center;
+    line-height: 35px
+  `}
 `
 
 const ImageContainer = styled.div`
@@ -29,6 +39,15 @@ const ImageContainer = styled.div`
     width: 100%;
     align-self: center;
   }
+  ${media.forSmallMediumOnly`
+    flex-direction: column;
+    width: 100%;
+    font-size: 28px;
+    justify-content:center;
+    line-height: 35px
+		margin-left: auto;
+    margin-right: auto;
+  `}
 `
 
 const SubHeading = styled.div`
@@ -45,6 +64,14 @@ const SubHeading = styled.div`
   text-align: left;
   color: #333333;
   color: var(--blackish);
+  @media (max-width: 992px) {
+    max-width: 960px;
+    flex-direction: column;
+    width: 100%;
+    font-size: 28px;
+    justify-content:center;
+    line-height: 35px
+  }
 `
 
 const CtaButton = Button.extend`
@@ -58,6 +85,32 @@ const CtaButton = Button.extend`
   }
 `;
 
+const SectionContainer = styled.div`
+  height: calc(100vh - 80px);
+  width: 100%;
+  padding: 15px 0
+  display: flex;
+  ${media.forSmallMediumOnly`
+    flex-direction: column;
+    height: 1000px;
+    width: 100%;
+    font-size: 28px;
+    justify-content:center;
+    line-height: 35px
+  `}
+`
+
+const Title = styled.div`
+  @media (max-width: 992px) {
+    max-width: 960px;
+    flex-direction: column;
+    width: 100%;
+    font-size: 28px;
+    justify-content:center;
+    line-height: 35px
+  }
+`
+
 const ProductImageAndMetadata = ( props ) => (
   <Container style={{ marginTop: '10%' }}>
     <SectionContainer>
@@ -66,7 +119,7 @@ const ProductImageAndMetadata = ( props ) => (
       </ImageContainer>
       <ProductTitle>
         <FancyFont>Just</FancyFont><br />
-        <span>{ props.productName }</span><br />
+        <Title>{ props.productName }</Title><br />
         <SubHeading leftAlign>{ props.tagline.toUpperCase() }</SubHeading><br />
         <FeatureBox 
           featureOne={ props.featureOne}

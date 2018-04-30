@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { media } from '../../../utils/theme';
 
 const ImageContainer = styled.div`
   position: relative;
@@ -7,6 +8,14 @@ const ImageContainer = styled.div`
   img {
     width: 100%
   }
+  ${media.forSmallMediumOnly`
+    flex-direction: column;
+    height: 1000px;
+    width: 100%;
+    font-size: 28px;
+    justify-content:center;
+    line-height: 35px
+  `}
 `
 
 const NoOverflow = styled.div`
@@ -18,6 +27,13 @@ const NoOverflow = styled.div`
 		position: relative;
 		z-index: -10;
 	}
+  ${media.forSmallMediumOnly`
+    height: 100%;
+    width: 100%;
+    font-size: 28px;
+    justify-content:center;
+    line-height: 35px
+  `}
 `
 
 const InfoContainer = styled.div`
@@ -31,6 +47,18 @@ const InfoContainer = styled.div`
   width: ${props => `calc( 100% - ${props.padding * 2 }px)`};
   height: ${props => `calc( 100% - ${props.padding * 2 }px)`};
   background-color: #fff;
+  ${media.forSmallMediumOnly`
+    height: 400px;
+    position: static;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 28px;
+    justify-content:center;
+    line-height: 35px
+  `}
 `
 
 const NutritionReceipt = styled.div`

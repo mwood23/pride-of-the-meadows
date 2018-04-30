@@ -1,6 +1,6 @@
 ---
 title: oranges and Stuff
-productName: Jalapenno
+productName: Jalapeño
 tagline: crisp and savory
 date: '2018-04-16'
 image: https://i.imgur.com/MCSHxEi.jpg
