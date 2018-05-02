@@ -10,14 +10,19 @@ const RecipePageWrapper = Container.extend`
 
 const RecipeWrapper = styled.div`
   position: relative;
-  width: 75%;
+  width: 70%;
+  margin-right: 1rem;
 
   h1 {
-    margin-top: 2.5rem;
+    margin: 2.5rem 0 0 0;
   }
 `;
 const FeaturedProductWrapper = styled.div`
   flex: 1;
+
+  img {
+    object-fit: contain;
+  }
 `;
 
 const RecipeInfo = styled.div`
@@ -26,6 +31,7 @@ const RecipeInfo = styled.div`
   letter-spacing: 1.5px;
   line-height: 1.5;
   font-family: Montserrat;
+  margin: 1rem 0;
 
   span,
   a {
@@ -34,7 +40,22 @@ const RecipeInfo = styled.div`
 
   svg {
     line {
-      stroke: #9b9b9b;
+      stroke: #e9e9e9;
+    }
+  }
+`;
+
+const MarkupContainer = styled.div`
+  ul {
+    margin-left: 0;
+  }
+  ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin-left: 30px;
+
+    li {
+      padding-left: 1rem;
     }
   }
 `;
@@ -55,6 +76,8 @@ export default class PostPage extends Component {
       images = data.caprese;
     }
 
+    console.log(images);
+
     return (
       <RecipePageWrapper>
         <RecipeWrapper>
@@ -65,7 +88,9 @@ export default class PostPage extends Component {
           />
           <h1>{data.markdownRemark.frontmatter.title}</h1>
           <RecipeInfo>
-            <span>Ready in {data.markdownRemark.frontmatter.time_to_make}</span>
+            <span>
+              Ready in: {data.markdownRemark.frontmatter.time_to_make}
+            </span>
             <svg width="40" height="20">
               <line x1="20" y1="20" x2="20" y2="0" />
             </svg>
@@ -75,10 +100,20 @@ export default class PostPage extends Component {
             </svg>
             <a>Print</a>
           </RecipeInfo>
-          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          <MarkupContainer
+            dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+          />
         </RecipeWrapper>
+        <svg width="40" height="600">
+          <line x1="20" y1="600" x2="20" y2="0" stroke="#e9e9e9" />
+        </svg>
 
-        <FeaturedProductWrapper>test</FeaturedProductWrapper>
+        <FeaturedProductWrapper>
+          <img
+            src="https://media.istockphoto.com/photos/tomato-picture-id155157132"
+            alt="test"
+          />
+        </FeaturedProductWrapper>
       </RecipePageWrapper>
     );
   }

@@ -3,7 +3,9 @@ title: Jalapeno Poppers
 date: '2018-04-16'
 tag: Recipes
 time_to_make: 6 hrs
-product_tag: pickles
+product_tag: jalapenos
+image: /assets/jalapeno-poppers.jpg
+alt: Fried jalapenos
 yield: 20 poppers
 ---
 
