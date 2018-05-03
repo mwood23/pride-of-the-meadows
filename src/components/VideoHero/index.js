@@ -34,7 +34,7 @@ const OverlayText = styled.h1`
   font-size: 65px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 50;
+  z-index: 20;
   text-align: center;
 `;
 

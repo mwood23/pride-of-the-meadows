@@ -3,23 +3,37 @@ import { navigateTo } from 'gatsby-link';
 import styled from 'styled-components';
 import { Container } from '../shared/blocks/Container';
 import FancyButton from '../shared/elements/FancyButton';
+import { media } from '../utils/theme';
 
 const FormWrapper = styled.div`
   max-width: 700px;
   margin: 4rem auto;
   padding: 3rem 2rem;
   border-radius: 6px;
-  background-color: #ffffff;
   border: solid 1px rgba(0, 0, 0, 0.2);
 
+  ${media.forSmallOnly`
+    border: none;
+    margin: 3rem auto 0;
+    padding: 2rem 0 0 0;
+  `};
   h1 {
     font-size: 46px;
+
+    ${media.forSmallMediumOnly`
+    font-size: 38px;
+  `};
+
+    ${media.forSmallOnly`
+    font-size: 32px;
+  `};
   }
 
   form {
     margin-bottom: 0;
   }
 `;
+
 const Inputfield = styled.div`
   margin-bottom: 1rem;
 
@@ -45,6 +59,7 @@ const SubmitButton = FancyButton.extend`
   width: 175px;
   height: 46px;
 `;
+
 const NameFields = styled.div`
   display: flex;
   width: 100%;
@@ -63,6 +78,7 @@ const NameFields = styled.div`
 
 const Optional = styled.span`
   font-style: italic;
+  font-size: 0.8rem;
 `;
 
 const TextArea = styled.textarea`
@@ -100,7 +116,7 @@ export default class Contact extends React.Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...this.state })
     })
-      .then(() => navigateTo('/thanks/'))
+      .then(() => navigateTo('/thank-you'))
       .catch(error => alert(error));
 
     e.preventDefault();
@@ -118,7 +134,7 @@ export default class Contact extends React.Component {
           <form
             name="contact"
             method="post"
-            action="/thanks/"
+            action="/thank-you"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
@@ -165,12 +181,7 @@ export default class Contact extends React.Component {
               <label>
                 Phone - <Optional>Optional</Optional>
                 <br />
-                <input
-                  type="phone"
-                  name="phone"
-                  required
-                  onChange={this.handleChange}
-                />
+                <input type="phone" name="phone" onChange={this.handleChange} />
               </label>
             </Inputfield>
             <Inputfield>

@@ -24,7 +24,7 @@ const HeaderDesktopImage = styled(Link)`
   }
 `;
 
-const HeaderMobileImage = styled(Link)`
+const HeaderMobileImage = styled.div`
   height: 100%;
   display: block;
   text-align: center;
@@ -188,8 +188,10 @@ export class Header extends Component {
             onClick={this.onMobileNavClick}
             open={this.state.mobileNavOpen}
           />
-          <HeaderMobileImage to="/" onClick={this.onNavClick}>
-            <img src={mobileLogo} alt="Pride of the Meadows logo" />
+          <HeaderMobileImage>
+            <Link to="/" onClick={this.onNavClick}>
+              <img src={mobileLogo} alt="Pride of the Meadows logo" />
+            </Link>
           </HeaderMobileImage>
         </MobileNavContainer>
         <MainNav open={this.state.mobileNavOpen}>
