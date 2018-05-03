@@ -50,7 +50,7 @@ const TemplateWrapper = ({ children, data, location }) => (
       >
         <Header data={data} location={location} />
         <ContentWrapper>{children()}</ContentWrapper>
-        <Footer />
+        <Footer location={location.pathname} />
       </div>
     </div>
   </ThemeProvider>

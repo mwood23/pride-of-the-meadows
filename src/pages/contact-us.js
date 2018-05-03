@@ -20,7 +20,9 @@ const FormWrapper = styled.div`
     margin-bottom: 0;
   }
 `;
-const Inputfield = styled.p`
+const Inputfield = styled.div`
+  margin-bottom: 1rem;
+
   label {
     line-height: 2;
     color: #333333;
