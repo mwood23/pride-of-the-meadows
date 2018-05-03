@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../../shared/blocks/Container';
 import { media } from '../../utils/theme';
-import Button from '../../shared/elements/Button';
+import FancyButton from '../../shared/elements/FancyButton';
 
 import brandmark from '../../images/POTM-Brandmark.png';
 
@@ -29,16 +29,6 @@ const CopyrightSection = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 `;
 
-const CtaButton = Button.extend`
-  background-color: #66bd4d;
-  color: white;
-  letter-spacing: 1.5px;
-
-  &:hover {
-    background-color: #338a1a;
-  }
-`;
-
 const Footer = () => {
   return (
     <FooterWrapper>
@@ -55,7 +45,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <CtaButton>Visit Wood's Produce</CtaButton>
+          <FancyButton>Visit Wood's Produce</FancyButton>
         </a>
       </FooterContainer>
       <CopyrightSection>

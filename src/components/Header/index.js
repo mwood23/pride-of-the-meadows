@@ -200,13 +200,13 @@ export class Header extends Component {
               </Link>
             </li>
             <li>
-              <Link to="/about" onClick={this.onNavClick}>
-                ABOUT
+              <Link to="/products" onClick={this.onNavClick}>
+                PRODUCTS
               </Link>
             </li>
             <li>
-              <Link to="/about" onClick={this.onNavClick}>
-                RECIPES
+              <Link to="/contact-us" onClick={this.onNavClick}>
+                CONTACT
               </Link>
             </li>
           </ul>
