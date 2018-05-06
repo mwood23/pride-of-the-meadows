@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
-import FancyFont from '../../../shared/elements/FancyFont';
-import Button from '../../../shared/elements/Button'; 
-import { Container } from '../../../shared/blocks/Container';
-import FeatureBox from '../../../shared/elements/FeatureBox';
-import { media } from '../../../utils/theme';
+import FancyFont from '../../shared/elements/FancyFont';
+import Button from '../../shared/elements/Button'; 
+import { Container } from '../../shared/blocks/Container';
+import FeatureBox from '../../shared/elements/FeatureBox';
+import { media } from '../../utils/theme';
 
 const ProductTitle = styled.div`
   display: inline-block;

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { ContainerFluid } from '../shared/blocks/Container';
 import BorderImageSectionOne from '../../public/assets/carrots-food-fresh.jpg';
 import BorderImageSectionTwo from '../../public/assets/cauliflower-food-fresh.jpg';
-import ProductImageAndMetadata from './components/ProductImageAndMetadata';
-import ImageBorderBoxSectionOne from './components/ImageBorderBoxSectionOne';
-import ImageBorderBoxSectionTwo from './components/ImageBorderBoxSectionTwo';
+import ProductImageAndMetadata from '../components/ProductImageAndMetadata';
+import ImageBorderBoxSectionOne from '../components/ImageBorderBoxSectionOne';
+import ImageBorderBoxSectionTwo from '../components/ImageBorderBoxSectionTwo';
 import NutritionReceiptImage from '../../public/assets/POTMJalapenos.png';
 
 export default class ProductsPage extends Component {

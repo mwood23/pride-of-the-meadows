@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../../utils/theme';
+import { media } from '../../utils/theme';
 
 const ImageContainer = styled.div`
   position: relative;
@@ -8,18 +8,19 @@ const ImageContainer = styled.div`
   img {
     width: 100%
   }
-  ${media.forSmallMediumOnly`
-    flex-direction: column;
+  ${media.forSmallOnly`
     height: 1000px;
     width: 100%;
     font-size: 28px;
     justify-content:center;
     line-height: 35px
+    img {
+      height: 1000px;
+    }
   `}
 `
 
 const NoOverflow = styled.div`
-  height: 500px;
   background-color: ${ props => props.backgroundColor || '' };
 	z-index:5;
   overflow: hidden;
@@ -27,8 +28,8 @@ const NoOverflow = styled.div`
 		position: relative;
 		z-index: -10;
 	}
-  ${media.forSmallMediumOnly`
-    height: 100%;
+  ${media.forSmallOnly`
+    height: 1000px;
     width: 100%;
     font-size: 28px;
     justify-content:center;
@@ -47,34 +48,41 @@ const InfoContainer = styled.div`
   width: ${props => `calc( 100% - ${props.padding * 2 }px)`};
   height: ${props => `calc( 100% - ${props.padding * 2 }px)`};
   background-color: #fff;
-  ${media.forSmallMediumOnly`
-    height: 400px;
-    position: static;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    font-size: 28px;
-    justify-content:center;
-    line-height: 35px
+  ${media.forSmallOnly`
+    height: 960px;
+    position: absolute;
+    display: flex;
+    align-items:flex-end;
+    padding: 50px;
+    z-index: 10;
+    top: ${props => props.padding}px;
+    left: ${props => props.padding}px;
+    width: ${props => `calc( 100% - ${props.padding * 2 }px)`};
+    background-color: #fff;
   `}
 `
 
 const NutritionReceipt = styled.div`
   position: absolute;
   z-index: 20;
-  left: 100px
+  left: 35px
   top: -40px;
   background-color: #fff;
-  width: 360px;
+  width: 340px;
   height: 573px;
   overflow:visible;
   padding:40px;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   img {
+
     width: 100%
   }
+  ${media.forSmallOnly`
+		img {
+      width: 340px
+      height: 500px
+			}
+	`}
 `
 
 const InfoBoxWithImageBorder = (props) => (

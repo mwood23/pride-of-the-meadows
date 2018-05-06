@@ -1,7 +1,7 @@
 import React from 'react'
-import { SectionContainer } from '../../../shared/blocks/Container';
+import { SectionContainer } from '../../shared/blocks/Container';
 import InfoBoxWithImageBorder from '../InfoBoxWithImageBorder';
-import Content from './components/Content';
+import Content from './Content';
 
 const ImageBorderBoxSectionTwo = props => (
   <SectionContainer>

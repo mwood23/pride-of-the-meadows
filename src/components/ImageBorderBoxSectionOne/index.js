@@ -1,7 +1,19 @@
 import React from 'react';
-import { SectionContainer } from '../../../shared/blocks/Container';
 import InfoBoxWithImageBorder from '../InfoBoxWithImageBorder';
-import Content from './components/Content';
+import Content from './Content';
+import styled from 'styled-components';
+import { media } from '../../utils/theme';
+
+const SectionContainer = styled.div`
+  height: calc(100vh - 80px);
+  width: 100%;
+  padding: 15px 0
+
+  ${media.forSmallOnly`
+    height: 1500px;
+  `}
+  
+`
 
 const ImageBorderBoxSectionOne = props => (
   <SectionContainer style={{ padding: '0 36px' }}>

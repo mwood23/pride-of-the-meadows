@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../../../shared/elements/Button';
+import Button from '../../shared/elements/Button';
 import styled from 'styled-components';
 
 const CopyInfo = styled.div`
