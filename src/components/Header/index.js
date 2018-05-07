@@ -23,7 +23,7 @@ const HeaderDesktopImage = styled(Link)`
   }
 `;
 
-const HeaderMobileImage = styled(Link)`
+const HeaderMobileImage = styled.div`
   height: 100%;
   display: block;
   text-align: center;
@@ -187,8 +187,10 @@ export class Header extends Component {
             onClick={this.onMobileNavClick}
             open={this.state.mobileNavOpen}
           />
-          <HeaderMobileImage to="/" onClick={this.onNavClick}>
-            <img src={mobileLogo} alt="Pride of the Meadows logo" />
+          <HeaderMobileImage>
+            <Link to="/" onClick={this.onNavClick}>
+              <img src={mobileLogo} alt="Pride of the Meadows logo" />
+            </Link>
           </HeaderMobileImage>
         </MobileNavContainer>
         <MainNav open={this.state.mobileNavOpen}>
@@ -199,16 +201,13 @@ export class Header extends Component {
               </Link>
             </li>
             <li>
-              <Link to="/products/jalapeno">PRODUCTS</Link>
-            </li>
-            <li>
-              <Link to="/about" onClick={this.onNavClick}>
-                ABOUT
+              <Link to="/products" onClick={this.onNavClick}>
+                PRODUCTS
               </Link>
             </li>
             <li>
-              <Link to="/about" onClick={this.onNavClick}>
-                RECIPES
+              <Link to="/contact-us" onClick={this.onNavClick}>
+                CONTACT
               </Link>
             </li>
           </ul>
