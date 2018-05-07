@@ -8,6 +8,7 @@ const FancyFont = styled.span`
 
   ${media.forSmallMediumOnly`
     font-size: 50px;
+    width: 100%;
   `};
 
   ${media.forSmallOnly`

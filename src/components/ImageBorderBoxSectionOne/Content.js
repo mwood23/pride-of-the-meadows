@@ -17,6 +17,9 @@ const SubHeading = styled.div`
   text-align: left;
   color: #333333;
   color: var(--blackish);
+  ${ media.forSmallMediumOnly`
+    width: 100%;
+  `}
 `
 
 const ProductTitle = styled.div`
@@ -25,6 +28,9 @@ const ProductTitle = styled.div`
 	font-family: 'Montserrat';
   line-height: 0.65;
 	font-size: 46px;
+  ${ media.forSmallMediumOnly`
+    width: 100%;
+  `}
 `
 
 const CopyInfo = styled.div`
@@ -39,12 +45,18 @@ const CopyInfo = styled.div`
   letter-spacing: 0.1px;
   text-align: left;
   color: #666666;
+  ${ media.forSmallMediumOnly`
+    width: 100%;
+  `}
 `
 
 const ContentContainer = styled.div`
+  width: calc(100% - 400px);
+  display: flex;
   flex-direction: column;
-  width: calc(100%-500px);
-  ${ media.forSmallOnly`
+  justify-content: flex-end;
+  ${ media.forSmallMediumOnly`
+    flex-direction: column;
     align-items: flex-end;
     width: 100%;
   `}

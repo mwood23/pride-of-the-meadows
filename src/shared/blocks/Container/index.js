@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../../utils/theme';
 
 export const ContainerFluid = styled.div`
   width: 100%;

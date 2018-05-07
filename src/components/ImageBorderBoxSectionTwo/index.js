@@ -4,7 +4,7 @@ import InfoBoxWithImageBorder from '../InfoBoxWithImageBorder';
 import Content from './Content';
 
 const ImageBorderBoxSectionTwo = props => (
-  <SectionContainer>
+  <SectionContainer style={{ marginTop: '250px', marginBottom: '250px' }}>
     <InfoBoxWithImageBorder 
       borderImage={ props.borderImage }
       backgroundColor={ props.backgroundColor }

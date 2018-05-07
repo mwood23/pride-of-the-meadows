@@ -8,7 +8,7 @@ const ImageContainer = styled.div`
   img {
     width: 100%
   }
-  ${media.forSmallOnly`
+  ${media.forSmallMediumOnly`
     height: 1000px;
     width: 100%;
     font-size: 28px;
@@ -24,11 +24,12 @@ const NoOverflow = styled.div`
   background-color: ${ props => props.backgroundColor || '' };
 	z-index:5;
   overflow: hidden;
+  height: 500px;
 	img {
 		position: relative;
 		z-index: -10;
 	}
-  ${media.forSmallOnly`
+  ${media.forSmallMediumOnly`
     height: 1000px;
     width: 100%;
     font-size: 28px;
@@ -48,8 +49,8 @@ const InfoContainer = styled.div`
   width: ${props => `calc( 100% - ${props.padding * 2 }px)`};
   height: ${props => `calc( 100% - ${props.padding * 2 }px)`};
   background-color: #fff;
-  ${media.forSmallOnly`
-    height: 960px;
+  ${media.forSmallMediumOnly`
+    height: ${ props => 1000 - ( props.padding * 2 ) }px;
     position: absolute;
     display: flex;
     align-items:flex-end;
@@ -65,7 +66,7 @@ const InfoContainer = styled.div`
 const NutritionReceipt = styled.div`
   position: absolute;
   z-index: 20;
-  left: 35px
+  left: 35px;
   top: -40px;
   background-color: #fff;
   width: 340px;
@@ -74,13 +75,14 @@ const NutritionReceipt = styled.div`
   padding:40px;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   img {
-
     width: 100%
   }
-  ${media.forSmallOnly`
+  ${media.forSmallMediumOnly`
+    left: calc(50vw - 450px / 2);
 		img {
-      width: 340px
-      height: 500px
+      width: 340px;
+      height: 500px;
+      margin: 0 auto;
 			}
 	`}
 `
