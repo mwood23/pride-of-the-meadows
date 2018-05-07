@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'gatsby-image';
 import { media } from '../../utils/theme';
-import badge from '../../images/POTM-Bubble.png';
+import badge from '../../images/POTM-Bubble-USA.svg';
 import ReactPlayer from 'react-player';
 
 const ComponentWrapper = styled.section`
@@ -34,7 +34,7 @@ const OverlayText = styled.h1`
   font-size: 65px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 50;
+  z-index: 20;
   text-align: center;
 `;
 

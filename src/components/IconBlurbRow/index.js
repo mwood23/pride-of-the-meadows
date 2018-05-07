@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Container } from '../../shared/blocks/Container';
 import { media } from '../../utils/theme';
 
-import badge from '../../images/POTM-Bubble.png';
+import badge from '../../images/POTM-Bubble-USA.svg';
 
 const IconBlurbWrapper = styled.section`
   background-color: #fbf9ec;
