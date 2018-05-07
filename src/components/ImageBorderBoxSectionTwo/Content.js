@@ -148,7 +148,7 @@ const Content = props => (
     <InnerContainer>
 			<FeaturedRecipe>Featured Recipe</FeaturedRecipe>
 			<RecipeName>{ props.recipeName }</RecipeName><br />
-			<RecipeTagline>RECIPES / { props.recipeDate }</RecipeTagline>
+			<RecipeTagline>RECIPES <span style={{ color: '#9b9b9b' }}>/ { props.recipeDate }</span></RecipeTagline>
 			<CopyInfo>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br /> Integer nec odio. Praesent libero. 
 			</CopyInfo>
       <ButtonContainer>

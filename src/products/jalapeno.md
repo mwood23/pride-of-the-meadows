@@ -5,7 +5,7 @@ recipeName: Jalapeno Poppers
 recipeDate: 24 JUN 2018
 tagline: crisp and savory
 date: '2018-04-16'
-image: https://i.imgur.com/MCSHxEi.jpg
+image: /assets/POTMJalapenos.jpg 
 alt: Deep fried Jalapeno Poppers
 featureOne: Hand-Picked for Quality
 featureTwo: Packed with Flavor
