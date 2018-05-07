@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ContainerFluid } from '../shared/blocks/Container';
-import ProductImageAndMetadata from '../components/ProductImageAndMetadata';
+import ProductImageAndMetaData from '../components/ProductImageAndMetaData';
 import ImageBorderBoxSectionOne from '../components/ImageBorderBoxSectionOne';
 import ImageBorderBoxSectionTwo from '../components/ImageBorderBoxSectionTwo';
 
@@ -14,7 +14,7 @@ export default class ProductsPage extends Component {
     if (!data) return null;
     return (
       <div>
-        <ProductImageAndMetadata 
+        <ProductImageAndMetaData 
           image={ data.markdownRemark.frontmatter.image }
           tagline={ data.markdownRemark.frontmatter.tagline }
           featureOne={ data.markdownRemark.frontmatter.featureOne }
