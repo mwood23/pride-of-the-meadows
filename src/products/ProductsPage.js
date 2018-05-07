@@ -4,9 +4,9 @@ import ProductImageAndMetadata from '../components/ProductImageAndMetadata';
 import ImageBorderBoxSectionOne from '../components/ImageBorderBoxSectionOne';
 import ImageBorderBoxSectionTwo from '../components/ImageBorderBoxSectionTwo';
 
-import NutritionReceiptImage from '/assets/POTMJalapenos.png';
-import BorderImageSectionOne from '/assets/carrots-food-fresh.jpg';
-import BorderImageSectionTwo from '/assets/cauliflower-food-fresh.jpg';
+import NutritionReceiptImage from '../../static/assets/POTMJalapenos.png';
+import BorderImageSectionOne from '../../static/assets/carrots-food-fresh.jpg';
+import BorderImageSectionTwo from '../../static/assets/cauliflower-food-fresh.jpg';
 
 export default class ProductsPage extends Component {
   render() {
