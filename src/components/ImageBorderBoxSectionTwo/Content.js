@@ -65,7 +65,7 @@ const RecipeTagline = styled.div`
   font-size: 13px;
   line-height: 20px;
   letter-spacing: 1.5px;
-  font-family: 'Montserrat'
+  font-family: 'Montserrat';
   ${ media.forSmallMediumOnly`
     width: 100%;
     text-align: center;
@@ -86,7 +86,7 @@ const ImageContainer = styled.div`
     width: calc(100vw - 160px);
 		img {
       width: calc(100vw - 80px);
-      height: 500px;
+      height: 300px;
       margin: 0 auto;
 		}
 	`}
@@ -128,7 +128,7 @@ const ContentContainer = styled.div`
  ${ media.forSmallMediumOnly`
   justify-content: flex-end;
   flex-direction: column;
-  height: calc( 100% - 500px );
+  height: 400px; 
   width: 100%;
  `}
 `

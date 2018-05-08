@@ -7,10 +7,11 @@ import { media } from '../../utils/theme';
 const SectionContainer = styled.div`
   height: calc(100vh - 80px);
   width: 100%;
-  padding: 15px 0
-
-  ${media.forSmallOnly`
-    height: 1500px;
+  padding: 15px 0;
+  margin-top: 150px;
+  ${media.forSmallMediumOnly`
+    height: 1000px;
+    marginBottom: 100px;
   `}
   
 `
