@@ -1,60 +1,86 @@
 import React, { Component } from 'react';
-import { ContainerFluid } from '../shared/blocks/Container';
+import { Container } from '../shared/blocks/Container';
 import ProductImageAndMetaData from '../components/ProductImageAndMetaData';
 import ImageBorderBoxSectionOne from '../components/ImageBorderBoxSectionOne';
 import ImageBorderBoxSectionTwo from '../components/ImageBorderBoxSectionTwo';
 
-import NutritionReceiptImage from '../../static/assets/POTMJalapenos.png';
-import BorderImageSectionOne from '../../static/assets/carrots-food-fresh.jpg';
-import BorderImageSectionTwo from '../../static/assets/cauliflower-food-fresh.jpg';
-
 export default class ProductsPage extends Component {
   render() {
     const { data } = this.props;
+
+    console.log(data);
     if (!data) return null;
     return (
       <div>
-        <ProductImageAndMetaData 
-          image={ data.markdownRemark.frontmatter.image }
-          tagline={ data.markdownRemark.frontmatter.tagline }
-          featureOne={ data.markdownRemark.frontmatter.featureOne }
-          featureTwo={ data.markdownRemark.frontmatter.featureTwo }
-          featureThree={ data.markdownRemark.frontmatter.featureThree }
-          productName={ data.markdownRemark.frontmatter.productName }
+        <ProductImageAndMetaData
+          image={data.markdownRemark.frontmatter.image}
+          tagline={data.markdownRemark.frontmatter.tagline}
+          featureOne={data.markdownRemark.frontmatter.featureOne}
+          featureTwo={data.markdownRemark.frontmatter.featureTwo}
+          featureThree={data.markdownRemark.frontmatter.featureThree}
+          productName={data.markdownRemark.frontmatter.productName}
         />
-        <ContainerFluid>
-          <ImageBorderBoxSectionOne 
-            nutritionReceiptImage={ NutritionReceiptImage }
-            productName={ data.markdownRemark.frontmatter.productName }
-            tagline={ data.markdownRemark.frontmatter.tagline }
-            padding={20}
-            borderImage={ BorderImageSectionOne }/>
-          <ImageBorderBoxSectionTwo 
-            recipeName={ data.markdownRemark.frontmatter.recipeName }
-            recipeDate={ data.markdownRemark.frontmatter.recipeDate }
-            borderImage={ BorderImageSectionTwo }
-            padding={65}
-            backgroundColor='rgba(103, 190, 77, 0.6)' />
-        </ContainerFluid>
+        <Container>
+          <ImageBorderBoxSectionOne
+            nutritionReceiptImage={
+              data.markdownRemark.frontmatter.nutritionFacts
+            }
+            productName={data.markdownRemark.frontmatter.productName}
+            productDescription={
+              data.markdownRemark.frontmatter.productDescription
+            }
+            tagline={data.markdownRemark.frontmatter.tagline}
+            borderImage={data.infoBoxBorder}
+          />
+        </Container>
+        <ImageBorderBoxSectionTwo
+          recipeName={data.markdownRemark.frontmatter.recipeName}
+          recipeDate={data.markdownRemark.frontmatter.recipeDate}
+          recipeDescription={data.markdownRemark.frontmatter.recipeDescription}
+          recipeLink={data.markdownRemark.frontmatter.recipeLink}
+          recipeTag={data.markdownRemark.frontmatter.recipeTag}
+          backgroundImage={data.featuredRecipe}
+          recipeImage={data.markdownRemark.frontmatter.recipeImage}
+        />
       </div>
     );
-  };
-};
+  }
+}
 
 export const query = graphql`
   query ProductsPostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        featureOne
-        featureTwo
-        featureThree
         productName
         recipeName
         recipeDate
+        recipeImage
+        recipeLink
+        recipeDescription
+        recipeTag
+        nutritionFacts
         tagline
-        date(formatString: "MMMM DD YYYY")
         image
+        alt
+        featureOne
+        featureTwo
+        featureThree
+        tag
+        productDescription
+        date(formatString: "MMMM DD YYYY")
+      }
+    }
+
+    infoBoxBorder: imageSharp(id: { regex: "/carrots-food-fresh.jpg/" }) {
+      sizes(maxWidth: 1800) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+
+    featuredRecipe: imageSharp(id: { regex: "/cauliflower-food-fresh.jpg/" }) {
+      sizes(maxWidth: 1800) {
+        ...GatsbyImageSharpSizes
       }
     }
   }

@@ -117,7 +117,6 @@ const VideoHero = ({ mobileHeroImage }) => (
             width="100%"
             height="initial"
             controls={false}
-            onStart={e => console.log('on start')}
             config={{ attributes: { autoPlay: true } }}
           />
         </VideoContainer>

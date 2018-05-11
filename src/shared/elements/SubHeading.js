@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { media } from '../../utils/theme';
 
 const Heading = styled.span`
-  height: 26px;
   font-family: Montserrat;
   letter-spacing: 3.2px;
   text-align: ${props => {
@@ -11,8 +11,7 @@ const Heading = styled.span`
 
     return 'center';
   }};
-  margin-bottom: 0.5rem;
-  display: block;
+  display: inline;
   text-transform: uppercase;
   color: ${props => props.theme.defaultHeaderColor};
 `;

@@ -4,9 +4,10 @@ import { media } from '../../utils/theme';
 import ReactSwipe from 'react-swipe';
 import { Container } from '../../shared/blocks/Container';
 import FancyFont from '../../shared/elements/FancyFont';
-import Heading from '../../shared/elements/Heading';
+import SubHeading from '../../shared/elements/SubHeading';
 import Button from '../../shared/elements/Button';
 import Link from 'gatsby-link';
+import FancyTextCollectionOneLine from '../../shared/elements/FancyTextCollectionOneLine';
 
 const SwipeWrapper = styled.div`
   position: relative;
@@ -51,21 +52,6 @@ const ImageContainer = styled.div`
 
   ${media.forSmallOnly`
     width: 100%;
-  `};
-`;
-
-const ProductName = styled.span`
-  font-family: 'Montserrat';
-  font-size: 40px;
-  margin-left: 10px;
-  color: ${props => props.theme.defaultHeaderColor};
-
-  ${media.forSmallMediumOnly`
-    font-size: 36px;
-  `};
-
-  ${media.forSmallOnly`
-    font-size: 30px;
   `};
 `;
 
@@ -162,9 +148,8 @@ export default class ProductCarousel extends Component {
           {testProducts.map((product, index) => (
             <TextImageRowWrapper key={product.name}>
               <TextContainer>
-                <Heading leftAlign>{product.tagline}</Heading>
-                <FancyFont>Just</FancyFont>
-                <ProductName>{product.name}</ProductName>
+                <SubHeading leftAlign>{product.tagline}</SubHeading>
+                <FancyTextCollectionOneLine titleFont={product.name} />
                 <p>{product.intro_blurb}</p>
                 <Link to={product.link}>
                   <Button>Learn more</Button>

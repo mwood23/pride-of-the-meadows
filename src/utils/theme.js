@@ -38,6 +38,7 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 
 export const theme = {
   potmGreen: '#7ed321',
+  potmWhite: '#ffffff',
   defaultFontColor: '#666667',
   defaultHeaderColor: '#333333',
   desktopHeaderHeight: '80px',

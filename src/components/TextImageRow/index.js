@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../../shared/blocks/Container';
 import { media } from '../../utils/theme';
-import Heading from '../../shared/elements/Heading';
+import SubHeading from '../../shared/elements/SubHeading';
 import FancyFont from '../../shared/elements/FancyFont';
 import placeholder from '../../images/placeholder.jpeg';
 import Button from '../../shared/elements/Button';
@@ -32,7 +32,7 @@ const TextImageRow = () => {
   return (
     <TextImageRowWrapper>
       <TextContainer>
-        <Heading leftAlign>Crisp and Savory</Heading>
+        <SubHeading leftAlign>Crisp and Savory</SubHeading>
         <FancyFont>Just</FancyFont>
         <span
           style={{
