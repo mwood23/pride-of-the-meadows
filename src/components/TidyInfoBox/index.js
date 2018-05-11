@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../../shared/blocks/Container';
 import { media } from '../../utils/theme';
-import Heading from '../../shared/elements/Heading';
+import SubHeading from '../../shared/elements/SubHeading';
 
 const TidyInfoBoxWrapper = Container.extend`
   display: flex;
@@ -30,7 +30,7 @@ const TidyInfoBox = () => {
   return (
     <TidyInfoBoxWrapper>
       <TidyInfoBoxContainer>
-        <Heading>Pride of the Meadows</Heading>
+        <SubHeading>Pride of the Meadows</SubHeading>
         <h2 style={{ fontSize: '40px' }}>About Us</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

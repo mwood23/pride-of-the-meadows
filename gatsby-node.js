@@ -53,6 +53,16 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           });
         }
 
+        if (node.fields.slug.includes('/products/')) {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve('./src/products/ProductsPage.js'),
+            context: {
+              slug: node.fields.slug
+            }
+          });
+        }
+
         if (node.fields.slug.includes('/recipes/')) {
           createPage({
             path: node.fields.slug,

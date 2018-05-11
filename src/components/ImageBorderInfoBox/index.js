@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../../shared/blocks/Container';
-import Heading from '../../shared/elements/Heading';
+import { media } from '../../utils/theme';
 import Image from 'gatsby-image';
-
-const ImageWrapper = styled.div``;
 
 const TidyInfoBoxWrapper = Container.extend`
   display: flex;
@@ -13,6 +11,25 @@ const TidyInfoBoxWrapper = Container.extend`
   padding: 15px;
   position: relative;
   margin: 4rem auto;
+
+  &.nutritionStyle {
+    margin-top: calc(85px + 4rem);
+
+    @media (min-width: 768px) {
+      /* max-width: 720px; */
+      margin-top: 4rem;
+      height: 460px;
+    }
+
+    @media (min-width: 992px) {
+      height: 500px;
+    }
+  }
+`;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
 `;
 
 const ImageBorderInfoBoxContainer = Container.extend`
@@ -20,12 +37,30 @@ const ImageBorderInfoBoxContainer = Container.extend`
   padding: 3rem;
   background-color: white;
   position: relative;
-  position: 20;
+  width: 100%;
+  height: 100%;
+
+  &.nutritionStyle {
+    display: flex;
+    align-items: center;
+
+    ${media.forSmallOnly`
+      padding: 3rem 1rem 1rem;
+    `};
+  }
 `;
 
-const ImageBorderInfoBox = ({ borderImage }) => {
+const ImageBorderInfoBox = ({
+  borderImage,
+  children,
+  style,
+  nutritionStyle
+}) => {
   return (
-    <TidyInfoBoxWrapper>
+    <TidyInfoBoxWrapper
+      style={style}
+      className={`${nutritionStyle ? 'nutritionStyle' : ''}`}
+    >
       <ImageWrapper>
         <Image
           sizes={borderImage.sizes}
@@ -37,28 +72,10 @@ const ImageBorderInfoBox = ({ borderImage }) => {
             height: '100%'
           }}
         />
-        <ImageBorderInfoBoxContainer>
-          <Heading>Pride of the Meadows</Heading>
-          <h2 style={{ fontSize: '40px' }}>About Us</h2>
-          <p>
-            <span style={{ color: 'red' }}>
-              Local tastes better. (make this our tagline?)
-            </span>{' '}
-            We work with farmers local to your area to source the freshest
-            product possible, package it in our food safe facility, and send it
-            to grocers near you. All of our products are:
-            <span style={{ color: 'red' }}>
-              Non-GMO?, Hand picked?, Gluten free?, From farm to store in 72
-              hours?, Cold from source to your door?
-            </span>
-          </p>
-          <p>
-            You can find Pride of the Meadows branded fruits and vegetables in
-            Virginia and North Carolina right now at Food Lions and independent
-            grocery stores. If we're not in your area yet please{' '}
-            <span style={{ color: 'red' }}>contact us </span>
-            and we'll see what we can do!
-          </p>
+        <ImageBorderInfoBoxContainer
+          className={`${nutritionStyle ? 'nutritionStyle' : ''}`}
+        >
+          {children}
         </ImageBorderInfoBoxContainer>
       </ImageWrapper>
     </TidyInfoBoxWrapper>

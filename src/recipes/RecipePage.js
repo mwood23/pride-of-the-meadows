@@ -76,8 +76,6 @@ export default class PostPage extends Component {
       images = data.caprese;
     }
 
-    console.log(images);
-
     return (
       <RecipePageWrapper>
         <RecipeWrapper>
@@ -130,6 +128,7 @@ export const query = graphql`
         yield
         product_tag
         date(formatString: "MMMM DD YYYY")
+        image
       }
     }
 

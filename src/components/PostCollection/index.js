@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Container } from '../../shared/blocks/Container';
 import { media } from '../../utils/theme';
 import Image from 'gatsby-image';
+import H2 from '../../shared/elements/H2';
+import PostTagDateRow from '../../shared/elements/PostTagDateRow';
 
 const PostCollectionWrapper = styled.section`
   position: relative;
@@ -44,19 +46,6 @@ const PostBlurb = styled.a`
   }
 `;
 
-const PostCollectionHeader = styled.h2`
-  font-family: Montserrat;
-  font-size: 46px;
-
-  ${media.forSmallMediumOnly`
-    font-size: 38px;
-  `};
-
-  ${media.forSmallOnly`
-    font-size: 32px;
-  `};
-`;
-
 const PostCollectionInfo = styled.p`
   font-family: Montserrat;
   font-size: 24px;
@@ -83,20 +72,6 @@ const PostHeading = styled.h3`
 const PostTextSection = styled.div`
   padding: 1rem;
 `;
-const PostTagDateRow = styled.div`
-  margin-bottom: 0.75rem;
-  font-family: Montserrat;
-  font-size: 0.9rem;
-
-  span:first-child {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  span:last-child {
-    color: #9b9b9b;
-  }
-`;
 
 const PostCollection = ({ backgroundImage, posts }) => {
   return (
@@ -112,7 +87,7 @@ const PostCollection = ({ backgroundImage, posts }) => {
         }}
       />
       <PostCollectionContainer>
-        <PostCollectionHeader>Recipes from our Collection</PostCollectionHeader>
+        <H2>Recipes from our Collection</H2>
         <PostCollectionInfo>
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
           dolore eu fugiat nulla pariatur.
@@ -127,10 +102,10 @@ const PostCollection = ({ backgroundImage, posts }) => {
               />
               <PostTextSection>
                 <PostHeading>{post.node.frontmatter.title}</PostHeading>
-                <PostTagDateRow>
-                  <span>{post.node.frontmatter.tag} </span>
-                  <span>/ {post.node.frontmatter.date}</span>
-                </PostTagDateRow>
+                <PostTagDateRow
+                  textOne={post.node.frontmatter.tag}
+                  textTwo={post.node.frontmatter.date}
+                />
                 <p>{post.node.excerpt}&hellip;</p>
               </PostTextSection>
             </PostBlurb>
