@@ -85,6 +85,7 @@ export const query = graphql`
           featureOne
           featureTwo
           featureThree
+          productDescription
           fields {
             slug
           }

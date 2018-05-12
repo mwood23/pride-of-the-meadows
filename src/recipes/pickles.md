@@ -1,13 +1,12 @@
 ---
 title: Grandma's Pickles
-id: Pickles
+product: Pickles
 date: '2018-04-17'
 tag: Recipes
 time_to_make: 6 hrs
 product_tag: pickles
 image: /assets/pickles.jpg
 alt: Pickles in jar
-product: Test
 yield: 20 poppers
 ---
 

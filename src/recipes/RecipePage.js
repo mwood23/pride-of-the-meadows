@@ -73,6 +73,19 @@ const RecipeInfo = styled.div`
   font-family: Montserrat;
   margin: 1rem 0;
 
+  ${media.forSmallOnly`
+    flex-direction: column;
+
+    span,
+    a {
+      margin-bottom: 0.5rem;
+    }
+
+    svg {
+      display: none;
+    }
+  `};
+
   span,
   a {
     color: #9b9b9b;

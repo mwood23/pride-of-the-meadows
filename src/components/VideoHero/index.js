@@ -65,14 +65,14 @@ const BadgeImage = styled.div`
     display: block;
     position: absolute;
     right: 10%;
-    width: 25%;
+    width: 20%;
     bottom: -20px;
     z-index: 10;
   `}
 
   // prettier-ignore
   ${media.forSmallOnly`
-    width: 37%;
+    width: 150px;
     right: 5%;
   `}
 
