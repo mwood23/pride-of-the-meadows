@@ -171,32 +171,29 @@ export default class RecipePage extends Component {
         <svg width="40" height="600">
           <line x1="20" y1="600" x2="20" y2="0" stroke="#e9e9e9" />
         </svg>
-        {data.markdownRemark.frontmatter.product &&
-        data.markdownRemark.frontmatter.product.image ? (
-          <FeaturedProductWrapper>
-            <ProductImage
-              src={data.markdownRemark.frontmatter.product.image}
-              alt={data.markdownRemark.frontmatter.product.id}
+        <FeaturedProductWrapper>
+          <ProductImage
+            src={data.markdownRemark.frontmatter.product.image}
+            alt={data.markdownRemark.frontmatter.product.id}
+          />
+          <FeaturedProductContentContainer>
+            <FancyTextCollection
+              recipeStyle
+              titleFont={data.markdownRemark.frontmatter.product.id}
             />
-            <FeaturedProductContentContainer>
-              <FancyTextCollection
-                recipeStyle
-                titleFont={data.markdownRemark.frontmatter.product.id}
-              />
-              <SubHeading>
-                {data.markdownRemark.frontmatter.product.tagline}
-              </SubHeading>
-              <FeatureBox
-                featureOne={data.markdownRemark.frontmatter.product.featureOne}
-                featureTwo={data.markdownRemark.frontmatter.product.featureTwo}
-                featureThree={
-                  data.markdownRemark.frontmatter.product.featureThree
-                }
-              />
-              <LearnMoreButton>Learn more</LearnMoreButton>
-            </FeaturedProductContentContainer>
-          </FeaturedProductWrapper>
-        ) : null}
+            <SubHeading>
+              {data.markdownRemark.frontmatter.product.tagline}
+            </SubHeading>
+            <FeatureBox
+              featureOne={data.markdownRemark.frontmatter.product.featureOne}
+              featureTwo={data.markdownRemark.frontmatter.product.featureTwo}
+              featureThree={
+                data.markdownRemark.frontmatter.product.featureThree
+              }
+            />
+            <LearnMoreButton>Learn more</LearnMoreButton>
+          </FeaturedProductContentContainer>
+        </FeaturedProductWrapper>
       </RecipePageWrapper>
     );
   }
