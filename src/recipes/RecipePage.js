@@ -2,16 +2,41 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Image from 'gatsby-image';
 import { Container } from '../shared/blocks/Container';
+import FancyTextCollection from '../shared/elements/FancyTextCollection';
+import SubHeading from '../shared/elements/SubHeading';
+import FeatureBox from '../shared/elements/FeatureBox';
+import FancyButton from '../shared/elements/FancyButton';
+import { media } from '../utils/theme';
 
 const RecipePageWrapper = Container.extend`
   display: flex;
   margin-top: 3rem;
+
+  > svg {
+    margin: 0 1rem;
+  }
+
+  ${media.forSmallMediumOnly`
+    flex-direction: column;
+
+    > svg {
+      display: none;
+      margin: 0 1rem;
+    }
+  `};
+
+  ${media.forSmallOnly`
+    margin-top: calc(${props => props.theme.mobileHeaderHeight} + 2rem)
+  `};
 `;
 
 const RecipeWrapper = styled.div`
   position: relative;
   width: 70%;
-  margin-right: 1rem;
+
+  ${media.forSmallMediumOnly`
+    width: 100%;
+  `};
 
   h1 {
     margin: 2.5rem 0 0 0;
@@ -20,9 +45,24 @@ const RecipeWrapper = styled.div`
 const FeaturedProductWrapper = styled.div`
   flex: 1;
 
-  img {
-    object-fit: contain;
+  ${media.forSmallMediumOnly`
+    display: flex;
+    margin-top: 3rem;
+    width: 100%;
+  `};
+
+  ${media.forSmallOnly`
+    margin-top: 1rem;
+  `};
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
   }
+`;
+
+const ProductImage = styled.img`
+  object-fit: contain;
 `;
 
 const RecipeInfo = styled.div`
@@ -60,9 +100,22 @@ const MarkupContainer = styled.div`
   }
 `;
 
-export default class PostPage extends Component {
+const FeaturedProductContentContainer = styled.div`
+  ${media.forSmallOnly`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `};
+`;
+
+const LearnMoreButton = FancyButton.extend`
+  margin-top: 2rem;
+`;
+
+export default class RecipePage extends Component {
   render() {
     const { data } = this.props;
+    console.log(data);
     if (!data) return null;
 
     let images;
@@ -107,10 +160,27 @@ export default class PostPage extends Component {
         </svg>
 
         <FeaturedProductWrapper>
-          <img
-            src="https://media.istockphoto.com/photos/tomato-picture-id155157132"
-            alt="test"
+          <ProductImage
+            src={data.markdownRemark.frontmatter.product.image}
+            alt={data.markdownRemark.frontmatter.product.id}
           />
+          <FeaturedProductContentContainer>
+            <FancyTextCollection
+              recipeStyle
+              titleFont={data.markdownRemark.frontmatter.product.id}
+            />
+            <SubHeading>
+              {data.markdownRemark.frontmatter.product.tagline}
+            </SubHeading>
+            <FeatureBox
+              featureOne={data.markdownRemark.frontmatter.product.featureOne}
+              featureTwo={data.markdownRemark.frontmatter.product.featureTwo}
+              featureThree={
+                data.markdownRemark.frontmatter.product.featureThree
+              }
+            />
+            <LearnMoreButton>Learn more</LearnMoreButton>
+          </FeaturedProductContentContainer>
         </FeaturedProductWrapper>
       </RecipePageWrapper>
     );
@@ -129,6 +199,17 @@ export const query = graphql`
         product_tag
         date(formatString: "MMMM DD YYYY")
         image
+        product {
+          id
+          tagline
+          image
+          featureOne
+          featureTwo
+          featureThree
+          fields {
+            slug
+          }
+        }
       }
     }
 

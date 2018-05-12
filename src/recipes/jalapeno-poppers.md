@@ -1,5 +1,6 @@
 ---
 title: Jalapeno Poppers
+id: Jalapeno Peppers
 date: '2018-04-16'
 tag: Recipes
 time_to_make: 6 hrs

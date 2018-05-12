@@ -26,10 +26,37 @@ const FancyTextCollectionContainer = styled.div`
       margin-left: 5px;
     }
   `};
+
+  &.recipeStyle {
+    line-height: 0.5;
+
+    span {
+      font-size: 60px;
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+
+    ${media.forSmallOnly`
+      padding: 0 0 1rem;
+      text-align: center;
+
+      span {
+        font-size: 45px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+  `};
+  }
 `;
 
-const FancyTextCollection = ({ titleFont }) => (
-  <FancyTextCollectionContainer>
+const FancyTextCollection = ({ titleFont, recipeStyle }) => (
+  <FancyTextCollectionContainer
+    className={`${recipeStyle ? 'recipeStyle' : ''}`}
+  >
     <FancyFont>Just</FancyFont>
     <H2>{titleFont}</H2>
   </FancyTextCollectionContainer>

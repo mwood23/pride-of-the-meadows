@@ -16,6 +16,10 @@ const ProductContainer = Container.extend`
     flex-direction: column;
     align-items: center;
   }
+
+  ${media.forSmallOnly`
+    margin-top: calc(${props => props.theme.mobileHeaderHeight} + 2rem)
+  `};
 `;
 
 const ProductInfoContainer = styled.div`

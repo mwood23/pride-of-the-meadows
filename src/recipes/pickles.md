@@ -1,5 +1,6 @@
 ---
 title: Grandma's Pickles
+id: Pickles
 date: '2018-04-17'
 tag: Recipes
 time_to_make: 6 hrs
