@@ -76,31 +76,32 @@ export const query = graphql`
         }
       }
     }
-    products: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { slug: { regex: "/products/" } } }
-    ) {
+    products: allProductYaml {
       edges {
         node {
           id
-          frontmatter {
-            title
-            image
-            tagline
-            productDescription
-            product {
-              id
-              tagline
-              image
-              featureOne
-              featureTwo
-              featureThree
-            }
-          }
+          tagline
+          image
+          featureOne
+          featureTwo
+          featureThree
+          # frontmatter {
+          #   title
+          #   image
+          #   tagline
+          #   productDescription
+          #   product {
+          #     id
+          #     tagline
+          #     image
+          #     featureOne
+          #     featureTwo
+          #     featureThree
+          #   }
+          # }
           fields {
             slug
           }
-          excerpt
         }
       }
     }

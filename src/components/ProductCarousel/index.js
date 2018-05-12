@@ -150,24 +150,17 @@ export default class ProductCarousel extends Component {
           ref={reactSwipe => (this.reactSwipe = reactSwipe)}
         >
           {this.props.products.map((product, index) => (
-            <TextImageRowWrapper key={product.node.frontmatter.title}>
+            <TextImageRowWrapper key={product.node.id}>
               <TextContainer>
-                <SubHeading leftAlign>
-                  {product.node.frontmatter.product.tagline}
-                </SubHeading>
-                <FancyTextCollectionOneLine
-                  titleFont={product.node.frontmatter.product.id}
-                />
-                <p>{product.node.frontmatter.productDescription}</p>
+                <SubHeading leftAlign>{product.node.tagline}</SubHeading>
+                <FancyTextCollectionOneLine titleFont={product.node.id} />
+                <p>{product.node.productDescription}</p>
                 <Link to={product.node.fields.slug}>
                   <Button>Learn more</Button>
                 </Link>
               </TextContainer>
               <ImageContainer>
-                <img
-                  src={product.node.frontmatter.product.image}
-                  alt={product.node.frontmatter.id}
-                />
+                <img src={product.node.image} alt={product.node.id} />
               </ImageContainer>
             </TextImageRowWrapper>
           ))}

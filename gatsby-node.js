@@ -47,6 +47,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             }
           }
         }
+        allProductYaml {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
       }
     `).then(result => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
@@ -60,20 +69,22 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           });
         }
 
-        if (node.fields.slug.includes('/products/')) {
+        if (node.fields.slug.includes('/recipes/')) {
           createPage({
             path: node.fields.slug,
-            component: path.resolve('./src/products/ProductsPage.js'),
+            component: path.resolve('./src/recipes/RecipePage.js'),
             context: {
               slug: node.fields.slug
             }
           });
         }
+      });
 
-        if (node.fields.slug.includes('/recipes/')) {
+      result.data.allProductYaml.edges.forEach(({ node }) => {
+        if (node.fields.slug.includes('/products/')) {
           createPage({
             path: node.fields.slug,
-            component: path.resolve('./src/recipes/RecipePage.js'),
+            component: path.resolve('./src/pages/ProductsPage.js'),
             context: {
               slug: node.fields.slug
             }
