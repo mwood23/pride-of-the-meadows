@@ -35,7 +35,7 @@ const IndexPage = ({ data }) => {
           and we'll see what we can do!
         </p>
       </ImageBorderInfoBox>
-      <ProductCarousel />
+      <ProductCarousel products={data.products.edges} />
       <PostCollection
         backgroundImage={data.recipeBackground}
         posts={data.recipes.edges}
@@ -54,25 +54,6 @@ export const query = graphql`
         desc
       }
     }
-    # posts: allMarkdownRemark(
-    #   sort: { fields: [frontmatter___date], order: DESC }
-    #   filter: { fields: { slug: { regex: "/posts/" } } }
-    # ) {
-    #   edges {
-    #     node {
-    #       id
-    #       frontmatter {
-    #         title
-    #         date(formatString: "MMMM DD YYYY")
-    #       }
-    #       fields {
-    #         slug
-    #       }
-    #       html
-    #       excerpt
-    #     }
-    #   }
-    # }
     recipes: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { fields: { slug: { regex: "/recipes/" } } }
@@ -91,6 +72,27 @@ export const query = graphql`
             slug
           }
           html
+          excerpt
+        }
+      }
+    }
+    products: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { slug: { regex: "/products/" } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            productName
+            productDescription
+            image
+            tagline
+          }
+          fields {
+            slug
+          }
           excerpt
         }
       }

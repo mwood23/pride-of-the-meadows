@@ -13,6 +13,9 @@ const SwipeWrapper = styled.div`
   position: relative;
   margin: 0 3rem;
   padding: 0 4rem;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
 
   ${media.forSmallOnly`
     margin: 0 15px;
@@ -124,6 +127,7 @@ export default class ProductCarousel extends Component {
   }
 
   render() {
+    console.log(this.props.products);
     return (
       <SwipeWrapper>
         <PrevButton onClick={this.goToPrevious}>
@@ -145,18 +149,25 @@ export default class ProductCarousel extends Component {
           // }}
           ref={reactSwipe => (this.reactSwipe = reactSwipe)}
         >
-          {testProducts.map((product, index) => (
-            <TextImageRowWrapper key={product.name}>
+          {this.props.products.map((product, index) => (
+            <TextImageRowWrapper key={product.node.frontmatter.title}>
               <TextContainer>
-                <SubHeading leftAlign>{product.tagline}</SubHeading>
-                <FancyTextCollectionOneLine titleFont={product.name} />
-                <p>{product.intro_blurb}</p>
-                <Link to={product.link}>
+                <SubHeading leftAlign>
+                  {product.node.frontmatter.tagline}
+                </SubHeading>
+                <FancyTextCollectionOneLine
+                  titleFont={product.node.frontmatter.productName}
+                />
+                <p>{product.node.frontmatter.productDescription}</p>
+                <Link to={product.node.fields.slug}>
                   <Button>Learn more</Button>
                 </Link>
               </TextContainer>
               <ImageContainer>
-                <img src={product.image} alt={product.alt} />
+                <img
+                  src={product.node.frontmatter.image}
+                  alt={product.node.frontmatter.productName}
+                />
               </ImageContainer>
             </TextImageRowWrapper>
           ))}

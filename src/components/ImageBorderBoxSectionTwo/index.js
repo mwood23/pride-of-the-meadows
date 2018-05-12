@@ -56,6 +56,10 @@ const RecipeInfoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
+
+  h3 {
+    margin-bottom: 1rem;
+  }
 `;
 
 const BackgroundColor = styled.div`
@@ -70,8 +74,40 @@ const BackgroundColor = styled.div`
 const FeaturedRecipeContainer = styled.div`
   ${media.forSmallOnly`
       display: none;
-    `};
+  `};
 `;
+
+const OurRecipeButtonContainer = styled.div`
+  ${media.forSmallOnly`
+      display: none;
+  `};
+`;
+
+const FeaturedRecipe = ({
+  recipeImage,
+  recipeName,
+  recipeDescription,
+  recipeTag,
+  recipeDate,
+  recipeLink
+}) => (
+  <ContentWrapper>
+    <img src={recipeImage} alt={recipeName} />
+    <RecipeInfoContainer>
+      <FeaturedRecipeContainer>
+        <H2>Featured Recipe</H2>
+      </FeaturedRecipeContainer>
+      <h3>{recipeName}</h3>
+      <PostTagDateRow textOne={recipeTag} textTwo={recipeDate} />
+      <p>{recipeDescription}</p>
+      <OurRecipeButtonContainer>
+        <Link to={recipeLink}>
+          <Button>Our Recipe</Button>
+        </Link>
+      </OurRecipeButtonContainer>
+    </RecipeInfoContainer>
+  </ContentWrapper>
+);
 
 const ImageBorderBoxSectionTwo = ({
   recipeName,
@@ -94,23 +130,28 @@ const ImageBorderBoxSectionTwo = ({
       }}
     />
     <BackgroundColor />
-
-    <ContentWrapper>
-      <img src={recipeImage} alt={recipeName} />
-      <RecipeInfoContainer>
-        <FeaturedRecipeContainer>
-          <H2>Featured Recipe</H2>
-        </FeaturedRecipeContainer>
-        <h3>{recipeName}</h3>
-        <p>{recipeDescription}</p>
-        <PostTagDateRow textOne={recipeTag} textTwo={recipeDate} />
-        <div>
-          <Link to={recipeLink}>
-            <Button>Our Recipe</Button>
-          </Link>
-        </div>
-      </RecipeInfoContainer>
-    </ContentWrapper>
+    {typeof window !== 'undefined' &&
+    window.matchMedia('(min-width: 680px)').matches ? (
+      <FeaturedRecipe
+        recipeName={recipeName}
+        recipeDate={recipeDate}
+        recipeDescription={recipeDescription}
+        recipeLink={recipeLink}
+        recipeTag={recipeTag}
+        recipeImage={recipeImage}
+      />
+    ) : (
+      <Link to={recipeLink}>
+        <FeaturedRecipe
+          recipeName={recipeName}
+          recipeDate={recipeDate}
+          recipeDescription={recipeDescription}
+          recipeLink={recipeLink}
+          recipeTag={recipeTag}
+          recipeImage={recipeImage}
+        />
+      </Link>
+    )}
   </SectionContainer>
 );
 
