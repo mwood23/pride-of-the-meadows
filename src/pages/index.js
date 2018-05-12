@@ -85,10 +85,17 @@ export const query = graphql`
           id
           frontmatter {
             title
-            productName
-            productDescription
             image
             tagline
+            productDescription
+            product {
+              id
+              tagline
+              image
+              featureOne
+              featureTwo
+              featureThree
+            }
           }
           fields {
             slug

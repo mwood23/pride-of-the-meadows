@@ -3,6 +3,9 @@ module.exports = {
     title: 'Pride of the Meadows',
     desc: 'Fresh produce website'
   },
+  mapping: {
+    'MarkdownRemark.frontmatter.product': 'ProductYaml'
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',

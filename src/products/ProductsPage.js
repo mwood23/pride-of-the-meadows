@@ -13,19 +13,19 @@ export default class ProductsPage extends Component {
     return (
       <div>
         <ProductImageAndMetaData
-          image={data.markdownRemark.frontmatter.image}
-          tagline={data.markdownRemark.frontmatter.tagline}
-          featureOne={data.markdownRemark.frontmatter.featureOne}
-          featureTwo={data.markdownRemark.frontmatter.featureTwo}
-          featureThree={data.markdownRemark.frontmatter.featureThree}
-          productName={data.markdownRemark.frontmatter.productName}
+          image={data.markdownRemark.frontmatter.product.image}
+          tagline={data.markdownRemark.frontmatter.product.tagline}
+          featureOne={data.markdownRemark.frontmatter.product.featureOne}
+          featureTwo={data.markdownRemark.frontmatter.product.featureTwo}
+          featureThree={data.markdownRemark.frontmatter.product.featureThree}
+          productName={data.markdownRemark.frontmatter.product.id}
         />
         <Container>
           <ImageBorderBoxSectionOne
             nutritionReceiptImage={
               data.markdownRemark.frontmatter.nutritionFacts
             }
-            productName={data.markdownRemark.frontmatter.productName}
+            productName={data.markdownRemark.frontmatter.product.id}
             productDescription={
               data.markdownRemark.frontmatter.productDescription
             }
@@ -52,7 +52,7 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        productName
+        productDescription
         recipeName
         recipeDate
         recipeImage
@@ -60,14 +60,14 @@ export const query = graphql`
         recipeDescription
         recipeTag
         nutritionFacts
-        tagline
-        image
-        alt
-        featureOne
-        featureTwo
-        featureThree
-        tag
-        productDescription
+        product {
+          id
+          tagline
+          image
+          featureOne
+          featureTwo
+          featureThree
+        }
         date(formatString: "MMMM DD YYYY")
       }
     }

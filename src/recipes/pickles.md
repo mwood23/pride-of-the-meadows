@@ -6,6 +6,7 @@ time_to_make: 6 hrs
 product_tag: pickles
 image: /assets/pickles.jpg
 alt: Pickles in jar
+product: Test
 yield: 20 poppers
 ---
 

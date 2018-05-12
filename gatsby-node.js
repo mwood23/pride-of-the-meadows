@@ -8,6 +8,7 @@
 
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+const slugify = require('limax');
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
@@ -22,6 +23,12 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       node,
       name: 'slug',
       value: `${slug}`
+    });
+  } else if (node.internal.type === 'ProductYaml') {
+    createNodeField({
+      node,
+      name: 'slug',
+      value: `/products/${slugify(node.id)}/`
     });
   }
 };

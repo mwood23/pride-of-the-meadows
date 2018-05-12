@@ -1,5 +1,6 @@
 ---
 title: Just Pickles
+product: Pickles
 productName: Jalapeño
 recipeName: Jalapeno Poppers
 recipeDate: 24 JUN 2018

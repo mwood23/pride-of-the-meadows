@@ -1,5 +1,6 @@
 ---
 title: Just Cherry Tomatoes
+product: Cherry Tomatoes
 productName: Jalapeño
 tagline: crisp and savory
 date: '2018-04-16'

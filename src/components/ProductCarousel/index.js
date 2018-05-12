@@ -153,10 +153,10 @@ export default class ProductCarousel extends Component {
             <TextImageRowWrapper key={product.node.frontmatter.title}>
               <TextContainer>
                 <SubHeading leftAlign>
-                  {product.node.frontmatter.tagline}
+                  {product.node.frontmatter.product.tagline}
                 </SubHeading>
                 <FancyTextCollectionOneLine
-                  titleFont={product.node.frontmatter.productName}
+                  titleFont={product.node.frontmatter.product.id}
                 />
                 <p>{product.node.frontmatter.productDescription}</p>
                 <Link to={product.node.fields.slug}>
@@ -165,8 +165,8 @@ export default class ProductCarousel extends Component {
               </TextContainer>
               <ImageContainer>
                 <img
-                  src={product.node.frontmatter.image}
-                  alt={product.node.frontmatter.productName}
+                  src={product.node.frontmatter.product.image}
+                  alt={product.node.frontmatter.id}
                 />
               </ImageContainer>
             </TextImageRowWrapper>

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../utils/theme';
 import ImageBorderInfoBox from '../ImageBorderInfoBox';
 import SubHeading from '../../shared/elements/SubHeading';
 import FancyTextCollectionOneLine from '../../shared/elements/FancyTextCollectionOneLine';
