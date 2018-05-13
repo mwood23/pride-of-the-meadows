@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../../shared/blocks/Container';
 import FancyButton from '../../shared/elements/FancyButton';
+import FindALocation from '../FindALocation';
 
 import brandmark from '../../images/POTM-Brandmark.png';
 
@@ -32,22 +33,25 @@ const Footer = ({ location }) => {
   return (
     <FooterWrapper>
       {location !== '/thank-you' ? (
-        <FooterContainer>
-          <img src={brandmark} alt="Pride of the Meadows logo" />
-          <p>
-            Pride of the Meadows is packaged and distributed by Wood's Produce
-            company, local to Meadows of Dan, VA. We take great pride in
-            supporting local growers and delivering only the most fresh, high
-            quality fruits and vegetables.
-          </p>
-          <a
-            href="https://woodsproduce.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FancyButton>Visit Wood's Produce</FancyButton>
-          </a>
-        </FooterContainer>
+        <div>
+          <FindALocation />
+          <FooterContainer>
+            <img src={brandmark} alt="Pride of the Meadows logo" />
+            <p>
+              Pride of the Meadows is packaged and distributed by Wood's Produce
+              company, local to Meadows of Dan, VA. We take great pride in
+              supporting local growers and delivering only the most fresh, high
+              quality fruits and vegetables.
+            </p>
+            <a
+              href="https://woodsproduce.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FancyButton>Visit Wood's Produce</FancyButton>
+            </a>
+          </FooterContainer>
+        </div>
       ) : null}
 
       <CopyrightSection>
