@@ -295,6 +295,7 @@ Runner.prototype = {
    * definition.
    */
   loadImages: function() {
+    console.log('load images called');
     if (IS_HIDPI) {
       Runner.imageSprite = document.getElementById('offline-resources-2x');
       this.spriteDef = Runner.spriteDefinition.HDPI;
@@ -368,6 +369,8 @@ Runner.prototype = {
    */
   init: function() {
     // Hide the static icon.
+
+    console.log('init called');
     document.querySelector('.' + Runner.classes.ICON).style.visibility =
       'hidden';
 
@@ -1032,6 +1035,7 @@ function vibrate(duration) {
  * @return {HTMLCanvasElement}
  */
 function createCanvas(container, width, height, opt_classname) {
+  console.log('create canvas called');
   var canvas = document.createElement('canvas');
   canvas.className = opt_classname
     ? Runner.classes.CANVAS + ' ' + opt_classname
@@ -2907,6 +2911,7 @@ const ContentContainer = Container.extend`
 
 const NotFoundPage = class extends React.Component {
   componentDidMount() {
+    console.log('new runner called');
     new Runner('.interstitial-wrapper');
   }
 
