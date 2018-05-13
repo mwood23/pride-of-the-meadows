@@ -1,7 +1,7 @@
 import React from 'react';
 import './style-404.css';
 import OfflineSprite200 from './POTM-Game-200.png';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import { media } from '../utils/theme';
 import { Container } from '../shared/blocks/Container';
 
