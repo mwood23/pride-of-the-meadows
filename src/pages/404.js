@@ -737,7 +737,7 @@ Runner.prototype = {
           this.loadSounds();
           this.playing = true;
           this.update();
-          if (typeof window !== 'undefined') {
+          if (typeof window !== 'undefined' && window.errorPageController) {
             errorPageController.trackEasterEgg();
           }
         }
