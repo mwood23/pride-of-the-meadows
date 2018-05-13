@@ -77,7 +77,9 @@ function Runner(outerContainerId, opt_config) {
     this.loadImages();
   }
 }
-window['Runner'] = Runner;
+if (window) {
+  window['Runner'] = Runner;
+}
 
 /**
  * Default game width.
