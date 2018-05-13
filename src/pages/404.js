@@ -23,6 +23,7 @@ function Runner(outerContainerId, opt_config) {
   }
   Runner.instance_ = this;
 
+  console.log('outer container id', outerContainerId);
   this.outerContainerEl = document.querySelector(outerContainerId);
   this.containerEl = null;
   this.snackbarEl = null;
@@ -379,6 +380,11 @@ Runner.prototype = {
 
     this.containerEl = document.createElement('div');
     this.containerEl.className = Runner.classes.CONTAINER;
+
+    console.log(
+      'before create canvas called container method',
+      this.containerEl
+    );
 
     // Player canvas container.
     this.canvas = createCanvas(
@@ -1040,8 +1046,12 @@ function createCanvas(container, width, height, opt_classname) {
   canvas.className = opt_classname
     ? Runner.classes.CANVAS + ' ' + opt_classname
     : Runner.classes.CANVAS;
+
+  console.dir('canvas', canvas, canvas.className);
   canvas.width = width;
   canvas.height = height;
+
+  console.dir('append child container', container);
   container.appendChild(canvas);
 
   return canvas;
