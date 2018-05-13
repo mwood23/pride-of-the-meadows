@@ -77,7 +77,8 @@ function Runner(outerContainerId, opt_config) {
     this.loadImages();
   }
 }
-if (window) {
+
+if (typeof window !== 'undefined') {
   window['Runner'] = Runner;
 }
 
@@ -94,16 +95,22 @@ var DEFAULT_WIDTH = 600;
 var FPS = 60;
 
 /** @const */
-var IS_HIDPI = window.devicePixelRatio > 1;
+var IS_HIDPI = typeof window !== 'undefined' && window.devicePixelRatio > 1;
 
 /** @const */
-var IS_IOS = /iPad|iPhone|iPod/.test(window.navigator.platform);
+var IS_IOS = /iPad|iPhone|iPod/.test(
+  typeof window !== 'undefined' && window.navigator.platform
+);
 
 /** @const */
-var IS_MOBILE = /Android/.test(window.navigator.userAgent) || IS_IOS;
+var IS_MOBILE =
+  /Android/.test(typeof window !== 'undefined' && window.navigator.userAgent) ||
+  IS_IOS;
 
 /** @const */
-var IS_TOUCH_ENABLED = 'ontouchstart' in window;
+if (typeof window !== 'undefined') {
+  var IS_TOUCH_ENABLED = 'ontouchstart' in window;
+}
 
 /**
  * Default game configuration.
@@ -411,10 +418,12 @@ Runner.prototype = {
     this.startListening();
     this.update();
 
-    window.addEventListener(
-      Runner.events.RESIZE,
-      this.debounceResize.bind(this)
-    );
+    if (typeof window !== 'undefined') {
+      window.addEventListener(
+        Runner.events.RESIZE,
+        this.debounceResize.bind(this)
+      );
+    }
   },
 
   /**
@@ -442,7 +451,9 @@ Runner.prototype = {
     clearInterval(this.resizeTimerId_);
     this.resizeTimerId_ = null;
 
-    var boxStyles = window.getComputedStyle(this.outerContainerEl);
+    var boxStyles =
+      typeof window !== 'undefined' &&
+      window.getComputedStyle(this.outerContainerEl);
     var padding = Number(
       boxStyles.paddingLeft.substr(0, boxStyles.paddingLeft.length - 2)
     );
@@ -534,15 +545,17 @@ Runner.prototype = {
       this.onVisibilityChange.bind(this)
     );
 
-    window.addEventListener(
-      Runner.events.BLUR,
-      this.onVisibilityChange.bind(this)
-    );
+    if (typeof window !== 'undefined') {
+      window.addEventListener(
+        Runner.events.BLUR,
+        this.onVisibilityChange.bind(this)
+      );
 
-    window.addEventListener(
-      Runner.events.FOCUS,
-      this.onVisibilityChange.bind(this)
-    );
+      window.addEventListener(
+        Runner.events.FOCUS,
+        this.onVisibilityChange.bind(this)
+      );
+    }
   },
 
   clearCanvas: function() {
@@ -724,7 +737,7 @@ Runner.prototype = {
           this.loadSounds();
           this.playing = true;
           this.update();
-          if (window.errorPageController) {
+          if (typeof window !== 'undefined') {
             errorPageController.trackEasterEgg();
           }
         }
@@ -1004,7 +1017,7 @@ function getRandomNum(min, max) {
  * @param {number} duration Duration of the vibration in milliseconds.
  */
 function vibrate(duration) {
-  if (IS_MOBILE && window.navigator.vibrate) {
+  if (IS_MOBILE && typeof window !== 'undefined') {
     window.navigator.vibrate(duration);
   }
 }
