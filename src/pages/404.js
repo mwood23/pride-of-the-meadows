@@ -510,7 +510,7 @@ Runner.prototype = {
         '}';
 
       console.log(document.styleSheets);
-      document.styleSheets[0].insertRule(keyframes, 0);
+      document.styleSheets[2].insertRule(keyframes, 0);
 
       this.containerEl.addEventListener(
         Runner.events.ANIM_END,
