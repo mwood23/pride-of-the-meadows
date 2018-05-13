@@ -8,6 +8,7 @@
 
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+const slugify = require('limax');
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
@@ -23,6 +24,12 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       name: 'slug',
       value: `${slug}`
     });
+  } else if (node.internal.type === 'ProductYaml') {
+    createNodeField({
+      node,
+      name: 'slug',
+      value: `/products/${slugify(node.id)}/`
+    });
   }
 };
 
@@ -32,6 +39,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     graphql(`
       {
         allMarkdownRemark {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+        allProductYaml {
           edges {
             node {
               fields {
@@ -57,6 +73,18 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           createPage({
             path: node.fields.slug,
             component: path.resolve('./src/recipes/RecipePage.js'),
+            context: {
+              slug: node.fields.slug
+            }
+          });
+        }
+      });
+
+      result.data.allProductYaml.edges.forEach(({ node }) => {
+        if (node.fields.slug.includes('/products/')) {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve('./src/pages/ProductsPage.js'),
             context: {
               slug: node.fields.slug
             }

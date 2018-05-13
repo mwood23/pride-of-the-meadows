@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
-import { media } from '../../utils/theme';
 import Hamburger from './Hamburger';
-
+import { media } from '../../utils/theme';
+import onClickOutside from 'react-onclickoutside';
 import logo from '../../images/POTM-Logo-Main.svg';
 import mobileLogo from '../../images/POTM-Logo-Mobile.svg';
 
@@ -23,7 +23,7 @@ const HeaderDesktopImage = styled(Link)`
   }
 `;
 
-const HeaderMobileImage = styled(Link)`
+const HeaderMobileImage = styled.div`
   height: 100%;
   display: block;
   text-align: center;
@@ -144,7 +144,7 @@ const MobileNavContainer = styled.div`
   `}
 `;
 
-export default class Header extends Component {
+export class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -153,6 +153,7 @@ export default class Header extends Component {
 
     this.onMobileNavClick = this.onMobileNavClick.bind(this);
     this.onNavClick = this.onNavClick.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   onMobileNavClick() {
@@ -167,33 +168,47 @@ export default class Header extends Component {
     });
   }
 
+  handleClickOutside() {
+    this.setState({
+      mobileNavOpen: false
+    });
+  }
+
   render() {
     return (
       <HeaderWrapper
         ref={wrapper => (this.wrapper = ReactDOM.findDOMNode(wrapper))}
       >
         <HeaderDesktopImage to="/">
-          <img src={logo} alt="Test" />
+          <img src={logo} alt="Pride of the Meadows logo" />
         </HeaderDesktopImage>
         <MobileNavContainer>
           <Hamburger
             onClick={this.onMobileNavClick}
             open={this.state.mobileNavOpen}
           />
-          <HeaderMobileImage to="/">
-            <img src={mobileLogo} alt="Test" />
+          <HeaderMobileImage>
+            <Link to="/" onClick={this.onNavClick}>
+              <img src={mobileLogo} alt="Pride of the Meadows logo" />
+            </Link>
           </HeaderMobileImage>
         </MobileNavContainer>
         <MainNav open={this.state.mobileNavOpen}>
           <ul>
             <li>
-              <Link to="/">HOME</Link>
+              <Link to="/" onClick={this.onNavClick}>
+                HOME
+              </Link>
             </li>
             <li>
-              <Link to="/about">ABOUT</Link>
+              <Link to="/products" onClick={this.onNavClick}>
+                PRODUCTS
+              </Link>
             </li>
             <li>
-              <Link to="/about">RECIPES</Link>
+              <Link to="/contact-us" onClick={this.onNavClick}>
+                CONTACT
+              </Link>
             </li>
           </ul>
         </MainNav>
@@ -201,3 +216,5 @@ export default class Header extends Component {
     );
   }
 }
+
+export default onClickOutside(Header);

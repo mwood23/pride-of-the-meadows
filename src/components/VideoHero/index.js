@@ -2,11 +2,40 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'gatsby-image';
 import { media } from '../../utils/theme';
-import badge from '../../images/POTM-Bubble.png';
+import badge from '../../images/POTM-Bubble-USA.svg';
 import ReactPlayer from 'react-player';
 
 const ComponentWrapper = styled.section`
   position: relative;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  ${'' /* background-image: linear-gradient(
+    to bottom,
+    #0a301e,
+    #103524,
+    #163a2a,
+    #1c4030,
+    #224536
+  ); */} background-image: linear-gradient(to bottom, #102219, #10231a, #0f251b, #0f261c, #0e281d);
+  opacity: 0.4;
+  z-index: 10;
+`;
+
+const OverlayText = styled.h1`
+  position: absolute;
+  color: white;
+  width: 100%;
+  font-size: 65px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  text-align: center;
 `;
 
 const VideoHeroWrapper = styled.div`
@@ -36,14 +65,14 @@ const BadgeImage = styled.div`
     display: block;
     position: absolute;
     right: 10%;
-    width: 25%;
+    width: 20%;
     bottom: -20px;
     z-index: 10;
   `}
 
   // prettier-ignore
   ${media.forSmallOnly`
-    width: 37%;
+    width: 150px;
     right: 5%;
   `}
 
@@ -74,6 +103,8 @@ const VideoContainer = styled.div`
 
 const VideoHero = ({ mobileHeroImage }) => (
   <ComponentWrapper>
+    <OverlayText>Local tastes better.</OverlayText>
+    <Overlay />
     <VideoHeroWrapper>
       {typeof window !== 'undefined' &&
       window.matchMedia('(min-width: 680px)').matches ? (

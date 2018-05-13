@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Container } from '../../shared/blocks/Container';
 import { media } from '../../utils/theme';
 
-import badge from '../../images/POTM-Bubble.png';
+import badge from '../../images/POTM-Bubble-USA.svg';
 
 const IconBlurbWrapper = styled.section`
   background-color: #fbf9ec;
@@ -17,9 +17,14 @@ const IconBlurbContainer = Container.extend`
   padding: 3rem;
   position: relative;
 
+  ${media.forSmallMediumOnly`
+    padding: 3rem 0;
+  `}
+
   // prettier-ignore
   ${media.forSmallOnly`
     flex-direction: column;
+    padding: 3rem 15px;
   `}
 `;
 
@@ -30,17 +35,15 @@ const Blurb = styled.div`
   padding: 0 2rem;
   width: 25%;
 
-  // prettier-ignore
   ${media.forSmallMediumOnly`
     width: 33%;
-  `}
+  `};
 
-  // prettier-ignore
   ${media.forSmallOnly`
     width: 100%;
     padding: 2rem 0;
     text-align: center;
-  `}
+  `};
 
   &:nth-child(even) {
     border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -61,6 +64,8 @@ const BadgeImage = styled.div`
   top: -50px;
   right: 10%;
   width: 20%;
+  z-index: 20;
+  max-width: 270px;
 
   // prettier-ignore
   ${media.forSmallMediumOnly`

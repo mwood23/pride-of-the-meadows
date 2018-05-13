@@ -5,14 +5,37 @@ import TidyInfoBox from '../components/TidyInfoBox';
 import ImageBorderInfoBox from '../components/ImageBorderInfoBox';
 import ProductCarousel from '../components/ProductCarousel';
 import PostCollection from '../components/PostCollection';
+import SubHeading from '../shared/elements/SubHeading';
 
 const IndexPage = ({ data }) => {
   return (
     <div>
       <VideoHero mobileHeroImage={data.mobileHero} />
       <IconBlurbRow blurbs={data.pageContentYaml.about_us_icon_blurb_row} />
-      <ImageBorderInfoBox borderImage={data.infoBoxBorder} />
-      <ProductCarousel />
+      <ImageBorderInfoBox borderImage={data.infoBoxBorder}>
+        <SubHeading>Pride of the Meadows</SubHeading>
+        <h2 style={{ fontSize: '40px' }}>About Us</h2>
+        <p>
+          <span style={{ color: 'red' }}>
+            Local tastes better. (make this our tagline?)
+          </span>{' '}
+          We work with farmers local to your area to source the freshest product
+          possible, package it in our food safe facility, and send it to grocers
+          near you. All of our products are:
+          <span style={{ color: 'red' }}>
+            Non-GMO?, Hand picked?, Gluten free?, From farm to store in 72
+            hours?, Cold from source to your door?
+          </span>
+        </p>
+        <p>
+          You can find Pride of the Meadows branded fruits and vegetables in
+          Virginia and North Carolina right now at Food Lions and independent
+          grocery stores. If we're not in your area yet please{' '}
+          <span style={{ color: 'red' }}>contact us </span>
+          and we'll see what we can do!
+        </p>
+      </ImageBorderInfoBox>
+      <ProductCarousel products={data.products.edges} />
       <PostCollection
         backgroundImage={data.recipeBackground}
         posts={data.recipes.edges}
@@ -31,25 +54,6 @@ export const query = graphql`
         desc
       }
     }
-    # posts: allMarkdownRemark(
-    #   sort: { fields: [frontmatter___date], order: DESC }
-    #   filter: { fields: { slug: { regex: "/posts/" } } }
-    # ) {
-    #   edges {
-    #     node {
-    #       id
-    #       frontmatter {
-    #         title
-    #         date(formatString: "MMMM DD YYYY")
-    #       }
-    #       fields {
-    #         slug
-    #       }
-    #       html
-    #       excerpt
-    #     }
-    #   }
-    # }
     recipes: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { fields: { slug: { regex: "/recipes/" } } }
@@ -69,6 +73,22 @@ export const query = graphql`
           }
           html
           excerpt
+        }
+      }
+    }
+    products: allProductYaml {
+      edges {
+        node {
+          id
+          tagline
+          image
+          featureOne
+          featureTwo
+          featureThree
+          productDescription
+          fields {
+            slug
+          }
         }
       }
     }

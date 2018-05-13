@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../../utils/theme';
 
 export const ContainerFluid = styled.div`
   width: 100%;
@@ -6,6 +7,14 @@ export const ContainerFluid = styled.div`
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+
+  @media (max-width: 576px) {
+    max-width: 540px;
+    margin-right: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
 `;
 
 export const Container = styled.div`
