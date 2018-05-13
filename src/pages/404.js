@@ -508,6 +508,8 @@ Runner.prototype = {
         this.dimensions.WIDTH +
         'px }' +
         '}';
+
+      console.log(document.styleSheets);
       document.styleSheets[0].insertRule(keyframes, 0);
 
       this.containerEl.addEventListener(
