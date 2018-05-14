@@ -1,6 +1,5 @@
 import React from 'react';
 import OfflineSprite200 from './POTM-Game-200.png';
-import styled from 'styled-components';
 import { media } from '../utils/theme';
 import { Container } from '../shared/blocks/Container';
 
@@ -2924,7 +2923,7 @@ const ContentContainer = Container.extend`
 const NotFoundPage = class extends React.Component {
   componentDidMount() {
     console.log('new runner called');
-    setTimeout(() => new Runner('.interstitial-wrapper'), 1500);
+    setTimeout(() => new Runner('.interstitial-wrapper'), 100);
   }
 
   render() {

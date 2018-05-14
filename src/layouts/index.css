@@ -46,7 +46,7 @@ ol {
 }
 
 .icon-offline {
-  content: -webkit-image-set(url(../pages/POTM-Game-200.png) 2x);
+  /* content: -webkit-image-set(url(../pages/POTM-Game-200.png) 2x); */
   position: relative;
 }
 
