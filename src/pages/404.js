@@ -417,6 +417,8 @@ Runner.prototype = {
     // Draw t-rex
     this.tRex = new Trex(this.canvas, this.spriteDef.TREX);
 
+    console.dir('outer container element', this.outerContainerEl);
+    console.log('outer container element', this.outerContainerEl);
     this.outerContainerEl.appendChild(this.containerEl);
 
     if (IS_MOBILE) {
@@ -2922,7 +2924,7 @@ const ContentContainer = Container.extend`
 const NotFoundPage = class extends React.Component {
   componentDidMount() {
     console.log('new runner called');
-    new Runner('.interstitial-wrapper');
+    setTimeout(() => new Runner('.interstitial-wrapper'), 1500);
   }
 
   render() {
