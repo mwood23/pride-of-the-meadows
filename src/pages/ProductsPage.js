@@ -3,6 +3,7 @@ import { Container } from '../shared/blocks/Container';
 import ProductImageAndMetaData from '../components/ProductImageAndMetaData';
 import ImageBorderBoxSectionOne from '../components/ImageBorderBoxSectionOne';
 import ImageBorderBoxSectionTwo from '../components/ImageBorderBoxSectionTwo';
+import BottomSection from '../components/BottomSection';
 
 export default class ProductsPage extends Component {
   render() {
@@ -38,6 +39,7 @@ export default class ProductsPage extends Component {
           backgroundImage={data.featuredRecipe}
           recipeImage={data.productYaml.recipeImage}
         />
+        <BottomSection />
       </div>
     );
   }

@@ -7,6 +7,7 @@ import SubHeading from '../shared/elements/SubHeading';
 import FeatureBox from '../shared/elements/FeatureBox';
 import FancyButton from '../shared/elements/FancyButton';
 import { media } from '../utils/theme';
+import BottomSection from '../components/BottomSection';
 
 const RecipePageWrapper = Container.extend`
   display: flex;
@@ -143,58 +144,61 @@ export default class RecipePage extends Component {
     }
 
     return (
-      <RecipePageWrapper>
-        <RecipeWrapper>
-          <Image
-            sizes={images.sizes}
-            style={{ height: '400px' }}
-            imgStyle={{ objectFit: 'cover' }}
-          />
-          <h1>{data.markdownRemark.frontmatter.title}</h1>
-          <RecipeInfo>
-            <span>
-              Ready in: {data.markdownRemark.frontmatter.time_to_make}
-            </span>
-            <svg width="40" height="20">
-              <line x1="20" y1="20" x2="20" y2="0" />
-            </svg>
-            <span>Yield: {data.markdownRemark.frontmatter.yield}</span>
-            <svg width="40" height="20">
-              <line x1="20" y1="20" x2="20" y2="0" />
-            </svg>
-            <a>Print</a>
-          </RecipeInfo>
-          <MarkupContainer
-            dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
-          />
-        </RecipeWrapper>
-        <svg width="40" height="600">
-          <line x1="20" y1="600" x2="20" y2="0" stroke="#e9e9e9" />
-        </svg>
-        <FeaturedProductWrapper>
-          <ProductImage
-            src={data.markdownRemark.frontmatter.product.image}
-            alt={data.markdownRemark.frontmatter.product.id}
-          />
-          <FeaturedProductContentContainer>
-            <FancyTextCollection
-              recipeStyle
-              titleFont={data.markdownRemark.frontmatter.product.id}
+      <div>
+        <RecipePageWrapper>
+          <RecipeWrapper>
+            <Image
+              sizes={images.sizes}
+              style={{ height: '400px' }}
+              imgStyle={{ objectFit: 'cover' }}
             />
-            <SubHeading>
-              {data.markdownRemark.frontmatter.product.tagline}
-            </SubHeading>
-            <FeatureBox
-              featureOne={data.markdownRemark.frontmatter.product.featureOne}
-              featureTwo={data.markdownRemark.frontmatter.product.featureTwo}
-              featureThree={
-                data.markdownRemark.frontmatter.product.featureThree
-              }
+            <h1>{data.markdownRemark.frontmatter.title}</h1>
+            <RecipeInfo>
+              <span>
+                Ready in: {data.markdownRemark.frontmatter.time_to_make}
+              </span>
+              <svg width="40" height="20">
+                <line x1="20" y1="20" x2="20" y2="0" />
+              </svg>
+              <span>Yield: {data.markdownRemark.frontmatter.yield}</span>
+              <svg width="40" height="20">
+                <line x1="20" y1="20" x2="20" y2="0" />
+              </svg>
+              <a>Print</a>
+            </RecipeInfo>
+            <MarkupContainer
+              dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
             />
-            <LearnMoreButton>Learn more</LearnMoreButton>
-          </FeaturedProductContentContainer>
-        </FeaturedProductWrapper>
-      </RecipePageWrapper>
+          </RecipeWrapper>
+          <svg width="40" height="600">
+            <line x1="20" y1="600" x2="20" y2="0" stroke="#e9e9e9" />
+          </svg>
+          <FeaturedProductWrapper>
+            <ProductImage
+              src={data.markdownRemark.frontmatter.product.image}
+              alt={data.markdownRemark.frontmatter.product.id}
+            />
+            <FeaturedProductContentContainer>
+              <FancyTextCollection
+                recipeStyle
+                titleFont={data.markdownRemark.frontmatter.product.id}
+              />
+              <SubHeading>
+                {data.markdownRemark.frontmatter.product.tagline}
+              </SubHeading>
+              <FeatureBox
+                featureOne={data.markdownRemark.frontmatter.product.featureOne}
+                featureTwo={data.markdownRemark.frontmatter.product.featureTwo}
+                featureThree={
+                  data.markdownRemark.frontmatter.product.featureThree
+                }
+              />
+              <LearnMoreButton>Learn more</LearnMoreButton>
+            </FeaturedProductContentContainer>
+          </FeaturedProductWrapper>
+        </RecipePageWrapper>
+        <BottomSection />
+      </div>
     );
   }
 }

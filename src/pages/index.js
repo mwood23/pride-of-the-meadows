@@ -5,6 +5,7 @@ import TidyInfoBox from '../components/TidyInfoBox';
 import ImageBorderInfoBox from '../components/ImageBorderInfoBox';
 import ProductCarousel from '../components/ProductCarousel';
 import PostCollection from '../components/PostCollection';
+import BottomSection from '../components/BottomSection';
 import SubHeading from '../shared/elements/SubHeading';
 
 const IndexPage = ({ data }) => {
@@ -40,6 +41,7 @@ const IndexPage = ({ data }) => {
         backgroundImage={data.recipeBackground}
         posts={data.recipes.edges}
       />
+      <BottomSection />
     </div>
   );
 };
