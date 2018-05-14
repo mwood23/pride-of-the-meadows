@@ -2912,7 +2912,7 @@ const ContentContainer = Container.extend`
   `};
 
   ${media.forSmallOnly`
-    margin-top: 3rem;
+    margin-top: 6rem;
 
     h1 {
       font-size: 32px;
@@ -2927,6 +2927,7 @@ const NotFoundPage = class extends React.Component {
   }
 
   render() {
+    console.log('render called');
     return (
       <div>
         <div id="t" className="offline">

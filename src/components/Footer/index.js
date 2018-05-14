@@ -31,7 +31,7 @@ const CopyrightSection = styled.div`
 const Footer = ({ location }) => {
   return (
     <FooterWrapper>
-      {location !== '/thank-you' ? (
+      {/* {location !== '/thank-you' ? (
         <FooterContainer>
           <img src={brandmark} alt="Pride of the Meadows logo" />
           <p>
@@ -48,7 +48,7 @@ const Footer = ({ location }) => {
             <FancyButton>Visit Wood's Produce</FancyButton>
           </a>
         </FooterContainer>
-      ) : null}
+      ) : null} */}
 
       <CopyrightSection>
         <span role="img" aria-label="copyright">
