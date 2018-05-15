@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container } from '../../shared/blocks/Container';
 import FancyButton from '../../shared/elements/FancyButton';
+import FindALocation from '../FindALocation';
 
 import brandmark from '../../images/POTM-Brandmark.png';
 
@@ -23,6 +24,7 @@ const SectionContent = Container.extend`
 const BottomSection = () => {
   return (
     <BottomSectionContainer>
+      <FindALocation />
       <SectionContent>
         <img src={brandmark} alt="Pride of the Meadows logo" />
         <p>

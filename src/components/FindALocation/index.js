@@ -8,6 +8,8 @@ import ReactMapboxGl, {
   // Source
 } from 'react-mapbox-gl';
 import styled from 'styled-components';
+import { GEOCODE_URL } from '../../utils/const';
+import locationData from '../../utils/locations.json';
 
 const Map = ReactMapboxGl({
   accessToken:
@@ -27,17 +29,10 @@ export default class FindALocation extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    fetch(
-      'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAC623ko-6vnoU6NSpWRvhvogB9xQiv-vk'
-    ).then(function(res) {
-      const response = res.json().results;
-      console.log(res, response);
-      return response;
-    });
-  }
+  componentDidMount() {}
 
   render() {
+    console.log(locationData);
     return (
       <MapContainer>
         <Map

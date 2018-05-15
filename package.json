@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Marcus Wood <marcus@calderadigital.com>",
   "dependencies": {
+    "dotenv": "^5.0.1",
     "gatsby": "^1.9.260",
     "gatsby-image": "^1.0.51",
     "gatsby-link": "^1.6.44",
@@ -19,6 +20,7 @@
     "gatsby-transformer-remark": "^1.7.41",
     "gatsby-transformer-sharp": "^1.6.24",
     "gatsby-transformer-yaml": "^1.5.16",
+    "geocodio": "^2.0.0",
     "limax": "^1.6.0",
     "mapbox-gl": "^0.45.0",
     "react-helmet": "^5.2.0",
