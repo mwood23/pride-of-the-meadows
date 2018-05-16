@@ -8,6 +8,7 @@ import FeatureBox from '../shared/elements/FeatureBox';
 import FancyButton from '../shared/elements/FancyButton';
 import { media } from '../utils/theme';
 import BottomSection from '../components/BottomSection';
+import Link from 'gatsby-link';
 
 const RecipePageWrapper = Container.extend`
   display: flex;
@@ -27,7 +28,8 @@ const RecipePageWrapper = Container.extend`
   `};
 
   ${media.forSmallOnly`
-    margin-top: calc(${props => props.theme.mobileHeaderHeight} + 2rem)
+    margin-top: ${props => `calc(${props.theme.mobileHeaderHeight} + 2rem)`};
+    margin-bottom: 3rem;
   `};
 `;
 
@@ -71,7 +73,7 @@ const RecipeInfo = styled.div`
   text-transform: uppercase;
   letter-spacing: 1.5px;
   line-height: 1.5;
-  font-family: Montserrat;
+  font-family: 'Montserrat';
   margin: 1rem 0;
 
   ${media.forSmallOnly`
@@ -193,7 +195,9 @@ export default class RecipePage extends Component {
                   data.markdownRemark.frontmatter.product.featureThree
                 }
               />
-              <LearnMoreButton>Learn more</LearnMoreButton>
+              <Link to={data.markdownRemark.frontmatter.product.fields.slug}>
+                <LearnMoreButton>Learn more</LearnMoreButton>
+              </Link>
             </FeaturedProductContentContainer>
           </FeaturedProductWrapper>
         </RecipePageWrapper>

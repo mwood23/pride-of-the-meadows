@@ -22,7 +22,7 @@ const HamburgerWrapper = styled.div`
   transition: opacity 250ms ease;
 
   // prettier-ignore
-  ${media.forMediumUp`
+  ${media.forLargeUp`
     display: none;
   `}
 

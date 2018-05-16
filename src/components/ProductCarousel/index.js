@@ -27,6 +27,14 @@ const TextImageRowWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  a {
+    outline-offset: -3px;
+
+    button {
+      outline-offset: -3px;
+    }
+  }
+
   @media (max-width: 880px) {
     flex-direction: column-reverse;
   }
@@ -71,11 +79,19 @@ const SwipeNavButton = styled.button`
 
 const PrevButton = SwipeNavButton.extend`
   left: 0;
+
+  svg {
+    cursor: pointer;
+  }
 `;
 
 const NextButton = SwipeNavButton.extend`
   position: absolute;
   right: 0;
+
+  svg {
+    cursor: pointer;
+  }
 `;
 
 const testProducts = [
@@ -136,10 +152,11 @@ export default class ProductCarousel extends Component {
             width="30"
             height="30"
             viewBox="0 0 30 30"
+            transform="rotate(180)"
           >
             <g fill="#000" fillRule="nonzero">
-              <path d="M13.5.54A12.962 12.962 0 0 0 .54 13.5 12.962 12.962 0 0 0 13.5 26.46 12.962 12.962 0 0 0 26.46 13.5 12.97 12.97 0 0 0 13.5.54zm0-.54a13.5 13.5 0 1 1 0 27 13.5 13.5 0 0 1 0-27z" />
-              <path d="M14.87 18.305l.375-.386-4.29-4.419 4.29-4.42-.374-.385-4.66 4.805z" />
+              <path d="M15 .6A14.403 14.403 0 0 1 29.4 15 14.403 14.403 0 0 1 15 29.4 14.403 14.403 0 0 1 .6 15 14.412 14.412 0 0 1 15 .6zm0-.6a15 15 0 1 0 0 30 15 15 0 0 0 0-30z" />
+              <path d="M13.636 20.339l-.416-.429L17.986 15l-4.766-4.91.416-.429L18.814 15z" />
             </g>
           </svg>
         </PrevButton>

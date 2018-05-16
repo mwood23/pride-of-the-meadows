@@ -12,6 +12,10 @@ const sizes = {
   forMediumUp: {
     max: false,
     width: 681
+  },
+  forLargeUp: {
+    max: false,
+    width: 992
   }
 };
 

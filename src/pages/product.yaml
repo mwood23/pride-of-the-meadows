@@ -1,7 +1,7 @@
 
 - id: Jalapeno Peppers
   tagline: crisp and savory
-  image: /assets/jalapenos.jpg
+  image: /assets/potm-jalapeno.jpg
   featureOne: Hand-Picked for Quality
   featureTwo: Packed with Flavor
   featureThree: Non-GMO
@@ -14,30 +14,58 @@
   recipeTag: Recipes
   nutritionFacts: /assets/jalapeno-nutrition-facts.png
 - id: Pickles
-  tagline: crisp and savory
-  image: /assets/jalapenos.jpg
-  featureOne: Hand-Picked for Quality
-  featureTwo: Packed with Flavor
+  tagline: crisp pickling cucumbers
+  image: /assets/potm-pickles.jpg
+  featureOne: Low-Calorie Snack
+  featureTwo: Hand-Picked for Quality
   featureThree: Non-GMO
   productDescription: Bitters kickstarter before they sold out 8-bit, af blue bottle DIY paleo iceland microdosing brooklyn vinyl fingerstache. Gentrify adaptogen raw denim heirloom.
-  recipeName: Jalapeno Poppers
+  recipeName: Pickles
   recipeDate: 24 JUN 2018
-  recipeImage: /assets/jalapeno-poppers.jpg
-  recipeLink: /recipes/jalapeno-poppers
+  recipeImage: /assets/pickles.jpg
+  recipeLink: /recipes/grandmas-pickles
+  recipeDescription: Beard roof party cardigan locavore you probably haven't heard of them squid artisan edison bulb whatever normcore jianbing succulents
+  recipeTag: Recipes
+  nutritionFacts: /assets/pickles-nutrition-facts.png
+- id: Cherry Tomatoes
+  tagline: sweet and refreshing
+  image: /assets/potm-cherry-tomatoes.jpg
+  featureOne: Great for Snacking
+  featureTwo: Vine-Ripened
+  featureThree: Hand-Picked
+  productDescription: Bitters kickstarter before they sold out 8-bit, af blue bottle DIY paleo iceland microdosing brooklyn vinyl fingerstache. Gentrify adaptogen raw denim heirloom.
+  recipeName: Caprese Salad
+  recipeDate: 24 JUN 2018
+  recipeImage: /assets/caprese.jpg
+  recipeLink: /recipes/rainbow-caprese-salad
   recipeDescription: Beard roof party cardigan locavore you probably haven't heard of them squid artisan edison bulb whatever normcore jianbing succulents
   recipeTag: Recipes
   nutritionFacts: /assets/jalapeno-nutrition-facts.png
-- id: Cherry Tomatoes
-  tagline: crisp and savory
-  image: /assets/jalapenos.jpg
-  featureOne: Hand-Picked for Quality
-  featureTwo: Packed with Flavor
-  featureThree: Non-GMO
+- id: Grape Tomatoes
+  tagline: juicy and fresh
+  image: /assets/potm-grape-tomatoes.jpg
+  featureOne: Great for Snacking
+  featureTwo: Vine-Ripened
+  featureThree: Hand-Picked
   productDescription: Bitters kickstarter before they sold out 8-bit, af blue bottle DIY paleo iceland microdosing brooklyn vinyl fingerstache. Gentrify adaptogen raw denim heirloom.
-  recipeName: Jalapeno Poppers
+  recipeName: Caprese Salad
   recipeDate: 24 JUN 2018
-  recipeImage: /assets/jalapeno-poppers.jpg
-  recipeLink: /recipes/jalapeno-poppers
+  recipeImage: /assets/caprese.jpg
+  recipeLink: /recipes/rainbow-caprese-salad
+  recipeDescription: Beard roof party cardigan locavore you probably haven't heard of them squid artisan edison bulb whatever normcore jianbing succulents
+  recipeTag: Recipes
+  nutritionFacts: /assets/jalapeno-nutrition-facts.png
+- id: Yellow Grape Tomatoes
+  tagline: sweet and refreshing
+  image: /assets/potm-yellow-grape-tomatoes.jpg
+  featureOne: Great for Snacking
+  featureTwo: Vine-Ripened
+  featureThree: Hand-Picked
+  productDescription: Bitters kickstarter before they sold out 8-bit, af blue bottle DIY paleo iceland microdosing brooklyn vinyl fingerstache. Gentrify adaptogen raw denim heirloom.
+  recipeName: Caprese Salad
+  recipeDate: 24 JUN 2018
+  recipeImage: /assets/caprese.jpg
+  recipeLink: /recipes/rainbow-caprese-salad
   recipeDescription: Beard roof party cardigan locavore you probably haven't heard of them squid artisan edison bulb whatever normcore jianbing succulents
   recipeTag: Recipes
   nutritionFacts: /assets/jalapeno-nutrition-facts.png

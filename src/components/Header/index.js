@@ -11,7 +11,7 @@ import mobileLogo from '../../images/POTM-Logo-Mobile.svg';
 const HeaderDesktopImage = styled(Link)`
   height: 100%;
   // prettier-ignore
-  ${media.forSmallOnly`
+  ${media.forSmallMediumOnly`
     display: none;
   `}
 
@@ -29,7 +29,7 @@ const HeaderMobileImage = styled.div`
   text-align: center;
 
   // prettier-ignore
-  ${media.forMediumUp`
+  ${media.forLargeUp`
     display: none;
   `}
 
@@ -51,7 +51,7 @@ const HeaderWrapper = styled.div`
   z-index: 30;
 
   // prettier-ignore
-  ${media.forSmallOnly`
+  ${media.forSmallMediumOnly`
     height: ${props => props.theme.mobileHeaderHeight};
     position: fixed;
     top: 0;
@@ -65,7 +65,7 @@ const MainNav = styled.nav`
   height: 100%;
 
   // prettier-ignore
-  ${media.forSmallOnly`
+  ${media.forSmallMediumOnly`
     position: absolute;
     transition: all 0.3s;
     z-index: -1;
@@ -107,7 +107,7 @@ const MainNav = styled.nav`
       height: 100%;
       border-left: 1px solid rgba(0, 0, 0, 0.1);
 
-      ${media.forSmallOnly`
+      ${media.forSmallMediumOnly`
         border: none;
         background-color: #fff;
         width: 100%;
@@ -139,9 +139,23 @@ const MobileNavContainer = styled.div`
   background-color: #fff;
 
   // prettier-ignore
-  ${media.forMediumUp`
+  ${media.forLargeUp`
     display: none;
   `}
+`;
+
+const WoodsProduceLink = styled.a`
+  ${media.forLargeUp`
+    line-height: 1.4 !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  `};
+
+  span {
+    font-weight: 500;
+    color: ${props => props.theme.defaultHeaderColor};
+  }
 `;
 
 export class Header extends Component {
@@ -209,6 +223,16 @@ export class Header extends Component {
               <Link to="/contact-us" onClick={this.onNavClick}>
                 CONTACT
               </Link>
+            </li>
+            <li>
+              <WoodsProduceLink
+                href="https://woodsproduce.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>PACKED BY </span>
+                <span>WOOD'S PRODUCE</span>
+              </WoodsProduceLink>
             </li>
           </ul>
         </MainNav>
