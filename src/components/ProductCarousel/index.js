@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { media } from '../../utils/theme';
 import ReactSwipe from 'react-swipe';
-import { Container } from '../../shared/blocks/Container';
-import FancyFont from '../../shared/elements/FancyFont';
 import SubHeading from '../../shared/elements/SubHeading';
 import Button from '../../shared/elements/Button';
 import Link from 'gatsby-link';
@@ -93,38 +91,6 @@ const NextButton = SwipeNavButton.extend`
     cursor: pointer;
   }
 `;
-
-const testProducts = [
-  {
-    name: 'Jalapenos',
-    intro_blurb:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    image:
-      'http://www.sambrailo.com/wp-content/uploads/2015/10/Clamshell_20-34-3100_1-Pt-RunRite-tomatoes.jpg',
-    alt: 'test',
-    tagline: 'Crisp and savory',
-    link: '/'
-  },
-  {
-    name: 'Tomatoes',
-    intro_blurb:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    image: 'https://media.istockphoto.com/photos/tomato-picture-id155157132',
-    alt: 'test',
-    tagline: 'Test',
-    link: '/'
-  },
-  {
-    name: 'Pickles',
-    intro_blurb:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    image:
-      'https://media.istockphoto.com/photos/cucumbers-pickles-picture-id95756257',
-    alt: 'test',
-    tagline: 'Crispy and fresh',
-    link: '/'
-  }
-];
 
 export default class ProductCarousel extends Component {
   constructor(props) {

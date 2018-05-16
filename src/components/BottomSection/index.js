@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Container } from '../../shared/blocks/Container';
 import FancyButton from '../../shared/elements/FancyButton';
 import FindALocation from '../FindALocation';
+import Subheading from '../../shared/elements/SubHeading';
+import H2 from '../../shared/elements/H2';
+import Button from '../../shared/elements/Button';
 
 import brandmark from '../../images/POTM-Brandmark.png';
 
@@ -21,33 +24,174 @@ const SectionContent = Container.extend`
   }
 `;
 
-const BottomSection = () => {
-  return (
-    <BottomSectionContainer>
-      <FindALocation
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiiKUwnN8nt9lc4xuY0mNkGHKUXHHawmU&v=3.exp&libraries=geometry,drawing,places"
-        loadingElement={<div style={{ height: '100%' }} />}
-        containerElement={<div style={{ height: '400px' }} />}
-        mapElement={<div style={{ height: '100%' }} />}
-      />
-      <SectionContent>
-        <img src={brandmark} alt="Pride of the Meadows logo" />
-        <p>
-          Pride of the Meadows is packaged and distributed by Wood's Produce
-          company, local to Meadows of Dan, VA. We take great pride in
-          supporting local growers and delivering only the most fresh, high
-          quality fruits and vegetables.
-        </p>
-        <a
-          href="https://woodsproduce.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FancyButton>Visit Wood's Produce</FancyButton>
-        </a>
-      </SectionContent>
-    </BottomSectionContainer>
-  );
-};
+const WhereToFindUs = Subheading.extend`
+  text-align: left;
+`;
 
-export default BottomSection;
+const LocationNearYou = styled.div`
+  position: absolute;
+  right: 3rem;
+  height: 425px;
+  width: 375px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: ${props => props.theme.potmWhite};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+`;
+
+const MapContainerStyle = styled.div`
+  width: 100%;
+  height: 500px;
+  position: relative;
+`;
+
+const LocationFilters = styled.div`
+  display: flex;
+
+  ${Button} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    width: 175px;
+    height: 44px;
+    margin-right: 1rem;
+
+    svg {
+      fill: rgba(0, 0, 0, 0.2);
+      margin-right: 3px;
+    }
+  }
+`;
+
+const ZipCodeForm = styled.form`
+  flex: 1;
+  margin: 0;
+  height: 44px;
+  position: relative;
+
+  input {
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    padding-left: 5px;
+  }
+
+  button {
+    position: absolute;
+    border-radius: 0 6px 6px 0;
+    right: 0;
+    top: 0;
+    height: 44px;
+    border: none;
+    width: 34px;
+    background-color: #ff6d05;
+    transition: all 0.2s linear;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ea6100;
+    }
+
+    svg {
+      fill: #bb4e00;
+    }
+  }
+`;
+
+export default class BottomSection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      inputvalue: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleSubmit(event) {
+    console.log('Form value: ' + this.state.inputvalue);
+    event.preventDefault();
+  }
+
+  handleChange(event) {
+    this.setState({
+      inputvalue: event.target.value
+    });
+  }
+
+  render() {
+    return (
+      <BottomSectionContainer>
+        <MapContainerStyle>
+          <FindALocation
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiiKUwnN8nt9lc4xuY0mNkGHKUXHHawmU&v=3.exp&libraries=geometry,drawing,places"
+            loadingElement={<div style={{ height: '100%' }} />}
+            containerElement={<div style={{ height: '100%' }} />}
+            mapElement={<div style={{ height: '100%' }} />}
+          />
+          <LocationNearYou>
+            <WhereToFindUs>Where to Find Us</WhereToFindUs>
+            <H2>Near You</H2>
+            <p>
+              Pride of the Meadows is currently being sold in Food Lions across
+              Southern Virginia and Tennessee, sourced from different farms
+              dependent on the store’s location.
+            </p>
+            <LocationFilters>
+              <Button>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 1792 1792"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M1152 640q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zm256 0q0 109-33 179l-364 774q-16 33-47.5 52t-67.5 19-67.5-19-46.5-52l-365-774q-33-70-33-179 0-212 150-362t362-150 362 150 150 362z" />
+                </svg>
+                USE MY LOCATION
+              </Button>
+              <ZipCodeForm onSubmit={this.handleSubmit.bind(this)}>
+                <input
+                  type="text"
+                  placeholder="Enter Zip"
+                  value={this.state.inputvalue}
+                  onChange={this.handleChange.bind(this)}
+                />
+                <button>
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 1792 1792"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M1216 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z" />
+                  </svg>
+                </button>
+              </ZipCodeForm>
+            </LocationFilters>
+          </LocationNearYou>
+        </MapContainerStyle>
+        <SectionContent>
+          <img src={brandmark} alt="Pride of the Meadows logo" />
+          <p>
+            Pride of the Meadows is packaged and distributed by Wood's Produce
+            company, local to Meadows of Dan, VA. We take great pride in
+            supporting local growers and delivering only the most fresh, high
+            quality fruits and vegetables.
+          </p>
+          <a
+            href="https://woodsproduce.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FancyButton>Visit Wood's Produce</FancyButton>
+          </a>
+        </SectionContent>
+      </BottomSectionContainer>
+    );
+  }
+}

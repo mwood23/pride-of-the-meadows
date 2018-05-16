@@ -87,7 +87,6 @@ const ProductImageAndMetadata = props => (
         featureTwo={props.featureTwo}
         featureThree={props.featureThree}
       />
-      <CtaButton>OUR RECIPE</CtaButton>
     </ProductInfoContainer>
   </ProductContainer>
 );
