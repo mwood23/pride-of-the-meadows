@@ -21,6 +21,7 @@
     "gatsby-transformer-sharp": "^1.6.24",
     "gatsby-transformer-yaml": "^1.5.16",
     "geocodio": "^2.0.0",
+    "geolib": "^2.0.24",
     "limax": "^1.6.0",
     "react-google-maps": "^9.4.5",
     "react-helmet": "^5.2.0",

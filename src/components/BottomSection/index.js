@@ -6,6 +6,9 @@ import FindALocation from '../FindALocation';
 import Subheading from '../../shared/elements/SubHeading';
 import H2 from '../../shared/elements/H2';
 import Button from '../../shared/elements/Button';
+import locationData from '../../utils/locations.json';
+import { getDistance, convertUnit } from 'geolib';
+import { GEOCODE_URL } from '../../utils/const';
 
 import brandmark from '../../images/POTM-Brandmark.png';
 
@@ -108,13 +111,78 @@ export default class BottomSection extends Component {
     super(props);
 
     this.state = {
-      inputvalue: ''
+      inputvalue: '',
+      closestLocation: null,
+      usersLocation: null
     };
     this.handleChange = this.handleChange.bind(this);
+    this.getCurrentLocation = this.getCurrentLocation.bind(this);
+  }
+
+  filterLocations(latitude, longitude) {
+    const userLocation = {
+      latitude,
+      longitude
+    };
+
+    let closestLocation = locationData
+      .map(location => {
+        const latLong = {
+          latitude: location.geometry.lat,
+          longitude: location.geometry.lng
+        };
+
+        location.distanceFromUser = convertUnit(
+          'mi',
+          getDistance(userLocation, latLong),
+          0
+        );
+
+        return location;
+      })
+      .sort((a, b) => a.distanceFromUser - b.distanceFromUser)[0];
+
+    closestLocation.directionsLink = `https://www.google.com/maps/dir/${
+      userLocation.latitude
+    },${userLocation.longitude}/${closestLocation.address}`;
+
+    this.setState({
+      closestLocation,
+      usersLocation: {
+        lat: userLocation.latitude,
+        lng: userLocation.longitude
+      }
+    });
+  }
+
+  getCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        this.filterLocations(latitude, longitude);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   handleSubmit(event) {
-    console.log('Form value: ' + this.state.inputvalue);
+    fetch(`${GEOCODE_URL}${this.state.inputvalue}`)
+      .then(res => res.json())
+      .then(res => {
+        if (res.results.length > 0) {
+          const geocodedLocation = res.results[0];
+
+          this.filterLocations(
+            geocodedLocation.geometry.location.lat,
+            geocodedLocation.geometry.location.lng
+          );
+        }
+      });
+
     event.preventDefault();
   }
 
@@ -125,6 +193,7 @@ export default class BottomSection extends Component {
   }
 
   render() {
+    console.log(locationData, this.state);
     return (
       <BottomSectionContainer>
         <MapContainerStyle>
@@ -133,6 +202,8 @@ export default class BottomSection extends Component {
             loadingElement={<div style={{ height: '100%' }} />}
             containerElement={<div style={{ height: '100%' }} />}
             mapElement={<div style={{ height: '100%' }} />}
+            locations={locationData}
+            closestLocation={this.state.closestLocation}
           />
           <LocationNearYou>
             <WhereToFindUs>Where to Find Us</WhereToFindUs>
@@ -143,7 +214,7 @@ export default class BottomSection extends Component {
               dependent on the store’s location.
             </p>
             <LocationFilters>
-              <Button>
+              <Button onClick={this.getCurrentLocation}>
                 <svg
                   width="18"
                   height="18"
