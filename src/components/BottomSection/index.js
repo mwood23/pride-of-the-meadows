@@ -210,7 +210,7 @@ export default class BottomSection extends Component {
             <H2>Near You</H2>
             <p>
               Pride of the Meadows is currently being sold in Food Lions across
-              Southern Virginia and Tennessee, sourced from different farms
+              Southern Virginia and North Carolina, sourced from different farms
               dependent on the store’s location.
             </p>
             <LocationFilters>
