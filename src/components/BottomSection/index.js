@@ -9,6 +9,7 @@ import Button from '../../shared/elements/Button';
 import locationData from '../../utils/locations.json';
 import { getDistance, convertUnit } from 'geolib';
 import { GEOCODE_URL } from '../../utils/const';
+import { media } from '../../utils/theme';
 
 import brandmark from '../../images/POTM-Brandmark.png';
 
@@ -32,23 +33,40 @@ const WhereToFindUs = Subheading.extend`
 `;
 
 const LocationNearYou = styled.div`
-  position: absolute;
-  right: 3rem;
-  height: 425px;
-  width: 375px;
-  top: 50%;
-  transform: translateY(-50%);
   background-color: ${props => props.theme.potmWhite};
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
+
+  ${media.forLargeUp`
+    width: 375px;
+    height: 425px;
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+  `};
+
+  ${media.forSmallMediumOnly`
+    position: relative;
+  `};
+`;
+
+const MapContainerWrapper = styled.div`
+  position: relative;
 `;
 
 const MapContainerStyle = styled.div`
   width: 100%;
-  height: 500px;
-  position: relative;
+
+  ${media.forLargeUp`
+    height: 500px;
+  `};
+
+  ${media.forSmallMediumOnly`
+    height: 400px;
+  `};
 `;
 
 const LocationFilters = styled.div`
@@ -75,6 +93,7 @@ const ZipCodeForm = styled.form`
   margin: 0;
   height: 44px;
   position: relative;
+  max-width: 150px;
 
   input {
     border-radius: 6px;
@@ -196,15 +215,18 @@ export default class BottomSection extends Component {
     console.log(locationData, this.state);
     return (
       <BottomSectionContainer>
-        <MapContainerStyle>
-          <FindALocation
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiiKUwnN8nt9lc4xuY0mNkGHKUXHHawmU&v=3.exp&libraries=geometry,drawing,places"
-            loadingElement={<div style={{ height: '100%' }} />}
-            containerElement={<div style={{ height: '100%' }} />}
-            mapElement={<div style={{ height: '100%' }} />}
-            locations={locationData}
-            closestLocation={this.state.closestLocation}
-          />
+        <MapContainerWrapper>
+          <MapContainerStyle>
+            <FindALocation
+              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiiKUwnN8nt9lc4xuY0mNkGHKUXHHawmU&v=3.exp&libraries=geometry,drawing,places"
+              loadingElement={<div style={{ height: '100%' }} />}
+              containerElement={<div style={{ height: '100%' }} />}
+              mapElement={<div style={{ height: '100%' }} />}
+              locations={locationData}
+              closestLocation={this.state.closestLocation}
+              usersLocation={this.state.usersLocation}
+            />
+          </MapContainerStyle>
           <LocationNearYou>
             <WhereToFindUs>Where to Find Us</WhereToFindUs>
             <H2>Near You</H2>
@@ -245,7 +267,7 @@ export default class BottomSection extends Component {
               </ZipCodeForm>
             </LocationFilters>
           </LocationNearYou>
-        </MapContainerStyle>
+        </MapContainerWrapper>
         <SectionContent>
           <img src={brandmark} alt="Pride of the Meadows logo" />
           <p>
