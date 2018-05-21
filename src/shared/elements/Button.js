@@ -9,6 +9,7 @@ const Button = styled.button`
   font-size: 14px;
   transition: all 200ms linear;
   cursor: pointer;
+  background-color: ${props => props.theme.potmWhite};
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
