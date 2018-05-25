@@ -2,10 +2,10 @@ intro_blurb: Welcome to Pride of the Meadows
 about_us_icon_blurb_row:
   - header: Eat Local
     icon_image: /assets/jalapeno-icon.svg
-    text: All Pride of the Meadows products are sourced local from your area and delivered to grocers near you.
+    text: All products are sourced local from your area and delivered to grocers near you within 72 hours.
   - header: Snack Better
     icon_image: /assets/bell-pepper-icon.svg
-    text: Products are packaged in a way that makes snacking on the go a breeze.
-  - header: Waste less
+    text: Products are packaged to make snacking on the go a breeze.
+  - header: Waste Less
     icon_image: /assets/tomato-icon.svg
-    text: When there's an overproduction of crops, we work with local food banks to make sure food does not go to waste.
+    text: We work with local food banks to make sure excess crops do not go to waste.

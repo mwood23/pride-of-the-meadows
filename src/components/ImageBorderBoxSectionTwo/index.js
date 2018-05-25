@@ -26,6 +26,7 @@ const ContentWrapper = styled.div`
   height: 100%;
   display: flex;
   border-radius: 6px;
+  z-index: 10;
 
   ${media.forSmallOnly`
     flex-direction: column;
@@ -83,29 +84,72 @@ const OurRecipeButtonContainer = styled.div`
   `};
 `;
 
-const FeaturedRecipe = ({
-  recipeImage,
-  recipeName,
-  recipeDescription,
-  recipeTag,
-  recipeDate,
-  recipeLink
+const ImageAndOverviewContent = ({
+  name,
+  date,
+  description,
+  link,
+  tag,
+  image,
+  header,
+  buttonText
 }) => (
   <ContentWrapper>
-    <img src={recipeImage} alt={recipeName} />
+    <img src={image} alt={name} />
     <RecipeInfoContainer>
       <FeaturedRecipeContainer>
-        <H2>Featured Recipe</H2>
+        <H2>{header}</H2>
       </FeaturedRecipeContainer>
-      <h3>{recipeName}</h3>
-      <PostTagDateRow textOne={recipeTag} textTwo={recipeDate} />
-      <p>{recipeDescription}</p>
+      <h3>{name}</h3>
+      {tag && date ? <PostTagDateRow textOne={tag} textTwo={date} /> : null}
+
+      <p>{description}</p>
       <OurRecipeButtonContainer>
-        <Link to={recipeLink}>
-          <Button>Our Recipe</Button>
+        <Link to={link}>
+          <Button>{buttonText}</Button>
         </Link>
       </OurRecipeButtonContainer>
     </RecipeInfoContainer>
+  </ContentWrapper>
+);
+
+export const ImageAndOverview = ({
+  name,
+  date,
+  description,
+  link,
+  tag,
+  image,
+  header,
+  buttonText
+}) => (
+  <ContentWrapper>
+    {typeof window !== 'undefined' &&
+    window.matchMedia('(min-width: 680px)').matches ? (
+      <ImageAndOverviewContent
+        name={name}
+        date={date}
+        description={description}
+        link={link}
+        tag={tag}
+        image={image}
+        header={header}
+        buttonText={buttonText}
+      />
+    ) : (
+      <Link to={link}>
+        <ImageAndOverviewContent
+          name={name}
+          date={date}
+          description={description}
+          link={link}
+          tag={tag}
+          image={image}
+          header={header}
+          buttonText={buttonText}
+        />
+      </Link>
+    )}
   </ContentWrapper>
 );
 
@@ -116,42 +160,33 @@ const ImageBorderBoxSectionTwo = ({
   recipeLink,
   recipeTag,
   backgroundImage,
-  recipeImage
+  recipeImage,
+  noBackgroundImage
 }) => (
   <SectionContainer>
-    <Image
-      sizes={backgroundImage.sizes}
-      style={{
-        position: 'absolute',
-        left: 0,
-        top: 0,
-        width: '100%',
-        height: '100%'
-      }}
+    {noBackgroundImage ? null : (
+      <Image
+        sizes={backgroundImage.sizes}
+        style={{
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          width: '100%',
+          height: '100%'
+        }}
+      />
+    )}
+    <ImageAndOverview
+      name={recipeName}
+      date={recipeDate}
+      description={recipeDescription}
+      link={recipeLink}
+      tag={recipeTag}
+      image={recipeImage}
+      header="Featured Recipe"
+      buttonText="Get Recipe"
     />
     <BackgroundColor />
-    {typeof window !== 'undefined' &&
-    window.matchMedia('(min-width: 680px)').matches ? (
-      <FeaturedRecipe
-        recipeName={recipeName}
-        recipeDate={recipeDate}
-        recipeDescription={recipeDescription}
-        recipeLink={recipeLink}
-        recipeTag={recipeTag}
-        recipeImage={recipeImage}
-      />
-    ) : (
-      <Link to={recipeLink}>
-        <FeaturedRecipe
-          recipeName={recipeName}
-          recipeDate={recipeDate}
-          recipeDescription={recipeDescription}
-          recipeLink={recipeLink}
-          recipeTag={recipeTag}
-          recipeImage={recipeImage}
-        />
-      </Link>
-    )}
   </SectionContainer>
 );
 

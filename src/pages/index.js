@@ -7,6 +7,7 @@ import ProductCarousel from '../components/ProductCarousel';
 import PostCollection from '../components/PostCollection';
 import BottomSection from '../components/BottomSection';
 import SubHeading from '../shared/elements/SubHeading';
+import Link from 'gatsby-link';
 
 const IndexPage = ({ data }) => {
   return (
@@ -17,23 +18,19 @@ const IndexPage = ({ data }) => {
         <SubHeading>Pride of the Meadows</SubHeading>
         <h2 style={{ fontSize: '40px' }}>About Us</h2>
         <p>
-          <span style={{ color: 'red' }}>
-            Local tastes better. (make this our tagline?)
-          </span>{' '}
           We work with farmers local to your area to source the freshest product
           possible, package it in our food safe facility, and send it to grocers
-          near you. All of our products are:
-          <span style={{ color: 'red' }}>
-            Non-GMO?, Hand picked?, Gluten free?, From farm to store in 72
-            hours?, Cold from source to your door?
-          </span>
+          near you. All of our products are delivered from farm to store within
+          72 hours and packed by hand to ensure the best quality possible.
         </p>
         <p>
           You can find Pride of the Meadows branded fruits and vegetables in
-          Virginia and North Carolina right now at Food Lions and independent
-          grocery stores. If we're not in your area yet please{' '}
-          <span style={{ color: 'red' }}>contact us </span>
-          and we'll see what we can do!
+          Virginia and North Carolina right now at participating Food Lions. If
+          we're not in your area yet please {/* TODO: Update styling */}
+          <Link to="/contact-us" style={{ color: 'green' }}>
+            contact us
+          </Link>{' '}
+          and we'll see what we can do.
         </p>
       </ImageBorderInfoBox>
       <ProductCarousel products={data.products.edges} />

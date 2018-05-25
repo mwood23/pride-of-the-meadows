@@ -35,6 +35,10 @@ const Blurb = styled.div`
   padding: 0 2rem;
   width: 25%;
 
+  img {
+    height: 60px;
+  }
+
   ${media.forSmallMediumOnly`
     width: 33%;
   `};
@@ -79,12 +83,13 @@ const BadgeImage = styled.div`
 `;
 
 const IconBlurbRow = ({ blurbs }) => {
+  console.log(blurbs);
   return (
     <IconBlurbWrapper>
       <IconBlurbContainer>
         {blurbs.map(item => (
           <Blurb key={item.header}>
-            <img src={item.icon_image} alt="test" />
+            <img src={item.icon_image} alt={item.text} />
             <h3>{item.header}</h3>
             <p>{item.text}</p>
           </Blurb>

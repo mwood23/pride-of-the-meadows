@@ -89,8 +89,7 @@ const PostCollection = ({ backgroundImage, posts }) => {
       <PostCollectionContainer>
         <H2>Recipes from our Collection</H2>
         <PostCollectionInfo>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur.
+          From our table to yours, these are our favorites.
         </PostCollectionInfo>
 
         <PostBlurbContainer>

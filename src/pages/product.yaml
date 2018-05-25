@@ -1,6 +1,5 @@
-
 - id: Jalapeno Peppers
-  tagline: crisp and savory
+  tagline: Crisp and Savory
   image: /assets/potm-jalapeno.jpg
   featureOne: Hand-Picked for Quality
   featureTwo: Packed with Flavor
@@ -14,7 +13,7 @@
   recipeTag: Recipes
   nutritionFacts: /assets/jalapeno-nutrition-facts.png
 - id: Pickles
-  tagline: crisp pickling cucumbers
+  tagline: Crisp Pickling Cucumbers
   image: /assets/potm-pickles.jpg
   featureOne: Low-Calorie Snack
   featureTwo: Hand-Picked for Quality
@@ -28,7 +27,7 @@
   recipeTag: Recipes
   nutritionFacts: /assets/pickles-nutrition-facts.png
 - id: Cherry Tomatoes
-  tagline: sweet and refreshing
+  tagline: Sweet and Refreshing
   image: /assets/potm-cherry-tomatoes.jpg
   featureOne: Great for Snacking
   featureTwo: Vine-Ripened
@@ -42,7 +41,7 @@
   recipeTag: Recipes
   nutritionFacts: /assets/jalapeno-nutrition-facts.png
 - id: Grape Tomatoes
-  tagline: juicy and fresh
+  tagline: Juicy and Fresh
   image: /assets/potm-grape-tomatoes.jpg
   featureOne: Great for Snacking
   featureTwo: Vine-Ripened
@@ -56,7 +55,7 @@
   recipeTag: Recipes
   nutritionFacts: /assets/jalapeno-nutrition-facts.png
 - id: Yellow Grape Tomatoes
-  tagline: sweet and refreshing
+  tagline: Sweet and Refreshing
   image: /assets/potm-yellow-grape-tomatoes.jpg
   featureOne: Great for Snacking
   featureTwo: Vine-Ripened

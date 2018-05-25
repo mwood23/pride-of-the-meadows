@@ -23,7 +23,6 @@ const RecipePageWrapper = Container.extend`
 
     > svg {
       display: none;
-      margin: 0 1rem;
     }
   `};
 
@@ -52,10 +51,12 @@ const FeaturedProductWrapper = styled.div`
     display: flex;
     margin-top: 3rem;
     width: 100%;
+    height: 300px;
   `};
 
   ${media.forSmallOnly`
     margin-top: 1rem;
+    height: auto;
   `};
 
   @media (max-width: 767px) {
@@ -66,6 +67,10 @@ const FeaturedProductWrapper = styled.div`
 
 const ProductImage = styled.img`
   object-fit: contain;
+
+  ${media.forSmallMediumOnly`
+    width: 50%;
+  `};
 `;
 
 const RecipeInfo = styled.div`
@@ -75,6 +80,10 @@ const RecipeInfo = styled.div`
   line-height: 1.5;
   font-family: 'Montserrat';
   margin: 1rem 0;
+
+  ${media.forSmallMediumOnly`
+    flex: 1;
+  `};
 
   ${media.forSmallOnly`
     flex-direction: column;
