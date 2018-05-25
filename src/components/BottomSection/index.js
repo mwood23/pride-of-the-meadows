@@ -138,7 +138,7 @@ export default class BottomSection extends Component {
     this.getCurrentLocation = this.getCurrentLocation.bind(this);
   }
 
-  filterLocations(latitude, longitude) {
+  filterLocations(latitude, longitude, fromCurrentLocation) {
     const userLocation = {
       latitude,
       longitude
@@ -170,7 +170,8 @@ export default class BottomSection extends Component {
       usersLocation: {
         lat: userLocation.latitude,
         lng: userLocation.longitude
-      }
+      },
+      inputvalue: fromCurrentLocation ? '' : this.state.inputvalue
     });
   }
 
@@ -180,7 +181,7 @@ export default class BottomSection extends Component {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
-        this.filterLocations(latitude, longitude);
+        this.filterLocations(latitude, longitude, true);
       },
       err => {
         console.log(err);

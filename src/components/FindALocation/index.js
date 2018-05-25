@@ -59,43 +59,44 @@ const FindALocation = class extends React.Component {
 
     if (
       this.props.usersLocation &&
+      this.props.closestLocation &&
       this.props.usersLocation.lat !==
         (prevProps.usersLocation && prevProps.usersLocation.lat) &&
       this.props.usersLocation.lng !==
-        (prevProps.usersLocation && prevProps.usersLocation.lng)
+        (prevProps.usersLocation && prevProps.usersLocation.lng) &&
+      this.props.closestLocation.geometry.lat !==
+        (prevProps.closestLocation && prevProps.closestLocation.geometry.lat) &&
+      this.props.closestLocation.geometry.lng !==
+        (prevProps.closestLocation && prevProps.closestLocation.geometry.lng)
     ) {
       const bounds = new window.google.maps.LatLngBounds();
-      this.props.locations.map((location, i) => {
-        bounds.extend(
-          new window.google.maps.LatLng(
-            location.geometry.lat,
-            location.geometry.lng
-          )
-        );
-      });
+      bounds.extend(
+        new window.google.maps.LatLng(
+          this.props.usersLocation.lat,
+          this.props.usersLocation.lng
+        )
+      );
 
-      if (this.props.usersLocation) {
-        bounds.extend(
-          new window.google.maps.LatLng(
-            this.props.usersLocation.lat,
-            this.props.usersLocation.lng
-          )
-        );
-      }
+      bounds.extend(
+        new window.google.maps.LatLng(
+          this.props.closestLocation.geometry.lat,
+          this.props.closestLocation.geometry.lng
+        )
+      );
+
       this.refs.map.fitBounds(bounds);
     }
   }
 
   render() {
     const { locations, closestLocation, usersLocation } = this.props;
-    const mapCenter = usersLocation
-      ? usersLocation
-      : { lat: 36.71222, lng: -80.354193 };
-
-    console.log(usersLocation);
 
     return (
-      <GoogleMap defaultZoom={8} center={mapCenter} ref="map">
+      <GoogleMap
+        defaultZoom={8}
+        defaultCenter={{ lat: 36.71222, lng: -80.354193 }}
+        ref="map"
+      >
         {locations.map(location => (
           <Marker key={location.address} position={location.geometry} />
         ))}
