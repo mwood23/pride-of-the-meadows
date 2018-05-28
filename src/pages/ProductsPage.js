@@ -8,8 +8,6 @@ import BottomSection from '../components/BottomSection';
 export default class ProductsPage extends Component {
   render() {
     const { data } = this.props;
-
-    console.log(data);
     if (!data) return null;
     return (
       <div>

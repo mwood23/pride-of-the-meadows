@@ -27,7 +27,7 @@ const IndexPage = ({ data }) => {
           You can find Pride of the Meadows branded fruits and vegetables in
           Virginia and North Carolina at participating Food Lions. If we're not
           in your area yet please {/* TODO: Update styling */}
-          <Link to="/contact-us" style={{ color: 'green' }}>
+          <Link to="/contact-us" style={{ color: '#338a1a' }}>
             contact us
           </Link>{' '}
           and we'll see what we can do.

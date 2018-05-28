@@ -109,7 +109,6 @@ export default class ProductCarousel extends Component {
   }
 
   render() {
-    console.log(this.props.products);
     return (
       <SwipeWrapper>
         <PrevButton onClick={this.goToPrevious}>

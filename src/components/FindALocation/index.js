@@ -55,8 +55,6 @@ const FindALocation = class extends React.Component {
   // }
 
   componentDidUpdate(prevProps) {
-    console.log('did update called', prevProps);
-
     if (
       this.props.usersLocation &&
       this.props.closestLocation &&
@@ -125,7 +123,7 @@ const FindALocation = class extends React.Component {
                   alignItems: 'center'
                 }}
               >
-                <div>
+                <div style={{ margin: 'auto' }}>
                   <MapMarkerInfoStore>FOOD LION</MapMarkerInfoStore>
                   <MapMarkerAddress>{closestLocation.address}</MapMarkerAddress>
                   <MapMarkerDistanceAway>

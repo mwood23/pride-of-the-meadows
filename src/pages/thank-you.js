@@ -24,12 +24,12 @@ const ThankYouContainer = styled.div`
 
 const ThankYouText = styled.span`
   font-family: Montserrat;
-  font-size: 46px;
+  font-size: 40px;
   text-align: center;
   margin-bottom: 2rem;
 
   ${media.forSmallMediumOnly`
-    font-size: 38px;
+    font-size: 34px;
   `};
 
   ${media.forSmallOnly`
@@ -43,7 +43,7 @@ const ThankYouPage = () => (
       <ThankYouText>
         Thank you for reaching out, we'll be in touch in a couple days.
       </ThankYouText>
-      <Link to="/recipes/pickles">
+      <Link to="recipes/grandmas-pickles">
         <FancyButton>Check out our pickle recipe</FancyButton>
       </Link>
     </ThankYouContainer>

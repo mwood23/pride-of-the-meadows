@@ -2912,7 +2912,6 @@ const NotFoundPage = class extends React.Component {
   }
 
   render() {
-    console.log('render called');
     return (
       <div>
         <div id="t" className="offline">

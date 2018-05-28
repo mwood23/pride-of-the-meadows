@@ -213,7 +213,6 @@ export default class BottomSection extends Component {
   }
 
   render() {
-    console.log(locationData, this.state);
     return (
       <BottomSectionContainer>
         <MapContainerWrapper>

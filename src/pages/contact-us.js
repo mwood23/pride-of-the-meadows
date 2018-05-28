@@ -94,6 +94,10 @@ const TextArea = styled.textarea`
   }
 `;
 
+const WoodsProduceLink = styled.a`
+  color: #66bd4d;
+`;
+
 function encode(data) {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -128,8 +132,15 @@ export default class Contact extends React.Component {
         <FormWrapper>
           <h1>Contact Us</h1>
           <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium natus error sit. Visit Woods Produce →
+            Please reach out with any questions you have, and we'll get back to
+            you in the next couple days.{' '}
+            <WoodsProduceLink
+              href="https://woodsproduce.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Woods Produce →
+            </WoodsProduceLink>
           </p>
           <form
             name="contact"

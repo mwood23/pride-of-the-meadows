@@ -83,7 +83,6 @@ const BadgeImage = styled.div`
 `;
 
 const IconBlurbRow = ({ blurbs }) => {
-  console.log(blurbs);
   return (
     <IconBlurbWrapper>
       <IconBlurbContainer>

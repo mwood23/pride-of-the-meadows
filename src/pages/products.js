@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import BottomSection from '../components/BottomSection';
 import { media } from '../utils/theme';
 
-const ProductsOverviewWrapper = Container.extend`
+const ProductsOverviewWrapper = styled.div`
   margin-top: 3rem;
 
   ${media.forSmallMediumOnly`
@@ -23,23 +23,23 @@ const ProductContainer = styled.div`
 export default class ProductsPage extends Component {
   render() {
     const { data } = this.props;
-
-    console.log(data, 'component fired');
     if (!data) return null;
     return (
       <ProductsOverviewWrapper>
-        {data.products.edges.map(({ node }) => (
-          <ProductContainer key={node.id}>
-            <ImageAndOverview
-              name={node.tagline}
-              description={node.productDescription}
-              link={node.fields.slug}
-              image={node.image}
-              header={node.id}
-              buttonText="Learn more"
-            />
-          </ProductContainer>
-        ))}
+        <Container>
+          {data.products.edges.map(({ node }) => (
+            <ProductContainer key={node.id}>
+              <ImageAndOverview
+                name={node.tagline}
+                description={node.productDescription}
+                link={node.fields.slug}
+                image={node.image}
+                header={node.id}
+                buttonText="Learn more"
+              />
+            </ProductContainer>
+          ))}
+        </Container>
         <BottomSection />
       </ProductsOverviewWrapper>
     );

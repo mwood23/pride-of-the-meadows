@@ -140,7 +140,6 @@ const LearnMoreButton = FancyButton.extend`
 export default class RecipePage extends Component {
   render() {
     const { data } = this.props;
-    console.log(data);
     if (!data) return null;
 
     let images;
