@@ -137,7 +137,10 @@ export default class ProductCarousel extends Component {
                 <SubHeading leftAlign>{product.node.tagline}</SubHeading>
                 <FancyTextCollectionOneLine titleFont={product.node.id} />
                 <p>{product.node.productDescription}</p>
-                <Link to={product.node.fields.slug}>
+                <Link
+                  to={product.node.fields.slug}
+                  aria-label={`See more details about ${product.node.id}`}
+                >
                   <Button>Learn more</Button>
                 </Link>
               </TextContainer>

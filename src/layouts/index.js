@@ -19,9 +19,9 @@ const ContentWrapper = styled.div`
   flex-basis: auto;
 
   ${media.forSmallOnly`
-    p {
+    /* p {
       font-size: 14px;
-    }
+    } */
 
     h2 {
       font-size: 2rem;
