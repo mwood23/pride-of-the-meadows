@@ -47,7 +47,13 @@ export default class TemplateWrapper extends Component {
         <div>
           <Helmet
             title="Pride of the Meadows | Local Fruits and Vegetables from NC and VA"
-            meta={[{ name: 'description', content: 'Sample' }]}
+            meta={[
+              {
+                name: 'description',
+                content:
+                  'We work with farmers local to your area to source the freshest product possible, package it in our food safe facility, and send it to grocers near you. All within 72 hours.'
+              }
+            ]}
           >
             <link rel="icon" href={Favicon} sizes="32x32" />
             <link

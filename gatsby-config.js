@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Pride of the Meadows',
-    desc: 'Fresh produce website'
+    title: 'Pride of the Meadows | Local Fruits and Vegetables from NC and VA',
+    desc:
+      'We work with farmers local to your area to source the freshest product possible, package it in our food safe facility, and send it to grocers near you. All within 72 hours.'
   },
   mapping: {
     'MarkdownRemark.frontmatter.product': 'ProductYaml'
