@@ -31,6 +31,7 @@ const PostBlurb = styled.a`
   background-color: white;
   display: block;
   flex: 1;
+  flex-basis: auto;
   border-radius: 6px;
   overflow: hidden;
   text-align: left;

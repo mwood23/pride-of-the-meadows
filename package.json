@@ -23,12 +23,14 @@
     "geocodio": "^2.0.0",
     "geolib": "^2.0.24",
     "limax": "^1.6.0",
+    "object-fit-images": "^3.2.3",
     "react-google-maps": "^9.4.5",
     "react-helmet": "^5.2.0",
     "react-onclickoutside": "^6.7.1",
     "react-player": "^1.5.0",
     "react-swipe": "^5.1.1",
-    "styled-components": "^3.2.6"
+    "styled-components": "^3.2.6",
+    "whatwg-fetch": "^2.0.4"
   },
   "keywords": [
     "gatsby"

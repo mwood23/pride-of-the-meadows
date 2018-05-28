@@ -35,6 +35,7 @@ const ContentWrapper = styled.div`
   img {
     height: 100%;
     object-fit: cover;
+    font-family: 'object-fit: cover;';
     width: 350px;
     overflow: hidden;
     border-radius: 6px 0 0 6px;
@@ -53,6 +54,7 @@ const ContentWrapper = styled.div`
 
 const RecipeInfoContainer = styled.div`
   flex: 1;
+  flex-basis: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

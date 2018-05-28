@@ -95,7 +95,7 @@ const TextArea = styled.textarea`
 `;
 
 const WoodsProduceLink = styled.a`
-  color: #66bd4d;
+  color: #338a1a;
 `;
 
 function encode(data) {

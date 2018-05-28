@@ -49,6 +49,7 @@ const ImageContainer = styled.div`
   img {
     width: 100%;
     object-fit: contain;
+    font-family: 'object-fit: contain;';
   }
 
   /* ${media.forSmallMediumOnly`

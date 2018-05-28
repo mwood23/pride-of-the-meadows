@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
@@ -8,10 +8,15 @@ import Favicon from '../pages/favicon.png';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import 'babel-polyfill';
 import './index.css';
+import objectFitImages from 'object-fit-images';
+import '../utils/polyfills';
+import 'whatwg-fetch';
 
 const ContentWrapper = styled.div`
   flex: 1;
+  flex-basis: auto;
 
   ${media.forSmallOnly`
     p {
@@ -28,39 +33,48 @@ const ContentWrapper = styled.div`
   `};
 `;
 
-const TemplateWrapper = ({ children, data, location }) => (
-  <ThemeProvider theme={theme}>
-    <div>
-      <Helmet
-        title="Pride of the Meadows | Local Fruits and Vegetables from NC and VA"
-        meta={[{ name: 'description', content: 'Sample' }]}
-      >
-        <link rel="icon" href={Favicon} sizes="32x32" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Sacramento"
-          rel="stylesheet"
-        />
-      </Helmet>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          minHeight: '100vh'
-        }}
-      >
-        <Header data={data} location={location} />
-        <ContentWrapper>{children()}</ContentWrapper>
-        <Footer location={location.pathname} />
-      </div>
-    </div>
-  </ThemeProvider>
-);
+export default class TemplateWrapper extends Component {
+  componentDidMount() {
+    // < Edge 15 and IE11 object fit polyfill
+    objectFitImages();
+  }
+
+  render() {
+    const { children, data, location } = this.props;
+
+    return (
+      <ThemeProvider theme={theme}>
+        <div>
+          <Helmet
+            title="Pride of the Meadows | Local Fruits and Vegetables from NC and VA"
+            meta={[{ name: 'description', content: 'Sample' }]}
+          >
+            <link rel="icon" href={Favicon} sizes="32x32" />
+            <link
+              href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Sacramento"
+              rel="stylesheet"
+            />
+          </Helmet>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              minHeight: '100vh'
+            }}
+          >
+            <Header data={data} location={location} />
+            <ContentWrapper>{children()}</ContentWrapper>
+            <Footer location={location.pathname} />
+          </div>
+        </div>
+      </ThemeProvider>
+    );
+  }
+}
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func
 };
-
-export default TemplateWrapper;
 
 export const query = graphql`
   query LayoutQuery {

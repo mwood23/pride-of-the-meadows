@@ -51,6 +51,7 @@ const NutritionInfoContainer = styled.div`
     height: 100%;
     width: 100%;
     object-fit: contain;
+    font-family: 'object-fit: contain;';
   }
 `;
 

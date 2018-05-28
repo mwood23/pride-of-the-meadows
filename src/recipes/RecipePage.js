@@ -67,6 +67,7 @@ const FeaturedProductWrapper = styled.div`
 
 const ProductImage = styled.img`
   object-fit: contain;
+  font-family: 'object-fit: contain;';
 
   ${media.forSmallMediumOnly`
     width: 50%;

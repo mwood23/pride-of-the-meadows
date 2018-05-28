@@ -78,6 +78,7 @@ const BadgeImage = styled.div`
 
   img {
     object-fit: contain;
+    font-family: 'object-fit: contain;';
     margin: 0;
   }
 `;

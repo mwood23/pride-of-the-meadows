@@ -18,6 +18,7 @@ const HeaderDesktopImage = styled(Link)`
   img {
     height: 100%;
     object-fit: contain;
+    font-family: 'object-fit: contain;';
     margin: 0 0 0 2rem;
     padding: 0.25rem 0;
   }
@@ -36,6 +37,7 @@ const HeaderMobileImage = styled.div`
   img {
     height: 100%;
     object-fit: contain;
+    font-family: 'object-fit: contain;';
     margin: 0;
     padding: 0.5rem 0;
   }

@@ -39,6 +39,14 @@ const Blurb = styled.div`
     height: 60px;
   }
 
+  p, h3 {
+    width: 100%;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
   ${media.forSmallMediumOnly`
     width: 33%;
   `};
@@ -78,6 +86,7 @@ const BadgeImage = styled.div`
 
   img {
     object-fit: contain;
+    font-family: 'object-fit: contain;';
     margin: 0;
   }
 `;
