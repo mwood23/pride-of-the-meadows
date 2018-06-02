@@ -51,6 +51,9 @@ const LocationNearYou = styled.div`
   ${media.forSmallMediumOnly`
     position: relative;
   `};
+  ${media.forSmallOnly`
+    padding: 2rem 15px;
+  `};
 `;
 
 const MapContainerWrapper = styled.div`
@@ -71,6 +74,7 @@ const MapContainerStyle = styled.div`
 
 const LocationFilters = styled.div`
   display: flex;
+  font-size: 14px;
 
   ${Button} {
     display: flex;

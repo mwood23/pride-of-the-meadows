@@ -15,14 +15,14 @@ const Overlay = styled.div`
   width: 100%;
   top: 0;
   left: 0;
-  ${'' /* background-image: linear-gradient(
+  background-image: linear-gradient(
     to bottom,
-    #0a301e,
-    #103524,
-    #163a2a,
-    #1c4030,
-    #224536
-  ); */} background-image: linear-gradient(to bottom, #102219, #10231a, #0f251b, #0f261c, #0e281d);
+    #102219,
+    #10231a,
+    #0f251b,
+    #0f261c,
+    #0e281d
+  );
   opacity: 0.4;
   z-index: 10;
 `;
@@ -36,6 +36,14 @@ const OverlayText = styled.h1`
   transform: translateY(-50%);
   z-index: 20;
   text-align: center;
+
+  ${media.forSmallMediumOnly`
+    font-size: 52px;
+  `};
+
+  ${media.forSmallOnly`
+    font-size: 40px;
+  `};
 `;
 
 const VideoHeroWrapper = styled.div`

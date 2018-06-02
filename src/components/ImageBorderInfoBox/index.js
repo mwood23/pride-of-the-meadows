@@ -12,6 +12,11 @@ const TidyInfoBoxWrapper = Container.extend`
   position: relative;
   margin: 4rem auto;
 
+  ${media.forSmallOnly`
+    margin: 4rem 15px;
+    width: calc(100% - 30px);
+  `};
+
   &.nutritionStyle {
     margin-top: calc(85px + 4rem);
 

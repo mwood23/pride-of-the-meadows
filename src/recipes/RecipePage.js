@@ -72,6 +72,10 @@ const ProductImage = styled.img`
   ${media.forSmallMediumOnly`
     width: 50%;
   `};
+
+  ${media.forSmallOnly`
+    width: 100%;
+  `};
 `;
 
 const RecipeInfo = styled.div`

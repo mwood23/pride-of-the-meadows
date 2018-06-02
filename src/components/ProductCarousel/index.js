@@ -16,7 +16,8 @@ const SwipeWrapper = styled.div`
   align-items: center;
 
   ${media.forSmallOnly`
-    margin: 0 15px;
+    margin: 0 10px;
+    padding: 0 2.5rem;
   `};
 `;
 
