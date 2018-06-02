@@ -5,6 +5,7 @@ import {
   withGoogleMap,
   withScriptjs
 } from 'react-google-maps';
+import { MarkerClusterer } from 'react-google-maps/lib/components/addons/MarkerClusterer';
 import { InfoBox } from 'react-google-maps/lib/components/addons/InfoBox';
 import styled from 'styled-components';
 
@@ -91,13 +92,27 @@ const FindALocation = class extends React.Component {
 
     return (
       <GoogleMap
-        defaultZoom={8}
+        defaultZoom={7}
         defaultCenter={{ lat: 36.71222, lng: -80.354193 }}
         ref="map"
       >
-        {locations.map(location => (
-          <Marker key={location.address} position={location.geometry} />
-        ))}
+        <MarkerClusterer
+          averageCenter
+          enableRetinaIcons
+          gridSize={40}
+          // styles={[
+          //   {
+          //     textColor: 'white',
+          //     url: UserLocationIcon,
+          //     height: 50,
+          //     width: 50
+          //   }
+          // ]}
+        >
+          {locations.map(location => (
+            <Marker key={location.address} position={location.geometry} />
+          ))}
+        </MarkerClusterer>
 
         {closestLocation ? (
           <Marker position={closestLocation.geometry}>
@@ -143,6 +158,7 @@ const FindALocation = class extends React.Component {
             </InfoBox>
           </Marker>
         ) : null}
+
         {usersLocation ? (
           <Marker
             position={usersLocation}
