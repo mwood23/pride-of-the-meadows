@@ -4,6 +4,7 @@ import Image from 'gatsby-image';
 import { media } from '../../utils/theme';
 import badge from '../../images/POTM-Bubble-USA.svg';
 import ReactPlayer from 'react-player';
+// import VideoImage from '../../images/POTM-Cabbage-Video-Preview.jpg';
 
 const ComponentWrapper = styled.section`
   position: relative;
@@ -110,42 +111,68 @@ const VideoContainer = styled.div`
   }
 `;
 
-const VideoHero = ({ mobileHeroImage }) => (
-  <ComponentWrapper>
-    <OverlayText>Local tastes better.</OverlayText>
-    <Overlay />
-    <VideoHeroWrapper>
-      {typeof window !== 'undefined' &&
-      window.matchMedia('(min-width: 680px)').matches ? (
-        <VideoContainer>
-          <ReactPlayer
-            url="https://streamable.com/nv3fb"
-            playing
-            loop
-            preload
-            width="100%"
-            height="initial"
-            controls={false}
-            config={{ attributes: { autoPlay: true } }}
-          />
-        </VideoContainer>
-      ) : (
-        <Image
-          sizes={mobileHeroImage.sizes}
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: '100%',
-            height: '100%'
-          }}
-        />
-      )}
-    </VideoHeroWrapper>
-    <BadgeImage>
-      <img src={badge} alt="Fresh from the Vine and Hand Picked Badge" />
-    </BadgeImage>
-  </ComponentWrapper>
-);
+const VideoHero = class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showVideo: false
+    };
+  }
+
+  render() {
+    const { mobileHeroImage, desktopHeroImage } = this.props;
+
+    return (
+      <ComponentWrapper>
+        <OverlayText>Local tastes better.</OverlayText>
+        <Overlay />
+        <VideoHeroWrapper>
+          {typeof window !== 'undefined' &&
+          window.matchMedia('(min-width: 680px)').matches ? (
+            <VideoContainer>
+              {/* {this.state.showVideo ? ( */}
+              <ReactPlayer
+                url="https://streamable.com/y8z89"
+                playing
+                loop
+                preload
+                width="100%"
+                height="initial"
+                controls={false}
+                config={{ attributes: { autoPlay: true } }}
+              />
+              {/* ) : (
+                <Image
+                  sizes={desktopHeroImage.sizes}
+                  style={{
+                    position: 'absolute',
+                    left: 0,
+                    top: 0,
+                    width: '100%',
+                    height: '100%'
+                  }}
+                /> */}
+              )}
+            </VideoContainer>
+          ) : (
+            <Image
+              sizes={mobileHeroImage.sizes}
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                width: '100%',
+                height: '100%'
+              }}
+            />
+          )}
+        </VideoHeroWrapper>
+        <BadgeImage>
+          <img src={badge} alt="Fresh from the Vine and Hand Picked Badge" />
+        </BadgeImage>
+      </ComponentWrapper>
+    );
+  }
+};
 
 export default VideoHero;

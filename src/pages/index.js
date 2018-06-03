@@ -12,7 +12,10 @@ import Link from 'gatsby-link';
 const IndexPage = ({ data }) => {
   return (
     <div>
-      <VideoHero mobileHeroImage={data.mobileHero} />
+      <VideoHero
+        mobileHeroImage={data.mobileHero}
+        desktopHeroImage={data.desktopHero}
+      />
       <IconBlurbRow blurbs={data.pageContentYaml.about_us_icon_blurb_row} />
       <ImageBorderInfoBox borderImage={data.infoBoxBorder}>
         <SubHeading>Pride of the Meadows</SubHeading>
@@ -117,6 +120,11 @@ export const query = graphql`
     }
     mobileHero: imageSharp(id: { regex: "/cabbage-mobile-hero.jpg/" }) {
       sizes(maxWidth: 700) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    desktopHero: imageSharp(id: { regex: "/POTM-Cabbage-Video-Preview.jpg/" }) {
+      sizes(maxWidth: 1800) {
         ...GatsbyImageSharpSizes
       }
     }
