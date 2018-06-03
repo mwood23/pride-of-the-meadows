@@ -220,14 +220,16 @@ export default class BottomSection extends Component {
   }
 
   render() {
-    const mapHeight = window.matchMedia('(max-width: 680px)').matches
-      ? 400
-      : 500;
+    const mapHeight =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(max-width: 680px)').matches
+        ? 400
+        : 500;
 
     return (
       <BottomSectionContainer>
         <MapContainerWrapper>
-          <LazyLoad height={mapHeight} offsetVertical={600}>
+          <LazyLoad height={mapHeight} offsetVertical={800}>
             <MapContainerStyle>
               <FindALocation
                 googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiiKUwnN8nt9lc4xuY0mNkGHKUXHHawmU&v=3.exp&libraries=geometry,drawing,places"

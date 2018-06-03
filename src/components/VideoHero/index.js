@@ -112,15 +112,8 @@ const VideoContainer = styled.div`
 `;
 
 const VideoHero = class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showVideo: false
-    };
-  }
-
   render() {
-    const { mobileHeroImage, desktopHeroImage } = this.props;
+    const { mobileHeroImage } = this.props;
 
     return (
       <ComponentWrapper>
