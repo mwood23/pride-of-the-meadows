@@ -51,10 +51,6 @@ const BottomTriangle = styled.div`
 `;
 
 const FindALocation = class extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   componentDidUpdate(prevProps) {
     if (
       this.props.usersLocation &&

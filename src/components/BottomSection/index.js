@@ -10,6 +10,7 @@ import locationData from '../../utils/locations.json';
 import { getDistance, convertUnit } from 'geolib';
 import { GEOCODE_URL } from '../../utils/const';
 import { media } from '../../utils/theme';
+import LazyLoad from 'react-lazy-load';
 
 import brandmark from '../../images/POTM-Brandmark.png';
 
@@ -74,7 +75,9 @@ const MapContainerStyle = styled.div`
 
 const LocationFilters = styled.div`
   display: flex;
-  font-size: 14px;
+  ${media.forSmallOnly`
+    font-size: 14px;
+  `};
 
   ${Button} {
     display: flex;
@@ -217,20 +220,26 @@ export default class BottomSection extends Component {
   }
 
   render() {
+    const mapHeight = window.matchMedia('(max-width: 680px)').matches
+      ? 400
+      : 500;
+
     return (
       <BottomSectionContainer>
         <MapContainerWrapper>
-          <MapContainerStyle>
-            <FindALocation
-              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiiKUwnN8nt9lc4xuY0mNkGHKUXHHawmU&v=3.exp&libraries=geometry,drawing,places"
-              loadingElement={<div style={{ height: '100%' }} />}
-              containerElement={<div style={{ height: '100%' }} />}
-              mapElement={<div style={{ height: '100%' }} />}
-              locations={locationData}
-              closestLocation={this.state.closestLocation}
-              usersLocation={this.state.usersLocation}
-            />
-          </MapContainerStyle>
+          <LazyLoad height={mapHeight} offsetVertical={600}>
+            <MapContainerStyle>
+              <FindALocation
+                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiiKUwnN8nt9lc4xuY0mNkGHKUXHHawmU&v=3.exp&libraries=geometry,drawing,places"
+                loadingElement={<div style={{ height: '100%' }} />}
+                containerElement={<div style={{ height: '100%' }} />}
+                mapElement={<div style={{ height: '100%' }} />}
+                locations={locationData}
+                closestLocation={this.state.closestLocation}
+                usersLocation={this.state.usersLocation}
+              />
+            </MapContainerStyle>
+          </LazyLoad>
           <LocationNearYou>
             <WhereToFindUs>Where to Find Us</WhereToFindUs>
             <H2>Near You</H2>
