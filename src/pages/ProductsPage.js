@@ -28,7 +28,8 @@ export default class ProductsPage extends Component {
             borderImage={data.infoBoxBorder}
           />
         </Container>
-        <ImageBorderBoxSectionTwo
+        {
+          data.productYaml.recipeName ? <ImageBorderBoxSectionTwo
           recipeName={data.productYaml.recipeName}
           recipeDate={data.productYaml.recipeDate}
           recipeDescription={data.productYaml.recipeDescription}
@@ -36,7 +37,9 @@ export default class ProductsPage extends Component {
           recipeTag={data.productYaml.recipeTag}
           backgroundImage={data.featuredRecipe}
           recipeImage={data.productYaml.recipeImage}
-        />
+        /> : null
+        }
+
         <BottomSection />
       </div>
     );

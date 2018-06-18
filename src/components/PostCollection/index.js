@@ -30,8 +30,7 @@ const PostBlurbContainer = Container.extend`
 const PostBlurb = styled.a`
   background-color: white;
   display: block;
-  flex: 1;
-  flex-basis: auto;
+  width: 33%;
   border-radius: 6px;
   overflow: hidden;
   text-align: left;

@@ -36,7 +36,7 @@ const ContentWrapper = styled.div`
     height: 100%;
     object-fit: cover;
     font-family: 'object-fit: cover;';
-    width: 350px;
+    width: 400px;
     overflow: hidden;
     border-radius: 6px 0 0 6px;
     margin-bottom: 0;

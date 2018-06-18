@@ -27,6 +27,10 @@ const SectionContent = Container.extend`
     width: 105px;
     height: 105px;
   }
+
+  p {
+    text-align: center;
+  }
 `;
 
 const WhereToFindUs = Subheading.extend`

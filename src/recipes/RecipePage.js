@@ -176,10 +176,10 @@ export default class RecipePage extends Component {
                 <line x1="20" y1="20" x2="20" y2="0" />
               </svg>
               <span>Yield: {data.markdownRemark.frontmatter.yield}</span>
-              <svg width="40" height="20">
+              {/* <svg width="40" height="20">
                 <line x1="20" y1="20" x2="20" y2="0" />
               </svg>
-              <a>Print</a>
+              <a>Print</a> */}
             </RecipeInfo>
             <MarkupContainer
               dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
