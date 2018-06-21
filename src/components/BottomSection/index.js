@@ -270,7 +270,7 @@ export default class BottomSection extends Component {
                 <input
                   type="text"
                   placeholder="Enter Zip"
-                  label="Enter Zip"
+                  aria-label="Enter Zip"
                   value={this.state.inputvalue}
                   onChange={this.handleChange.bind(this)}
                 />
