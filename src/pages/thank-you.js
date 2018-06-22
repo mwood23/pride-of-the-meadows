@@ -44,7 +44,7 @@ const ThankYouPage = () => (
         Thank you for reaching out, we'll be in touch in a couple days.
       </ThankYouText>
       <Link to="recipes/jalapeno-poppers">
-        <FancyButton>Check out our jalapeno poppers recipe</FancyButton>
+        <FancyButton>Check out our jalapeño poppers recipe</FancyButton>
       </Link>
     </ThankYouContainer>
   </ThankYouWrapper>

@@ -151,7 +151,7 @@ export default class RecipePage extends Component {
     if (data.markdownRemark.frontmatter.product_tag === 'pickles') {
       images = data.pickles;
     }
-    if (data.markdownRemark.frontmatter.product_tag === 'jalapenos') {
+    if (data.markdownRemark.frontmatter.product_tag === 'jalapeños') {
       images = data.jalapenos;
     }
     if (data.markdownRemark.frontmatter.product_tag === 'tomatoes') {

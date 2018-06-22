@@ -18,7 +18,7 @@ Every Christmas, we look forward to a batch of these pickles. You just can't fin
 * Two packs of Pride of the Meadows Pickles
 * 4 tablespoons of salt
 * 3 tablespoons of mixed pickling spice
-* 1 Gallon of Apple Cider Vinegar
+* 1 Gallon of apple cider vinegar
 * 7 cups of sugar
 
 ## Directions

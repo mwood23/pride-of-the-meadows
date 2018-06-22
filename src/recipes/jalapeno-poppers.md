@@ -1,13 +1,13 @@
 ---
-title: Jalapeno Poppers
-id: Jalapeno Peppers
+title: Jalapeño Poppers
+id: Jalapeño Peppers
 date: '2018-06-17'
 tag: Recipes
 time_to_make: 30 mins
-product_tag: jalapenos
+product_tag: jalapeños
 image: /assets/potm-jalapeno-poppers.jpg
-alt: Bacon wrapped Jalapenos
-product: Jalapeno Peppers
+alt: Bacon wrapped Jalapeños
+product: Jalapeño Peppers
 yield: 20 poppers
 ---
 
@@ -15,8 +15,8 @@ During the summer we love to grill and hang outside. While we're preparing our s
 
 ## Ingredients
 
-* One pack of Pride of the Meadows Jalapeno Peppers
-* Cream Cheese
+* One pack of Pride of the Meadows Jalapeño Peppers
+* Cream cheese
 * One pack of bacon
 * 1 teaspoon of smoked paprika
 * 1 teaspoon of Kosher salt
@@ -28,7 +28,7 @@ During the summer we love to grill and hang outside. While we're preparing our s
 3.  Remove seeds and white membrane from inside
 4.  Fill Inside of pepper with cream cheese
 5.  Sprinkle Kosher salt on peppers (not too much, it's pretty strong)
-6.  Wrap peppers in bacon, normally one slice per poppers
+6.  Wrap peppers in bacon, normally one slice per popper
 7.  Preheat grill to 350 degrees
 8.  Place poppers on grill until bacon is cooked to desired crispiness
-9.  Sprinkle smoke paprika over top of cooked peppers
+9.  Sprinkle smoked paprika over top of cooked peppers

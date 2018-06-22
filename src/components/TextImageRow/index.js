@@ -41,7 +41,7 @@ const TextImageRow = () => {
             marginLeft: '10px'
           }}
         >
-          Jalapenos
+          Jalapeños
         </span>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
