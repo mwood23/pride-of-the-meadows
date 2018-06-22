@@ -4,7 +4,6 @@ import Image from 'gatsby-image';
 import { media } from '../../utils/theme';
 import badge from '../../images/POTM-Bubble-USA.svg';
 import ReactPlayer from 'react-player';
-// import VideoImage from '../../images/POTM-Cabbage-Video-Preview.jpg';
 
 const ComponentWrapper = styled.section`
   position: relative;

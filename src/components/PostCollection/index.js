@@ -19,6 +19,11 @@ const PostCollectionContainer = styled.div`
   position: relative;
   z-index: 10;
   text-align: center;
+  margin-top: 40px;
+
+  ${media.forSmallOnly`
+    margin-top: 70px;
+  `};
 `;
 
 const PostBlurbContainer = Container.extend`
@@ -34,16 +39,15 @@ const PostBlurb = styled.a`
   border-radius: 6px;
   overflow: hidden;
   text-align: left;
+  margin: 0 1rem;
 
-  &:nth-child(even) {
-    margin: 0 2rem;
-  }
+  ${media.forSmallOnly`
+    width: 100%;
 
-  @media (max-width: 767px) {
     &:not(:first-child) {
       display: none;
     }
-  }
+  `};
 `;
 
 const PostCollectionInfo = styled.p`

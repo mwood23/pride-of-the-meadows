@@ -49,7 +49,7 @@ const FeaturedProductWrapper = styled.div`
 
   ${media.forSmallMediumOnly`
     display: flex;
-    margin-top: 3rem;
+    margin: 3rem 0;
     width: 100%;
     height: 300px;
   `};
@@ -252,13 +252,13 @@ export const query = graphql`
       }
     }
 
-    caprese: imageSharp(id: { regex: "/caprese.jpg/" }) {
-      sizes(maxWidth: 1000) {
-        ...GatsbyImageSharpSizes
-      }
-    }
+    # caprese: imageSharp(id: { regex: "/caprese.jpg/" }) {
+    #   sizes(maxWidth: 1000) {
+    #     ...GatsbyImageSharpSizes
+    #   }
+    # }
 
-    pickles: imageSharp(id: { regex: "/pickles.jpg/" }) {
+    pickles: imageSharp(id: { regex: "/fresh-pickles.jpg/" }) {
       sizes(maxWidth: 1000) {
         ...GatsbyImageSharpSizes
       }

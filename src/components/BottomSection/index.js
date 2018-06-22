@@ -236,7 +236,7 @@ export default class BottomSection extends Component {
           <LazyLoad height={mapHeight} offsetVertical={800}>
             <MapContainerStyle>
               <FindALocation
-                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiiKUwnN8nt9lc4xuY0mNkGHKUXHHawmU&v=3.exp&libraries=geometry,drawing,places"
+                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPcvhzfi18ebfWHED_5jSFtnzU4AVssj0&v=3.exp&libraries=geometry,drawing,places"
                 loadingElement={<div style={{ height: '100%' }} />}
                 containerElement={<div style={{ height: '100%' }} />}
                 mapElement={<div style={{ height: '100%' }} />}
@@ -270,6 +270,7 @@ export default class BottomSection extends Component {
                 <input
                   type="text"
                   placeholder="Enter Zip"
+                  aria-label="Enter Zip"
                   value={this.state.inputvalue}
                   onChange={this.handleChange.bind(this)}
                 />
