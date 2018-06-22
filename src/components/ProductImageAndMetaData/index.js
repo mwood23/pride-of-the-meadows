@@ -17,7 +17,7 @@ const ProductContainer = Container.extend`
     align-items: center;
   }
 
-  ${media.forSmallOnly`
+  ${media.forSmallMediumOnly`
     margin-top: calc(${props => props.theme.mobileHeaderHeight} + 2rem)
   `};
 `;
