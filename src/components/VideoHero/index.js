@@ -111,8 +111,17 @@ const VideoContainer = styled.div`
 `;
 
 const VideoHero = class extends React.Component {
+  state = {
+    showVideo: false
+  };
+  onVideoStart() {
+    setTimeout(() => {
+      return this.setState({ showVideo: true });
+    }, 100);
+  }
+
   render() {
-    const { mobileHeroImage } = this.props;
+    const { mobileHeroImage, desktopHeroImage } = this.props;
 
     return (
       <ComponentWrapper>
@@ -122,7 +131,6 @@ const VideoHero = class extends React.Component {
           {typeof window !== 'undefined' &&
           window.matchMedia('(min-width: 680px)').matches ? (
             <VideoContainer>
-              {/* {this.state.showVideo ? ( */}
               <ReactPlayer
                 url="https://streamable.com/y8z89"
                 playing
@@ -131,9 +139,10 @@ const VideoHero = class extends React.Component {
                 width="100%"
                 height="initial"
                 controls={false}
+                onStart={e => this.onVideoStart(e)}
                 config={{ attributes: { autoPlay: true } }}
               />
-              {/* ) : (
+              {!this.state.showVideo ? (
                 <Image
                   sizes={desktopHeroImage.sizes}
                   style={{
@@ -143,7 +152,8 @@ const VideoHero = class extends React.Component {
                     width: '100%',
                     height: '100%'
                   }}
-                /> */}
+                />
+              ) : null}
               )}
             </VideoContainer>
           ) : (
