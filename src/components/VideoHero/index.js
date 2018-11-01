@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Image from 'gatsby-image';
 import { media } from '../../utils/theme';
 import badge from '../../images/POTM-Bubble-USA.svg';
-import ReactPlayer from 'react-player';
 
 const ComponentWrapper = styled.section`
   position: relative;
@@ -131,30 +130,16 @@ const VideoHero = class extends React.Component {
           {typeof window !== 'undefined' &&
           window.matchMedia('(min-width: 680px)').matches ? (
             <VideoContainer>
-              <ReactPlayer
-                url="https://streamable.com/y8z89"
-                playing
-                loop
-                preload
-                width="100%"
-                height="initial"
-                controls={false}
-                onStart={e => this.onVideoStart(e)}
-                config={{ attributes: { autoPlay: true } }}
+              <Image
+                sizes={desktopHeroImage.sizes}
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  top: 0,
+                  width: '100%',
+                  height: '100%'
+                }}
               />
-              {!this.state.showVideo ? (
-                <Image
-                  sizes={desktopHeroImage.sizes}
-                  style={{
-                    position: 'absolute',
-                    left: 0,
-                    top: 0,
-                    width: '100%',
-                    height: '100%'
-                  }}
-                />
-              ) : null}
-              )}
             </VideoContainer>
           ) : (
             <Image
